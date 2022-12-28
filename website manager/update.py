@@ -32,7 +32,7 @@ class Repo_Mang:
         global articles
         articles_arr = []
         for x in range(len(articles)):
-            if not str(articles[x]) == "ContentFile(path=\"js\")" and not str(articles[x]) == "ContentFile(path=\"images\")":
+            if not str(articles[x]) == "ContentFile(path=\"js\")" and not str(articles[x]) == "ContentFile(path=\"images\")" and not str(articles[x]) == "ContentFile(path=\"website manager\")" and not str(articles[x]) == "ContentFile(path=\"riverdale spectator.css\")":
                 articles_arr.append(articles[x])
         return articles_arr
     
