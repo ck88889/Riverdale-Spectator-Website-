@@ -246,7 +246,8 @@ class Text_Based():
         head_content = head_content + META + "\"author\" content = \"" + author + "\">\n"
         head_content = head_content + META + "\"title\" content = \"" + title + "\">\n"
         head_content = head_content + META + "\"feature\" content = \"" + feature + "\">\n"
-        head_content = head_content + "\t<link href = \"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css\" rel = \"stylesheet\">\n\t<link href=\"riverdale spectator.css\" rel=\"stylesheet\">\n\t<script src = \"js/nav.js\"></script>\n</head>"
+        head_content = head_content + "\t<title>" + title + "</title>\n"
+        head_content = head_content + "\t<link href = \"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css\" rel = \"stylesheet\">\n\t<link href=\"riverdale spectator.css\" rel=\"stylesheet\">\n\t<script src = \"js/nav.js\"></script>\n<link rel=\"icon\" type=\"image/x-icon\" href=\"images/tab icon.png\">\n</head>"
         return head_content
 
     def format_intro(self, genre, title, subtitle, author, date):
