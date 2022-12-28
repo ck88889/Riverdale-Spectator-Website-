@@ -11,20 +11,6 @@ function hide(){
     document.getElementById("searchlist").classList.add("hidden");
 }
 
-function create_opt(text, link){
-    var item = document.createElement("a");
-    item.classList.add("block", "py-2", "px-4", "hover:bg-gray-100", "dark:hover:bg-gray-600", "dark:hover:text-white")
-    item.innerHTML = text;  
-
-    item.href = "#";
-
-    document.getElementById("searchlist").appendChild(item);
-
-    article_obj[idx] = item; 
-    idx++;
-}
-
-
 function init_drop(){
     for(let i = articles.length-1; i > -1; i--){
         var item = document.createElement("a");
