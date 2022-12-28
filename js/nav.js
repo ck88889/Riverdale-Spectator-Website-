@@ -1,4 +1,4 @@
-let articles = [["No result", "#"]];
+let articles = [["No result", "#"], ["The Portable Problem", "The Portable Problem 479274.html"]];
 let article_obj = []; 
 var idx = 0; 
 var placeholder;
