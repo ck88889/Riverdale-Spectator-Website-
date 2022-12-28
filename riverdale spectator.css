@@ -141,12 +141,10 @@ hr.type{
 .search::after{
     content: "\a";
     white-space: pre;
+    z-index: 10000;
 }
 
 .search:hover{
     background-color: #E5E4E2;
-}
-
-.hide{
-    display: none;
+    z-index: 99999;
 }
