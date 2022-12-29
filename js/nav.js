@@ -1,4 +1,4 @@
-let articles = [["The Portable Problem", "The Portable Problem 479274.html"], ["Use It or Lose It: Why You Should Vote", "Use It or Lose It Why You Should Vote 962632.html"], ["The Downfall of Shakespeare in the Modern Classroom", "The Downfall of Shakespeare in the ModernClassroom 430624.html"], ["CUPE STRIKE: Looking Back at the Chaos", "CUPE STRIKE Looking Back at the Chaos 886456.html"]];
+let articles = [["The Portable Problem", "The Portable Problem 479274.html"], ["Use It or Lose It: Why You Should Vote", "Use It or Lose It Why You Should Vote 962632.html"], ["The Downfall of Shakespeare in the Modern Classroom", "The Downfall of Shakespeare in the ModernClassroom 430624.html"], ["CUPE STRIKE: Looking Back at the Chaos", "CUPE STRIKE Looking Back at the Chaos 886456.html"], ["Women in STEM at Riverdale", "Women in STEM at Riverdale 950665.html"]];
 let article_obj = []; 
 var idx = 0; 
 var placeholder;
