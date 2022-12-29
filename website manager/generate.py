@@ -3,7 +3,7 @@ import update
 from bs4 import BeautifulSoup
 
 TOP_NAV = """
-    <body class="flex flex-col min-h-screen">
+    <body class="flex flex-col min-h-screen" onclick = "reset_search()">
  <!--top navigation bar-->
  <div>
   <!--icon and search bar-->
