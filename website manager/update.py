@@ -243,10 +243,19 @@ class UpdateType:
         update_file(filename, formatted_content.prettify())
     
     def critic(self):
-        print("")
+        filecontent = str(repo.get_contents("critic.html").decoded_content.decode())
+
+        #get top part of the program
+        tmp_1 = filecontent.split("<!--movie reviews-->")
+        top_half = tmp_1[0] + "\n<!--movie reviews-->"
+        print(top_half)
+        movie_half = ""
+        book_half = ""
+        bottom_half = ""
 
 x = UpdateType()
 x.sort_genre()
+x.critic()
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
