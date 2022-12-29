@@ -170,6 +170,7 @@ class DeleteFile:
 class UpdateType:
     def __init__(self):
         self.news = []
+        self.opinion = []
 
         ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
@@ -205,13 +206,16 @@ class UpdateType:
             if "News" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-    
+            elif "Opinion" in filecontent_arr[5].replace(" ", ""):
+                #link, title, author, img, date
+                self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+
     def news_op(self, filename):
         filecontent = str(repo.get_contents(filename).decoded_content.decode())
 
         if filename == "news.html":
             arr = self.news
-        elif filename == "opinion.hmtl":
+        elif filename == "opinion.html":
             arr = self.opinion
             
         #top of code 
@@ -238,7 +242,7 @@ class UpdateType:
 
 x = UpdateType()
 x.sort_genre()
-x.news_op("news.html")
+x.news_op("opinion.html")
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
