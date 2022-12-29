@@ -175,7 +175,7 @@ class File():
         self.buffer1= Label(text = "", font=("Helvetica", 4, "normal"))
         self.buffer1.grid(column=0, row=5, columnspan = 4)
 
-        self.getimage_btn = Button(main, text ="Replace Image", bg = "white", command = self.get_img(), font=("Helvetica", 9, "normal"))
+        self.getimage_btn = Button(main, text ="Replace Image", bg = "white", font=("Helvetica", 9, "normal"))
         self.getimage_btn.grid(column = 3, row = 6, columnspan = 2)
 
         #get featured articles
@@ -204,6 +204,7 @@ class File():
         self.back = back
         next.configure(command = self.next_btn)
         back.configure(command = self.back_btn)
+        self.getimage_btn.configure(command = self.get_img)
 class View():
     def view_delete(self):
         self.view_heading.forget()
