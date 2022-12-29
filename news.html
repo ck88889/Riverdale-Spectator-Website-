@@ -7,6 +7,8 @@
  <link rel="icon" type="image/x-icon" href="images/tab icon.png">
  <script src="js/nav.js">
  </script>
+ <script src="js/type.js">
+</script>
 </head>
 <body class="flex flex-col min-h-screen" onclick = "reset_search()">
     <!--top navigation bar-->
@@ -63,7 +65,7 @@
             </div>
         </div>
         <!--all articles of type-->
-        <div>
+        
             <!--article card-->
             <div class = "flex type_card">
                 <div>
@@ -72,9 +74,11 @@
                     </a>
                 </div>
                 <div class = "typeinner">
-                    <a href = "The Downfall of Shakespeare in the ModernClassroom 430624.html"><h1 class = "hover:underline break-words typeinner">
+                    <a href = "The Downfall of Shakespeare in the ModernClassroom 430624.html">
+                        <h1 class = "hover:underline break-words typeinner">
                         The Downfall of Shakespeare in the Modern Classroom
-                    </h1></a>
+                        </h1>
+                    </a>
                     <h2 class = "typeinner">Lauren Walker</h2>
                 </div>
             </div>
@@ -108,14 +112,14 @@
                     <h2 class = "typeinner">Luca Fierro</h2>
                 </div>
             </div>
-        </div>
+        
 
         <!--show more button-->
         <div class="flex justify-between">
             <div class="order-last"></div>
             <div></div>
             <div>
-                <button id = "view more" class = "order-3	more rounded-lg">
+                <button id = "view more" onclick = "viewmore()" class = "order-3	more rounded-lg">
                 View more
                 </button>
             </div>

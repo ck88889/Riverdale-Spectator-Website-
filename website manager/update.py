@@ -1,5 +1,6 @@
 #program to login into github to edit and add files 
 from github import Github
+from bs4 import BeautifulSoup #format files 
 TOKEN = "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"
 REPO = "ck88889/Riverdale-Spectator-Website-"
 
@@ -96,9 +97,13 @@ class Repo_Mang:
 
     def get_img(self, megastring):
         FIND = "<img alt=\"article image\""
-        tmp = megastring[megastring.index(FIND):len(megastring)]
-        img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
-        return img
+
+        if FIND in megastring:
+            tmp = megastring[megastring.index(FIND):len(megastring)]
+            img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
+            return img
+        else:
+            return ""
 
     def get_photographer(self, megastring):
         if "Photographer:" in megastring:
@@ -164,6 +169,8 @@ class DeleteFile:
 #update type pages 
 class UpdateType:
     def __init__(self):
+        self.news = []
+
         ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
             "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")"]
@@ -175,30 +182,60 @@ class UpdateType:
                     self.contents.pop(i)
                     break
     
-    def megastring(self, idx):
-        filecontent = repo.get_contents(self.contents[idx]).decoded_content.decode()
-        self.path = self.contents[idx]
-
-        megastring = ""
-        for x in filecontent:
-            megastring += x
-
-        return megastring
-    
     def sort_genre(self):
-        tmp = Repo_Mang()
-        for x in range(len(self.contents) -1):
-            #get file content
+        for x in range(len(self.contents)):
+            #get filename 
             filename = str(self.contents[x]).replace("ContentFile(path=", "").replace("\"", "").replace(")", "")
+            
+            #get file content
             filecontent = str(repo.get_contents(filename).decoded_content.decode())
-
             filecontent_arr = filecontent.split("\"")
 
-            #print(filecontent_arr[5])
-            print(filename)
-            #get type of article 
+            #get image
+            FIND = "<img alt=\"article image\""
+
+            if FIND in filecontent:
+                tmp = filecontent[filecontent.index(FIND):len(filecontent)]
+                img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
+                img = "images/" + img.replace("\"", "")
+            else:
+                img = "images/placeholder.jpg"
+
+            #sort into the right array of types 
+            if "News" in filecontent_arr[5]:
+                #link, title, author, img, date
+                self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+    
+    def news_op(self, filename):
+        filecontent = str(repo.get_contents("news.html").decoded_content.decode())
+
+        #top of code 
+        tmp_1 = filecontent.split("<!--all articles of type-->")
+        top_half = tmp_1[0] + "\n<!--all articles of type-->"
+
+        #bottom of code 
+        tmp_2 = tmp_1[1].split("<!--show more button-->")
+        bottom_half = "<!--show more button-->\n" + tmp_2[1] + "\n</html>"
+
+        #middle of code 
+        middle = ""
+        for x in range(len(self.news)):
+            middle += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
+            middle += "<a href = \"" + self.news[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.news[1][3] + "\"/>\n</div>"
+            middle += "<div class = \"typeinner\">\n <a href = \"" + self.news[x][0] + "\">\n"
+            middle += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.news[x][1] + "</h1>\n"
+            middle += "<h2 class = \"typeinner\">" + self.news[x][2] + "</h2>\n</div>\n</div>\n"
+        
+        formatted_content = BeautifulSoup(top_half + middle + bottom_half,'html.parser') #content to be formatted
+        update_file(filename, formatted_content.prettify())
 
 
 
 x = UpdateType()
 x.sort_genre()
+x.news_op("news.html")
+#swap rows 
+# thing = [[1,2], 
+#               [4,5], 
+#               [9,8]]
+#     thing[1] = thing[2]
