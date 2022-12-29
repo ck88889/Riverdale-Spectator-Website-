@@ -209,6 +209,10 @@ class UpdateType:
             elif "Opinion" in filecontent_arr[5].replace(" ", ""):
                 #link, title, author, img, date
                 self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            elif "Book Reviews" in filecontent_arr[5]:
+                #link, title, author, img, date
+                self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            
         
     def news_op(self, filename):
         filecontent = str(repo.get_contents(filename).decoded_content.decode())
@@ -237,10 +241,12 @@ class UpdateType:
         
         formatted_content = BeautifulSoup(top_half + middle + bottom_half,'html.parser') #content to be formatted
         update_file(filename, formatted_content.prettify())
+    
+    def critic(self):
+        print("")
 
 x = UpdateType()
 x.sort_genre()
-x.news_op("opinion.html")
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
