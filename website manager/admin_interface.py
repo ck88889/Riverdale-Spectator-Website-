@@ -448,32 +448,203 @@ class NewTextBased(): #new text based article
         back.configure(command = self.back_btn)
         self.getimage_btn.configure(command = self.get_img)
 
+class Comic():
+    def comicfile_delete(self):
+        self.new_file_heading.grid_remove()
+
+        #type of article
+        self.type_l.grid_remove()
+        self.drop_type.grid_remove()
+        
+        #date of issue
+        self.issue_l.grid_remove()
+        self.drop_month.grid_remove()
+        self.drop_year.grid_remove()
+
+        #author of the article
+        self.author_l.grid_remove()
+        self.author_entry.grid_remove()
+
+        #title of the article 
+        self.title_l.grid_remove()
+        self.title_entry.grid_remove()
+
+        #subtitle of the article 
+        self.sub_l.grid_remove()
+        self.sub_entry.grid_remove()
+
+        #get image file
+        self.FeaturedButton.grid_remove()
+        self.buffer1.grid_remove()
+        self.getimage_btn.grid_remove()
+
+    def back_btn(self):
+        self.comicfile_delete()
+        main_menu = Main()
+
+    def get_info(self): #return all info about article 
+        #format date 
+        date = str(self.month.get()) + " " + self.year.get()
+
+        #get all relevant info 
+        info = [self.type.get(), date, self.title_entry.get("1.0",END).replace('\n', ''), self.sub_entry.get("1.0",END).replace('\n', ''),
+               self.author_entry.get("1.0",END).replace('\n', ''), self.body_entry.get("1.0",END), self.img_filename, self.photographer, self.isfeatured.get()]
+        
+        return info
+
+    def next_btn(self): #create new file, upload it to github, update genre page and front page
+        info = self.get_info() 
+
+        create = generate.Text_Based(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8])
+
+        filename = create.get_filname()
+        generate.upload(filename,create.get_file())
+
+        updatejs = generate.UpdateJs()
+        updatejs.newfile(self.title_entry.get("1.0",END).replace('\n', ''), (filename).replace('\n', ''))
+
+        messagebox.showinfo("Information","New comic file created")
+        self.back_btn()
+
+    def get_img(self):
+        try:
+            filename = filedialog.askopenfilename( #select file 
+                filetypes=[
+                ('image files', ('.png', '.jpg')),
+            ]
+            )
+
+            with open(filename, "rb") as image:
+                f = image.read()  
+            
+            #get photographer name and generate filename 
+            self.photographer = askstring("Photography Credits", "Enter name of the photographer")
+            self.img_filename =  str(datetime.datetime.now().strftime("%f")) + ".jpg"
+            
+            #add img to github            
+            git_file = "images/" + self.img_filename #byte array -> what to upload
+            update.repo.create_file(git_file, "committing image file", bytes(bytearray(f)), branch="main")
+        except:
+            pass
+
+    def __init__(self, next, back):
+        #init image data 
+        self.img_filename = ""
+        self.photographer = ""
+
+        self.new_file_heading = Label(text = "\n            NEW COMIC", font=("Helvetica", 12, "bold"))
+        self.new_file_heading.grid(column=0, row=0, columnspan = 5)
+
+        #type of article 
+        self.type_opt = ["News", "Opinion", "Book Reviews", "Movie Reviews", "Horoscopes", "Short Stories", "Other"]
+        self.type = StringVar()
+        self.type.set("News")
+
+        self.type_l = Label(main, text = "   Type", font=("Helvetica", 10, "bold"))
+        self.drop_type = OptionMenu(main, self.type , *self.type_opt)
+        self.drop_type.config(bg="WHITE", width = 10)
+
+        self.type_l .grid(column=0, row=1)
+        self.drop_type.grid(column = 1, row =1)
+
+        #issue date of the article 
+        self.month_opt = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September","October","November","December"]
+        self.month = StringVar()
+        self.month.set("January")
+
+        self.year_opt = []
+        tmp_year = 2010
+        for x in range(30):
+            tmp_year += 1
+            self.year_opt.append(tmp_year)
+        self.year = StringVar()
+        self.year.set(2000)
+        
+        self.issue_l = Label(main, text = "   Issue", font=("Helvetica", 10, "bold"))
+        self.drop_month = OptionMenu(main, self.month , *self.month_opt)
+        self.drop_month.config(bg="WHITE", width = 10)
+        self.drop_year = OptionMenu(main, self.year , *self.year_opt)
+        self.drop_year.config(bg="WHITE")
+
+        self.issue_l .grid(column=2, row=1)
+        self.drop_month.grid(column=3, row = 1)
+        self.drop_year.grid(column=4, row = 1)
+
+        #author of the article
+        self.author_l = Label(main, text = "  Author", font=("Helvetica", 10, "bold"))
+        self.author_entry = Text(main,height = 1,width = 45, font = ("Helvetica", 10, "normal"))
+        self.author_l.grid(column=0, row=2)
+        self.author_entry.grid(column=1, row=2, columnspan = 4)
+
+        #title of the article 
+        self.title_l = Label(main, text = "Title", font=("Helvetica", 10, "bold"))
+        self.title_entry = Text(main,height = 1,width = 45, font = ("Helvetica", 10, "normal"))
+        self.title_l.grid(column=0, row=3)
+        self.title_entry.grid(column=1, row=3, columnspan = 4)
+
+        #subtitle of the article 
+        self.sub_l = Label(main, text = "Subtitle", font=("Helvetica", 10, "bold"))
+        self.sub_entry = Text(main,height = 1,width = 45, font = ("Helvetica", 10, "normal"))
+        self.sub_l.grid(column=0, row=4)
+        self.sub_entry.grid(column=1, row=4, columnspan = 4)
+
+        #get image file
+        self.buffer1= Label(text = "", font=("Helvetica", 4, "normal"))
+        self.buffer1.grid(column=0, row=5, columnspan = 4)
+
+        self.getimage_btn = Button(main, text ="Image File", bg = "white", font=("Helvetica", 9, "normal"))
+        self.getimage_btn.grid(column = 4, row = 6)
+
+        #get featured articles
+        self.isfeatured = IntVar() 
+        self.FeaturedButton = Checkbutton(main, text = "Featured",variable = self.isfeatured, 
+                onvalue = 1, offvalue = 0, font=("Helvetica", 10, "normal"))
+        self.FeaturedButton.grid(column = 1, row = 6)
+
+        #pass next and back buttons 
+        self.next = next
+        self.back = back
+        next.configure(command = self.next_btn)
+        back.configure(command = self.back_btn)
+        self.getimage_btn.configure(command = self.get_img)
+
+    
+
 class Main():
     def main_delete(self):
             self.main_heading.forget()
             self.ViewButton.forget()
             self.CreateButton.forget()
+            self.ComicButton.forget()
 
-            if self.opt_main.get() == 0:
+            if self.opt_main.get() == 1:
                 view = View(self.next, self.back)
-            elif self.opt_main.get() == 1:
+            elif self.opt_main.get() == 0:
                 create = NewTextBased(self.next, self.back)
+            elif self.opt_main.get() == 2:
+                comic = Comic(self.next, self.back)
 
     def __init__(self):
         self.main_heading = Label(text = "\n\nWebsite Manager", 
                     font=("Helvetica", 15, "normal"))
 
         self.opt_main = IntVar() 
-        self.ViewButton = Radiobutton(main, text = "View all files",
-                    variable = self.opt_main,
-                    value = 0, 
-                    height = 3,
-                    width = 20,
-                    font=("Helvetica", 12, "normal"))
         self.CreateButton = Radiobutton(main, text = "Create new article", 
                     variable = self.opt_main,
-                    value = 1,
+                    value = 0,
+                    height = 3,
                     width = 20, 
+                    font=("Helvetica", 12, "normal"))
+        self.ComicButton = Radiobutton(main, text = "Create new comic",
+                    variable = self.opt_main,
+                    value = 2, 
+                    width = 20,
+                    font=("Helvetica", 12, "normal"))
+        self.ViewButton = Radiobutton(main, text = "View all files",
+                    variable = self.opt_main,
+                    value = 1, 
+                    height = 3,
+                    width = 20,
                     font=("Helvetica", 12, "normal"))
         self.opt_main.set(0)
 
@@ -487,8 +658,9 @@ class Main():
 
         #create widgets 
         self.main_heading.pack()
-        self.ViewButton.pack()
         self.CreateButton.pack()  
+        self.ComicButton.pack()
+        self.ViewButton.pack()
         self.next.pack()
         self.next.place(x = 300, y = 350)
         self.back.pack()
