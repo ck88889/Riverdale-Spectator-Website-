@@ -114,7 +114,7 @@ img.article{
 h1.type{
     font-family: 'Noto Serif';
     font-size: 45px;
-    margin-top: 140px; 
+    margin-top: 120px; 
     color:#E10000
 }
 
@@ -147,4 +147,47 @@ hr.type{
 .search:hover{
     background-color: #E5E4E2;
     z-index: 99999;
+}
+
+.type_card{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+img.typeinner{
+    float: left;
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+h1.typeinner{
+    font-family: 'Noto Serif';
+    font-size: 27px;
+    margin-top: 20px;
+}
+
+h2.typeinner{
+    font-family: 'Open Sauce One', sans-serif;
+    color:#E10000;
+    font-size: 15px; 
+    margin-top: 10px; 
+    padding-bottom: 20px; 
+}
+
+div.typeinner{
+    margin-top: 20px;
+    margin-left: 30px; 
+    font-weight: 700;
+}
+
+button.more{
+    background-color: #E10000;
+    font-family: 'Open Sauce One', sans-serif;
+    color: white; 
+    font-size: 17px;
+    padding: 10px; 
 }

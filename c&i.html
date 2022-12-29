@@ -1,104 +1,103 @@
 <!DOCTYPE html>
 <head>
- <meta content="December 2022" name="date"/>
  <meta content="Opinion" name="genre"/>
- <meta content="Lauren Walker" name="author"/>
- <meta content="The Downfall of Shakespeare in the Modern Classroom" name="title"/>
- <meta content="no" name="feature"/>
+<title>Culture and Illustrations</title>
  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
  <link href="riverdale spectator.css" rel="stylesheet"/>
- <title>The Downfall of Shakespeare in the Modern Classroom</title>
  <link rel="icon" type="image/x-icon" href="images/tab icon.png">
  <script src="js/nav.js">
  </script>
+
+ <style>
+    h1.culture{
+        font-family: 'Noto Serif';
+        color: #E10000;
+        font-size: 40px;
+        margin-top: 150px;
+        text-align: center;
+    }
+
+    h2.culture{
+        font-family: 'Noto Serif';
+        font-size: 30px;
+        margin-top: 30px;
+        margin-left: 300px; 
+    }
+</style>
+
 </head>
 <body class="flex flex-col min-h-screen">
- <!--top navigation bar-->
- <div>
-  <!--icon and search bar-->
-  <div class="nav_bar" style="padding-left: 150px; padding-right: 150px">
-   <a href="index.html">
-    <img alt="riverdale spectator logo" class="nav_bar" src="images/riverdale spectator logo crop.jpg" style="padding-left: 10px;"/>
-   </a>
-   <div style="margin-top: 70px; margin-right: 130px; display:inline-block; position: absolute; right: 0; background-color: white;">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px;color: black; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-     </path>
-    </svg>
-    <input class="nav_bar shadow-md" id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black" type="text"/>
-    <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-     <div id="searchlist">
+    <!--top navigation bar-->
+    <div>
+     <!--icon and search bar-->
+     <div class="nav_bar" style="padding-left: 150px; padding-right: 150px">
+      <a href="index.html">
+       <img alt="riverdale spectator logo" class="nav_bar" src="images/riverdale spectator logo crop.jpg" style="padding-left: 10px;"/>
+      </a>
+      <div style="margin-top: 70px; margin-right: 130px; display:inline-block; position: absolute; right: 0; background-color: white;">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px;color: black; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+       </svg>
+       <input class="nav_bar shadow-md" id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black" type="text"/>
+       <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+        <div id="searchlist">
+        </div>
+       </div>
+      </div>
+     </div>
+     <!--main icons-->
+     <div onclick = "reset_search()" style="font-size: 13px;padding-top: 15px; padding-left: 160px; padding-bottom: 15px; background-color: #28282B; color: white">
+      <a class="font-medium hover:underline" href="index.html" style="padding-right: 20px">
+       HOME
+      </a>
+      <a class="font-medium hover:underline" href="news.html" style="padding-right: 20px">
+       NEWS
+      </a>
+      <a class="font-medium hover:underline" href="opinion.html" style="padding-right: 20px">
+       OPINION
+      </a>
+      <a class="font-medium hover:underline" href="critic.html" style="padding-right: 20px">
+       CRITIC'S CORNER
+      </a>
+      <a class="font-medium hover:underline" href="c&amp;i.html" style="padding-right: 20px">
+       CULTURE &amp; ILLUSTRATIONS
+      </a>
+      <a class="font-medium hover:underline" href="puzzles.html" style="padding-right: 20px">
+       PUZZLES &amp; GAMES
+      </a>
      </div>
     </div>
-   </div>
-  </div>
-  <!--main icons-->
-  <div onclick="reset_search()" style="font-size: 13px;padding-top: 15px; padding-left: 160px; padding-bottom: 15px; background-color: #28282B; color: white">
-   <a class="font-medium hover:underline" href="index.html" style="padding-right: 20px">
-    HOME
-   </a>
-   <a class="font-medium hover:underline" href="news.html" style="padding-right: 20px">
-    NEWS
-   </a>
-   <a class="font-medium hover:underline" href="opinion.html" style="padding-right: 20px">
-    OPINION
-   </a>
-   <a class="font-medium hover:underline" href="critic.html" style="padding-right: 20px">
-    CRITIC'S CORNER
-   </a>
-   <a class="font-medium hover:underline" href="c&amp;i.html" style="padding-right: 20px">
-    CULTURE &amp; ILLUSTRATIONS
-   </a>
-   <a class="font-medium hover:underline" href="puzzles.html" style="padding-right: 20px">
-    PUZZLES &amp; GAMES
-   </a>
-  </div>
- </div>
- <!--text based article -->
- <div class="article">
-  <!--article heading-->
-  <b>
-   <h1 class="genre uppercase">
-    Opinion
-   </h1>
-  </b>
-  <b>
-   <h1 class="article">
-    The Downfall of Shakespeare in the Modern Classroom
-   </h1>
-  </b>
-  <b>
-   <i>
-    <h1 class="article" style="font-size: 17px; color: rgb(107 114 128)">
-    </h1>
-   </i>
-  </b>
-  <b>
-   <h2 class="article">
-    Lauren Walker
-   </h2>
-  </b>
-  <h2 class="article">
-   December 2022
-  </h2>
-  <hr class="mx-auto bg-gray-600 rounded border-0" style="margin-top: 20px; height: 1px;"/>
-  <!--article image-->
-  <img alt="article image" class="article" src="images\378841.jpg"/>
-  <p style="font-family: 'Open Sauce One', sans-serif; text-align: center;">
-   Photographer: Kai Lieu
-  </p>
-  <!--article body-->
-  <p class="first_paragraph">
-   When you think of high school English, what do you think of? A good chance William Shakespeare pops into your head. Shakespeare has been a staple of English classrooms for as long as anyone can remember, yet it's rare to actually study the works of William Shakespeare in the modem classroom. But what's the reasoning behind why we don't see this "classic literature" anymore? To answer this question, three Riverdale teachers were asked for their opinions of Shakespeare and his place in our classes.
-  </p>
-  <p class="article">
-   The first was a brief statement by Ms. Parks, one of the newer teachers in the English department. She said typically, she does not teach Shakespeare in her classes, but if she does, she loves to focus on Hamlet. Another teacher that shared her perspective was Ms. Farrell. She has a very passionate perspective on why she doesn't like to teach Shakespeare. While she mentioned how she, with a background in Drama, knows the joy of Shakespeare, when asked why she didn't enjoy teaching it at a high school level, she said it came down to accessibility. The language used in Shakespeare is not accessible unless you are exceptionally well-versed in English. This forces teachers to spend time explaining what is going on and what is being said in each scene. As a result, there isn't as much of a deeper focus on meaning and personal interpretation since the only interpretation you hear is the one being taught by the teacher. If a play is accessible and you understand what is being said, then you understand it on a deeper level. In addition, she believes Shakespeare should not be held on this pedestal since there are numerous non-European prize-winning playwrights who have won prizes such as the Pulitzer prize or the Nobel prize in Literature who get no recognition in our classes for the work they have. It simply does not make sense to pay attention to only one playwright and not offer a diversity of plays.
-  </p>
-  <p class="article">
-   A final reason that gives a different reason for not teaching Shakespeare is from Ms. Lora. She stated that while she respected her colleague's decision to teach Shakespeare, it was a personal preference to abstain from his works. She continues on to mention how Drama's purpose is to comment on current issues, the human condition, and history itself. While Shakespeare is great, there are other ways to get the foundational ideas found in his work. Additionally, she brings up how growing up a lot of her peers who lacked access to Shakespeare growing up felt alienated by the introduction in the classroom, and because of this, it turns people away from really engaging and loving English literature. Going into this as someone who enjoys the Shakespeare we have been learning, I was expecting to come out with a different view than I began with. However, getting these points of view on why teachers don't enjoy teaching Shakespeare anymore really widened the way I view classic literature entirely and the plays we study. After conversations with other students and teachers, I remain indifferent on the subject of "If we should still be studying Shakespeare", while yes there are benefits to studying Shakespeare as well as it being generally fun, we shouldn't ignore his work, but those same benefits can be taught using other works of literature.
-  </p>
- </div>
- <!--bottom navigation bar-->
+
+    <!--show all articles-->
+    <div style = "margin-bottom: 100px">
+        <!--heading-->
+        <div>
+            <div>
+                <b><h1 class = "culture uppercase">Culture and Illustrations</h1></b>
+                <hr class="type mx-auto bg-black rounded border-1 genre" style = "height: 2px;">
+                <hr class="type mx-auto bg-black rounded border-1 genre" style = "margin-top: 20px; height: 1px;">
+            </div>
+        </div>
+        <!--sub heading-->
+        <div id = "entertainment">
+            <h2 class = "culture uppercase">Entertainment</h2>
+        </div>
+        <!--sub heading-->
+        <div id = "stories">
+            <h2 class = "culture uppercase">Short Stories</h2>
+        </div>
+        <!--sub heading-->
+        <div id = "horoscopes">
+            <h2 class = "culture uppercase">Horoscopes</h2>
+        </div>
+        <!--sub heading-->    
+        <div id = "comic">
+            <h2 class = "culture uppercase">Comics and Cartoons</h2>
+        </div>       
+    </div>
+
+<!--bottom navigation bar-->
 <div class="mt-auto bottom_bar" onclick = "reset_search()" style="padding-left: 160px; padding-right:160px">
     <div class="grid grid-cols-4 gap-4">
      <div>
