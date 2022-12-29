@@ -160,3 +160,14 @@ class DeleteFile:
 
     def get_path(self):
         return self.filepath
+
+#update type pages 
+class UpdateType:
+    def __init__(self):
+        ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path='\"c&i.html\")", 
+            "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
+            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")"]
+        contents = repo.get_contents("")
+
+
+print(repo.get_contents(""))
