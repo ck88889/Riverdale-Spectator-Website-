@@ -291,4 +291,4 @@ class Text_Based():
 
     def get_filname(self):
         filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '')
-        return filename
+        return filename.replace('\n', '')
