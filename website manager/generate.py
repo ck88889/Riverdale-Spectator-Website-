@@ -208,6 +208,7 @@ class UpdateJs():
 class Text_Based():
     def __init__(self, genre, date, title, subtitle, author, body, img_filename, photographer, isfeatured):
         self.title = title 
+        self.genre = genre
 
         if img_filename == "": #generate html file without img 
             self.content = self.file_content(self.format_head(date,genre,author,title, isfeatured), 
@@ -279,8 +280,10 @@ class Text_Based():
                 lines_txt.pop(x)
 
         for x in range(len(lines_txt)):
-            if(x == 0):
+            if(x == 0 and not self.genre == "Horoscopes"):
                 body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
+            elif(x == 0 and self.genre == "Horoscopes"):
+                body_contents = """<p class = "article">""" + lines_txt[x] + "</p>\n"
             else:
                 body_contents = body_contents + """<p class = "article">""" + lines_txt[x] + "</p>\n"
         return body_contents
