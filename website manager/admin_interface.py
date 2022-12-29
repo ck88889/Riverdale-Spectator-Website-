@@ -496,8 +496,8 @@ class Comic():
         if self.img_filename == "":
             messagebox.showinfo("Information","Error: no image uploaded")
         else:
-            # genre, date, title, subtitle, author, img_filename, isfeatured
-            create = generate.Comic(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7])
+                                    #genre,   date,   title, subtitle, author, img_filename, isfeatured
+            create = generate.Comic(info[0], info[1], info[2], info[3], info[4], info[5], info[6])
 
             filename = create.get_filname()
             generate.upload(filename,create.get_file())

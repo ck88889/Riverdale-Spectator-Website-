@@ -296,14 +296,13 @@ class Text_Based():
         filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '').replace(')', '').replace('(', '')
         return filename.replace('\n', '')
 
-def Comic():
+class Comic():          #genre, date, title, subtitle, author, img_filename, isfeatured
     def __init__(self, genre, date, title, subtitle, author, img_filename, isfeatured):
         self.title = title 
         self.genre = genre
-
+        
         self.content = self.file_content(self.format_head(date,genre,author,title,isfeatured), #generate html file 
-            self.format_intro(genre, title, subtitle, author, date), 
-            self.format_img(img_filename))
+            self.format_intro(genre, title, subtitle, author, date), self.format_img(img_filename))
     
     def file_content(self, head, intro, img_name):
         global TOP_NAV
@@ -356,4 +355,3 @@ def Comic():
     def get_filname(self):
         filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '').replace(')', '').replace('(', '')
         return filename.replace('\n', '')
-
