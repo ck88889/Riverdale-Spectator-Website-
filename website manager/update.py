@@ -207,8 +207,13 @@ class UpdateType:
                 self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
     
     def news_op(self, filename):
-        filecontent = str(repo.get_contents("news.html").decoded_content.decode())
+        filecontent = str(repo.get_contents(filename).decoded_content.decode())
 
+        if filename == "news.html":
+            arr = self.news
+        elif filename == "opinion.hmtl":
+            arr = self.opinion
+            
         #top of code 
         tmp_1 = filecontent.split("<!--all articles of type-->")
         top_half = tmp_1[0] + "\n<!--all articles of type-->"
@@ -221,10 +226,10 @@ class UpdateType:
         middle = ""
         for x in range(len(self.news)):
             middle += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
-            middle += "<a href = \"" + self.news[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.news[x][3] + "\"/>\n</div>"
-            middle += "<div class = \"typeinner\">\n <a href = \"" + self.news[x][0] + "\">\n"
-            middle += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.news[x][1] + "</h1>\n"
-            middle += "<h2 class = \"typeinner\">" + self.news[x][2] + "</h2>\n</div>\n</div>\n"
+            middle += "<a href = \"" + arr[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + arr[x][3] + "\"/>\n</div>"
+            middle += "<div class = \"typeinner\">\n <a href = \"" + arr[x][0] + "\">\n"
+            middle += "<h1 class = \"hover:underline break-words typeinner\">\n" + arr[x][1] + "</h1>\n"
+            middle += "<h2 class = \"typeinner\">" + arr[x][2] + "</h2>\n</div>\n</div>\n"
         
         formatted_content = BeautifulSoup(top_half + middle + bottom_half,'html.parser') #content to be formatted
         update_file(filename, formatted_content.prettify())
