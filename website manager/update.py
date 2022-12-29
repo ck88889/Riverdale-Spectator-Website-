@@ -221,7 +221,7 @@ class UpdateType:
         middle = ""
         for x in range(len(self.news)):
             middle += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
-            middle += "<a href = \"" + self.news[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.news[1][3] + "\"/>\n</div>"
+            middle += "<a href = \"" + self.news[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.news[x][3] + "\"/>\n</div>"
             middle += "<div class = \"typeinner\">\n <a href = \"" + self.news[x][0] + "\">\n"
             middle += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.news[x][1] + "</h1>\n"
             middle += "<h2 class = \"typeinner\">" + self.news[x][2] + "</h2>\n</div>\n</div>\n"
