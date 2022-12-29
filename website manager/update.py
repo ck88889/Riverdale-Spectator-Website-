@@ -238,8 +238,6 @@ class UpdateType:
         formatted_content = BeautifulSoup(top_half + middle + bottom_half,'html.parser') #content to be formatted
         update_file(filename, formatted_content.prettify())
 
-
-
 x = UpdateType()
 x.sort_genre()
 x.news_op("opinion.html")
