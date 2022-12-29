@@ -167,15 +167,29 @@ class UpdateType:
         ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
             "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")"]
-        contents = repo.get_contents("")
+        self.contents = repo.get_contents("")
 
-        for i in range(len(contents) - 1, -1, -1):
+        for i in range(len(self.contents) - 1, -1, -1):
             for x in range(len(ignore_arr) - 1, -1, -1): 
-                if ignore_arr[x] == str(contents[i]):
-                    contents.pop(i)
+                if ignore_arr[x] == str(self.contents[i]):
+                    self.contents.pop(i)
                     break
-        
-        print(contents)
+    
+    def megastring(self, idx):
+        filecontent = repo.get_contents(self.contents[idx]).decoded_content.decode()
+        self.path = self.contents[idx]
 
+        megastring = ""
+        for x in filecontent:
+            megastring += x
+
+        return megastring
+    
+    def sort_genre(self):
+        tmp = Repo_Mang()
+        for x in range(len(self.contents)):
+            thing = tmp.get_genre(self.megastring(x))
+            print(thing)
 
 x = UpdateType()
+x.sort_genre()
