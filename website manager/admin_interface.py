@@ -485,26 +485,28 @@ class Comic():
     def get_info(self): #return all info about article 
         #format date 
         date = str(self.month.get()) + " " + self.year.get()
-
         #get all relevant info 
         info = [self.type.get(), date, self.title_entry.get("1.0",END).replace('\n', ''), self.sub_entry.get("1.0",END).replace('\n', ''),
-               self.author_entry.get("1.0",END).replace('\n', ''), self.body_entry.get("1.0",END), self.img_filename, self.photographer, self.isfeatured.get()]
-        
+               self.author_entry.get("1.0",END).replace('\n', ''), self.img_filename, self.isfeatured.get()]
         return info
 
     def next_btn(self): #create new file, upload it to github, update genre page and front page
         info = self.get_info() 
 
-        create = generate.Text_Based(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8])
+        if self.img_filename == "":
+            messagebox.showinfo("Information","Error: no image uploaded")
+        else:
+            # genre, date, title, subtitle, author, img_filename, isfeatured
+            create = generate.Comic(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7])
 
-        filename = create.get_filname()
-        generate.upload(filename,create.get_file())
+            filename = create.get_filname()
+            generate.upload(filename,create.get_file())
 
-        updatejs = generate.UpdateJs()
-        updatejs.newfile(self.title_entry.get("1.0",END).replace('\n', ''), (filename).replace('\n', ''))
+            updatejs = generate.UpdateJs()
+            updatejs.newfile(self.title_entry.get("1.0",END).replace('\n', ''), (filename).replace('\n', ''))
 
-        messagebox.showinfo("Information","New comic file created")
-        self.back_btn()
+            messagebox.showinfo("Information","New comic file created")
+            self.back_btn()
 
     def get_img(self):
         try:
@@ -518,7 +520,7 @@ class Comic():
                 f = image.read()  
             
             #get photographer name and generate filename 
-            self.photographer = askstring("Photography Credits", "Enter name of the photographer")
+            messagebox.showinfo("Information","Image file sucessfully uploaded")
             self.img_filename =  str(datetime.datetime.now().strftime("%f")) + ".jpg"
             
             #add img to github            
@@ -530,17 +532,16 @@ class Comic():
     def __init__(self, next, back):
         #init image data 
         self.img_filename = ""
-        self.photographer = ""
 
         self.new_file_heading = Label(text = "\n            NEW COMIC", font=("Helvetica", 12, "bold"))
         self.new_file_heading.grid(column=0, row=0, columnspan = 5)
 
         #type of article 
-        self.type_opt = ["News", "Opinion", "Book Reviews", "Movie Reviews", "Horoscopes", "Short Stories", "Other"]
+        self.type_opt = ["Comics & Cartoons"]
         self.type = StringVar()
-        self.type.set("News")
+        self.type.set("Comics & Cartoons")
 
-        self.type_l = Label(main, text = "   Type", font=("Helvetica", 10, "bold"))
+        self.type_l = Label(main, text = "Type", font=("Helvetica", 10, "bold"))
         self.drop_type = OptionMenu(main, self.type , *self.type_opt)
         self.drop_type.config(bg="WHITE", width = 10)
 

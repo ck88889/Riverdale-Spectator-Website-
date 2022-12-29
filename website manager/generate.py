@@ -295,3 +295,65 @@ class Text_Based():
     def get_filname(self):
         filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '').replace(')', '').replace('(', '')
         return filename.replace('\n', '')
+
+def Comic():
+    def __init__(self, genre, date, title, subtitle, author, img_filename, isfeatured):
+        self.title = title 
+        self.genre = genre
+
+        self.content = self.file_content(self.format_head(date,genre,author,title,isfeatured), #generate html file 
+            self.format_intro(genre, title, subtitle, author, date), 
+            self.format_img(img_filename))
+    
+    def file_content(self, head, intro, img_name):
+        global TOP_NAV
+        global BOTTOM_NAV
+        file_content = "<!DOCTYPE html>\n"
+        file_content += "\t" + head + "\n"
+        file_content += TOP_NAV + """\n\n<!--text based article -->\n"""
+        file_content += """<div class = "article" onclick = "reset_search()">\n<!--article heading-->\n""" + intro + """\n"""
+        file_content += "<!--article image-->\n" + img_name + "\n"
+
+        file_content += "</div>\n" + BOTTOM_NAV + "\n</html>"
+        
+        return file_content
+    
+    def format_head(self, date, genre, author, title, isfeatured):
+        feature = ""
+        if isfeatured == 1:
+            feature = "yes"
+        else:
+            feature = "no"
+
+        META = "\t<meta name = "
+        head_content = "<head>\n" + META + "\"date\" content = \"" + date + "\">\n"
+        head_content += META + "\"genre\" content = \"" + genre + "\">\n"
+        head_content += META + "\"author\" content = \"" + author + "\">\n"
+        head_content += META + "\"title\" content = \"" + title + "\">\n"
+        head_content += META + "\"feature\" content = \"" + feature + "\">\n"
+        head_content += "\t<title>" + title + "</title>\n"
+        head_content += "\t<link href = \"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css\" rel = \"stylesheet\">\n\t<link href=\"riverdale spectator.css\" rel=\"stylesheet\">\n\t<script src = \"js/nav.js\"></script>\n<link rel=\"icon\" type=\"image/x-icon\" href=\"images/tab icon.png\">\n</head>"
+        return head_content
+
+    def format_intro(self, genre, title, subtitle, author, date):
+        intro_contents = "<b><h1 class =\"genre uppercase\">" + genre + "</h1></b>\n"
+        intro_contents += "<b><h1 class = \"comic\" >" + title + "</h1></b>\n"
+        intro_contents += "<b><i><h1 class = \"comic\" style = \"font-size: 17px; margin-bottom: 30px; color: rgb(107 114 128)\">" + subtitle + "</h1></i></b>\n"
+        intro_contents += "<b><h2 class = \"article\">" + author + "</h2></b>\n"
+        intro_contents += "<h2 class = \"article\">" + date + "</h2>\n"
+        intro_contents += "<hr class=\"mx-auto bg-gray-600 rounded border-0\" style = \"margin-top: 20px; height: 1px;\">\n"
+        return intro_contents
+
+    def format_img(self, img_filename):
+        tmp = ("images" + "\u005c" + img_filename).replace('\n', '')
+        img_content = "<img class = \"comic\" src = \"" + tmp + "\" alt = \"article image\">\n"        
+        return img_content
+
+    def get_file(self):
+        contents = BeautifulSoup(self.content,'html.parser')
+        return (contents.prettify())
+
+    def get_filname(self):
+        filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '').replace(')', '').replace('(', '')
+        return filename.replace('\n', '')
+
