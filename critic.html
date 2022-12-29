@@ -7,6 +7,8 @@
  <link rel="icon" type="image/x-icon" href="images/tab icon.png">
  <script src="js/nav.js">
  </script>
+ <script src="js/type.js">
+</script>
 
  <style>
     h1.culture{
@@ -19,7 +21,9 @@
 
     h2.culture{
         font-family: 'Noto Serif';
+        color: rgb(45, 42, 42);
         font-size: 30px;
+        font-weight: bold;
         margin-top: 30px;
         margin-left: 300px; 
     }
@@ -75,17 +79,70 @@
         <div>
             <div>
                 <b><h1 class = "culture uppercase">Critic's Corner</h1></b>
-                <hr class="type mx-auto bg-black rounded border-1 genre" style = "height: 2px;">
-                <hr class="type mx-auto bg-black rounded border-1 genre" style = "margin-top: 20px; height: 1px;">
             </div>
         </div>
         <!--sub heading-->
         <div id = "movie">
+            <!---heading-->
             <h2 class = "culture uppercase">Movie Reviews</h2>
+            <hr class="type mx-auto bg-black rounded border-1 genre" style="height: 1px;"/>
+            <b><h2 class="type uppercase">
+            the Latest
+            </h2></b>
+            <hr class="type mx-auto bg-black rounded border-1 genre" style="height: 1px;"/>
+            <!--article card-->
+                <div class="flex type_card">
+                    <div>
+                    <a href="The Portable Problem 479274.html">
+                    <img alt="article image" class="typeinner" src="images/263739.jpg"/>
+                    </a>
+                    </div>
+                    <div class="typeinner">
+                    <a href="The Portable Problem 479274.html">
+                    <h1 class="hover:underline break-words typeinner">
+                    The Portable Problem
+                    </h1>
+                    <h2 class="typeinner">
+                    Luca Fierro
+                    </h2>
+                    </a>
+                    </div>
+                </div>
+            <!--view more movie reviews-->
+            <button class="more rounded-lg" id="view more" style = "margin-left: 300px" onclick="viewmore()">
+                View more
+            </button>
         </div>
         <!--sub heading-->
         <div id = "book">
             <h2 class = "culture uppercase">Book Reviews</h2>
+            <hr class="type mx-auto bg-black rounded border-1 genre" style="height: 1px;"/>
+            <b><h2 class="type uppercase">
+            the Latest
+            </h2></b>
+            <hr class="type mx-auto bg-black rounded border-1 genre" style="height: 1px;"/>
+            <!--article card-->
+            <div class="flex type_card">
+                <div>
+                <a href="The Portable Problem 479274.html">
+                <img alt="article image" class="typeinner" src="images/placeholder.jpg"/>
+                </a>
+                </div>
+                <div class="typeinner">
+                <a href="The Portable Problem 479274.html">
+                <h1 class="hover:underline break-words typeinner">
+                The Portable Problem
+                </h1>
+                <h2 class="typeinner">
+                Luca Fierro
+                </h2>
+                </a>
+                </div>
+            </div>
+            <!--view more movie reviews-->
+            <button class="more rounded-lg" id="view more" style = "margin-left: 300px" onclick="viewmore()">
+                View more
+            </button>
         </div>      
     </div>
 
