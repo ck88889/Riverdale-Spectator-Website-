@@ -164,10 +164,18 @@ class DeleteFile:
 #update type pages 
 class UpdateType:
     def __init__(self):
-        ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path='\"c&i.html\")", 
+        ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
-            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")"]
+            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")"]
         contents = repo.get_contents("")
 
+        for i in range(len(contents) - 1, -1, -1):
+            for x in range(len(ignore_arr) - 1, -1, -1): 
+                if ignore_arr[x] == str(contents[i]):
+                    contents.pop(i)
+                    break
+        
+        print(contents)
 
-print(repo.get_contents(""))
+
+x = UpdateType()
