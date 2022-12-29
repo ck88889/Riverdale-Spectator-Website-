@@ -112,7 +112,7 @@ class File():
         self.photographer = tmp[0]
 
         #type of article 
-        self.type_opt = ["News", "Opinion", "Reviews", "Horoscopes", "Short Stories", "Other"]
+        self.type_opt = ["News", "Opinion", "Book Reviews", "Movie Reviews" "Horoscopes", "Short Stories", "Other"]
         self.type = StringVar()
         self.type.set(self.selected_file.get_genre(contents))
 
@@ -364,7 +364,7 @@ class NewTextBased(): #new text based article
         self.new_file_heading.grid(column=0, row=0, columnspan = 5)
 
         #type of article 
-        self.type_opt = ["News", "Opinion", "Reviews", "Horoscopes", "Short Stories", "Other"]
+        self.type_opt = ["News", "Opinion", "Book Reviews", "Movie Reviews", "Horoscopes", "Short Stories", "Other"]
         self.type = StringVar()
         self.type.set("News")
 
