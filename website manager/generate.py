@@ -224,7 +224,7 @@ class Text_Based():
         file_content = "<!DOCTYPE html>\n"
         file_content = file_content + "\t" + head + "\n"
         file_content = file_content + TOP_NAV + """\n\n<!--text based article -->\n"""
-        file_content = file_content + """<div class = "article">\n<!--article heading-->\n""" + intro + """\n"""
+        file_content = file_content + """<div class = "article" onclick = "reset_search()">\n<!--article heading-->\n""" + intro + """\n"""
 
         if not img_name == "no image":
             file_content = file_content + "<!--article image-->\n" + img_name + "\n"
