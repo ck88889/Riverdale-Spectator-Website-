@@ -290,5 +290,5 @@ class Text_Based():
         return (contents.prettify())
 
     def get_filname(self):
-        filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '')
+        filename = (self.title + " " + str(datetime.datetime.now().strftime("%f")) + ".html").replace(':', '').replace('%', '').replace('#', '').replace('&', '').replace('{', '').replace('}', '').replace('\u005c', '').replace('/', '').replace('>', '').replace('<', '').replace('?', '').replace('*', '').replace('$', '').replace('\'', '') .replace('\"', '').replace('@', '').replace('+', '').replace('=', '').replace('|', '').replace('`', '').replace(')', '').replace('(', '')
         return filename.replace('\n', '')

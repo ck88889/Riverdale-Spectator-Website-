@@ -187,9 +187,18 @@ class UpdateType:
     
     def sort_genre(self):
         tmp = Repo_Mang()
-        for x in range(len(self.contents)):
-            thing = tmp.get_genre(self.megastring(x))
-            print(thing)
+        for x in range(len(self.contents) -1):
+            #get file content
+            filename = str(self.contents[x]).replace("ContentFile(path=", "").replace("\"", "").replace(")", "")
+            filecontent = str(repo.get_contents(filename).decoded_content.decode())
+
+            filecontent_arr = filecontent.split("\"")
+
+            #print(filecontent_arr[5])
+            print(filename)
+            #get type of article 
+
+
 
 x = UpdateType()
 x.sort_genre()
