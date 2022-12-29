@@ -209,7 +209,7 @@ class UpdateType:
             elif "Opinion" in filecontent_arr[5].replace(" ", ""):
                 #link, title, author, img, date
                 self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-
+        
     def news_op(self, filename):
         filecontent = str(repo.get_contents(filename).decoded_content.decode())
 
@@ -228,7 +228,7 @@ class UpdateType:
 
         #middle of code 
         middle = ""
-        for x in range(len(self.news)):
+        for x in range(len(arr)):
             middle += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
             middle += "<a href = \"" + arr[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + arr[x][3] + "\"/>\n</div>"
             middle += "<div class = \"typeinner\">\n <a href = \"" + arr[x][0] + "\">\n"
