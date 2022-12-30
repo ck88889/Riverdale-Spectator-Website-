@@ -327,15 +327,26 @@ class UpdateType:
             stories += "<h2 class = \"typeinner\">" + self.stories[x][2] + "</h2>\n</div>\n</div>\n"
         stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
         
-        comics = "<!--comics and cartoon heading-->\n<div id=\"comics\">\n<h2 class=\"culture uppercase\">\nComics and Cartoons\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
-        comics += "<!--carasouel for comics and cartoons--> <div class=\"carousel\"> <div class=\"grid grid-cols-12\" style=\"display:flex;align-items:center;\"> <!--back button--> <div> <button class=\"carousel\" onclick=\"carouselback(all_horoscopes)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M15.75 19.5L8.25 12l7.5-7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> </path> </svg> </button> </div>"
-        comics += "<!--next button--> <div style=\"margin-right: 0; margin-left: auto;\"> <button class=\"carousel\" onclick=\"carouselnext(all_horoscopes)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> </path> </svg> </button> </div> </div> </div>"
-        comics += "</div>"
+        #get comics and cartoons
+        #top part 
+        comics = "<!--comics display--> <div id=\"comics\" style = \"margin-bottom: 100px\"> <!--comics heading--> <h2 class=\"culture uppercase\"> Comics and Cartoons </h2> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <b><h2 class=\"type uppercase\"> the Latest </h2></b> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <!--horoscopes carousel--> <div class=\"carousel grid grid-cols-12\" style=\"display:flex;align-items:center;\"> <!--back button--> <div><button class=\"carousel\" onclick=\"carouselback(all_comics)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.75 19.5L8.25 12l7.5-7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> </button> </div> <!--display--> <div class=\"col-span-10\" style=\"margin-right: auto; margin-left: auto;\">"
+        #middle 
+        for x in range(0, int(len(self.comics)/3), 3):
+            comics += "<!--carousel item--><div class=\"carousel_item grid grid-cols-3 gap-3\">\n"
+            for y in range(3):
+                comics += "<div class=\"carousel_card\"><a href=\"" + self.comics[x][0] + "\">"
+                comics += "\n\t<img class=\"carousel\" src=\"" + self.stories[x][3] + "alt = \"carousel image\"/>" 
+                comics += "\n\t<h1 class=\"hover:underline break-words carousel_card\">" + self.stories[x][1] + "</h1>"
+                comics += "\n\t<h2 class=\"break-words carousel_card\">" + self.stories[x][2] + "</h2>\n"
+                comics += "</a></div>\n"
+            comics += "</div>\n"
+        #bottom part 
+        comics += "</div><!--next button--> <div style=\"margin-right: 0; margin-left: auto;\"><button class=\"carousel\" onclick=\"carouselnext(all_comics)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> </button></div> </div> </div>"
 
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(top_half + entertainment + stories + comics + bottom_half,'html.parser') #content to be formatted
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
         update_file("puzzles.html", formatted_content.prettify())
 
 x = UpdateType()
