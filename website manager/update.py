@@ -331,8 +331,8 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(filecontent,'html.parser') #content to be formatted
-        update_file("c&i.html", formatted_content.prettify())
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
+        update_file("puzzles.html", formatted_content.prettify())
 
 x = UpdateType()
 x.sort_genre()
