@@ -337,7 +337,7 @@ class UpdateType:
             comics += "<!--carousel item--><div class=\"carousel_item grid grid-cols-3 gap-3\">\n"
             for y in range(3):
                 comics += "<div class=\"carousel_card\"><a href=\"" + self.comics[x + y][0] + "\">"
-                comics += "\n\t<img class=\"carousel\" src=\"" + self.comics[x +y][3] + "alt = \"carousel image\"/>" 
+                comics += "\n\t<img class=\"carousel\" src=\"" + self.comics[x +y][3] + "\" alt = \"carousel image\"/>" 
                 comics += "\n\t<h1 class=\"hover:underline break-words carousel_card\">" + self.comics[x + y][1] + "</h1>"
                 comics += "\n\t<h2 class=\"break-words carousel_card\">" + self.comics[x + y][2] + "</h2>\n"
                 comics += "</a></div>\n"
