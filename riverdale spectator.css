@@ -206,3 +206,32 @@ img.comic{
     margin-top: 50px; 
     margin-bottom: 15px; 
 }
+
+.carousel{
+    background-color:paleturquoise;
+}
+
+div.carousel{
+    background-color: #28282B;
+    margin-right: 300px; 
+    margin-left: 300px; 
+    margin-top: 40px; 
+    padding: 30px; 
+    display:block; 
+}
+
+button.carousel{
+    background-color: #E10000;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 15px; 
+}
+
+.carousel_item{
+    font: 1; 
+}
+
+.hide{
+    display: none; 
+}
