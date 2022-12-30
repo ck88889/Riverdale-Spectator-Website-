@@ -368,10 +368,6 @@ class UpdateType:
         formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
 
-x = UpdateType()
-x.sort_genre()
-x.culture()
-
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 

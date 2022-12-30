@@ -40,9 +40,6 @@ TOP_NAV = """
    <a class="font-medium hover:underline" href="c&amp;i.html" style="padding-right: 20px">
     CULTURE &amp; ILLUSTRATIONS
    </a>
-   <a class="font-medium hover:underline" href="puzzles.html" style="padding-right: 20px">
-    PUZZLES &amp; GAMES
-   </a>
   </div>
  </div>"""
 
