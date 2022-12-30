@@ -347,7 +347,7 @@ class UpdateType:
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
         
         formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
-        update_file("puzzles.html", formatted_content.prettify())
+        update_file("c&i.html", formatted_content.prettify())
 
 x = UpdateType()
 x.sort_genre()
