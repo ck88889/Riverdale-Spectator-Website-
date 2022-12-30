@@ -207,6 +207,8 @@ class UpdateType:
                 tmp = filecontent[filecontent.index("<img alt=\"article image\""):len(filecontent)]
                 img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
                 img = "images/" + img.replace("\"", "")
+            elif "Horoscopes" in filecontent_arr[5]:
+                img = "images/fortune placeholder.jpg"
             else:
                 img = "images/placeholder.jpg"
 
