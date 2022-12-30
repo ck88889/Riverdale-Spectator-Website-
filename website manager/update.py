@@ -355,7 +355,7 @@ class UpdateType:
         comics += "<!--next button--> <div style = \"margin-right: 0; margin-left: auto;\"> <button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\"> <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" /> </svg> </button> </div> </div> </div>"
 
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
-        bottom_half = "\n</div></div></div></div><!--bottom navigation bar-->\n" + tmp_2[1]
+        bottom_half = "\n\t\t\t</div>\t\t\t</div>\t</div></div><!--bottom navigation bar-->\n" + tmp_2[1]
         
         formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
