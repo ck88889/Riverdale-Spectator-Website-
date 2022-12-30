@@ -40,7 +40,14 @@ function carouselback(arr){
     }
 }
 
+function init_show(arr){
+    for(let i = 1; i < arr.length; i++){
+        arr[i].classList.add("hide"); 
+    }
+}
+
 window.onload = function(){
     all_comics = (document.getElementById("comics")).querySelectorAll(".carousel_item");
+    init_show(all_comics);
     all_horoscopes = (document.getElementById("horoscopes")).querySelectorAll(".carousel_item");
 }
