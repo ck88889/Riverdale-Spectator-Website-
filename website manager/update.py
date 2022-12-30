@@ -199,11 +199,13 @@ class UpdateType:
             filecontent_arr = filecontent.split("\"")
 
             #get image
-            FIND = "<img alt=\"article image\""
-
-            if FIND in filecontent:
-                tmp = filecontent[filecontent.index(FIND):len(filecontent)]
-                img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
+            if "<img alt=\"article image\" class=\"comic\"" in filecontent: #img of comic file
+                tmp = filecontent[filecontent.index("<img alt=\"article image\" class=\"comic\""):len(filecontent)]
+                img = tmp[len("<img alt=\"article image\"") + 27:tmp.index("/>")].replace('images\u005c','')
+                img = ("images/" + img.replace("\"", ""))
+            elif "<img alt=\"article image\"" in filecontent: #img of regular file 
+                tmp = filecontent[filecontent.index("<img alt=\"article image\""):len(filecontent)]
+                img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
                 img = "images/" + img.replace("\"", "")
             else:
                 img = "images/placeholder.jpg"
