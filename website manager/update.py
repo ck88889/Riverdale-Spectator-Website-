@@ -329,35 +329,32 @@ class UpdateType:
         stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
 
         #get horoscopes
-        horoscopes = "<!--horoscopes heading-->\n<div id=\"horoscopes\">\n<h2 class=\"culture uppercase\">\nHoroscopes\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<!--carasouel for comics and cartoons-->\n<div id = \"horoscopes\" class = \"carousel\">\n<div class=\"grid grid-cols-12\" style = \"display:flex;align-items:center;\">\n<!--back button-->\n<div>\n<button class = \"carousel\" onclick = \"carouselback(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 19.5L8.25 12l7.5-7.5\" />\n</svg>                            \n</button> \n</div>\n<!--carousel display-->\n<div class=\"col-span-10\" style = \"margin-right: auto; margin-left: auto;\">"
+
+        horoscopes = "<!--horoscopes heading--> <div id=\"horoscopes\"> <h2 class=\"culture uppercase\"> Horoscopes </h2> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <b><h2 class=\"type uppercase\"> the Latest </h2></b> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/><!--carasouel for comics and cartoons--> <div class = \"carouse\l\"> <div class=\"grid grid-cols-12\" style = \"display:flex;align-items:center;\"> <!--back button--> <div> <button class = \"carousel\" onclick = \"carouselback(all_horoscopes)\"> <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 19.5L8.25 12l7.5-7.5\" /> </svg> </button> </div> <!--carousel display--> <div class=\"col-span-10\" style = \"margin-right: auto; margin-left: auto;\">"
         for x in range(int(len(self.horoscopes)/3)):
-            horoscopes += "<!--carousel item-->\n<div class = \"carousel_item\">\n<div class=\"grid grid-cols-3 gap-3\">\n"
-            
-            for y in range(x, x+3):
-                horoscopes += "<div class = carousel_card>\n<img class = \"carousel\" alt = \"horoscope image\" src = \"" + self.horoscopes[y][3] + "\"/>"
-                horoscopes += "<a href = \"" + self.horoscopes[y][0] + "\"><h1 class=\"hover:underline break-words carousel_card\">" + self.horoscopes[y][1] + "</h1></a>"
-                horoscopes += "\n<h2 class=\"break-words carousel_card\">" + self.horoscopes[y][2] + "</h2></div> "       
-        
-            horoscopes += "</div>\n</div>"
-        horoscopes += "<!--next button-->\n<div style = \"margin-right: 0; margin-left: auto;\">\n<button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" />\n</svg>\n</button>\n</div>\n</div>\n</div>"
-        
-        #get comics and cartoons
-        comic = "<!--comics and cartoons heading-->\n<div id=\"comics\">\n<h2 class=\"culture uppercase\">\Comics and Cartoons\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<!--carasouel for comics and cartoons-->\n<div id = \"horoscopes\" class = \"carousel\">\n<div class=\"grid grid-cols-12\" style = \"display:flex;align-items:center;\">\n<!--back button-->\n<div>\n<button class = \"carousel\" onclick = \"carouselback(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 19.5L8.25 12l7.5-7.5\" />\n</svg>                            \n</button> \n</div>\n<!--carousel display-->\n<div class=\"col-span-10\" style = \"margin-right: auto; margin-left: auto;\">"
+            horoscopes += "<div class = \"carousel_item\"> <div class=\"grid grid-cols-3 gap-3\">"
+            for y in range(3):
+                horoscopes += "<a href = \"" + self.horoscopes[x + y][0] + "\"> "
+                horoscopes += "<img class = \"carousel\" src = " + self.horoscopes[x + y][3] + "\"/><h1 class=\"hover:underline break-words carousel_card\">" + self.horoscopes[x + y][1] + "</h1>"
+                horoscopes += "<h2 class=\"break-words carousel_card\">" + self.horoscopes[x + y][2] + "</h2> </a> </div>"
+            horoscopes += "</div></div>\n"
+        horoscopes += "<!--next button--> <div style = \"margin-right: 0; margin-left: auto;\"> <button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\"> <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" /> </svg> </button> </div> </div> </div>"
+
+        #get comics
+        comics = "<!--comics and cartoons heading--> <div id=\"comics\"> <h2 class=\"culture uppercase\"> Comics and Cartoons </h2> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <b><h2 class=\"type uppercase\"> the Latest </h2></b> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/><!--carasouel for comics and cartoons--> <div id = \"comics\" class = \"carouse\l\"> <div class=\"grid grid-cols-12\" style = \"display:flex;align-items:center;\"> <!--back button--> <div> <button class = \"carousel\" onclick = \"carouselback(all_comics)\"> <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 19.5L8.25 12l7.5-7.5\" /> </svg> </button> </div> <!--carousel display--> <div class=\"col-span-10\" style = \"margin-right: auto; margin-left: auto;\">"
         for x in range(int(len(self.comics)/3)):
-            comic += "<!--carousel item-->\n<div class = \"carousel_item\">\n<div class=\"grid grid-cols-3 gap-3\">\n"
-            
-            for y in range(x, x+3):
-                comic += "<div class = carousel_card>\n<img class = \"carousel\" alt = \"horoscope image\" src = \"" + self.comics[y][3] + "\"/>"
-                comic += "<a href = \"" + self.comics[y][0] + "\"><h1 class=\"hover:underline break-words carousel_card\">" + self.comics[y][1] + "</h1></a>"
-                comic += "\n<h2 class=\"break-words carousel_card\">" + self.comics[y][2] + "</h2></div> "       
-            
-            comic += "</div>\n</div>"
-        comic += "<!--next button-->\n<div style = \"margin-right: 0; margin-left: auto;\">\n<button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" />\n</svg>\n</button>\n</div>\n</div>\n</div>"
+            comics += "<div class = \"carousel_item\"> <div class=\"grid grid-cols-3 gap-3\">"
+            for y in range(3):
+                comics += "<a href = \"" + self.comics[x + y][0] + "\"> "
+                comics += "<img class = \"carousel\" src = " + self.comics[x + y][3] + "\"/><h1 class=\"hover:underline break-words carousel_card\">" + self.comics[x + y][1] + "</h1>"
+                comics += "<h2 class=\"break-words carousel_card\">" + self.comics[x + y][2] + "</h2> </a> </div>"
+            comics += "</div></div>\n"
+        comics += "<!--next button--> <div style = \"margin-right: 0; margin-left: auto;\"> <button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\"> <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" /> </svg> </button> </div> </div> </div>"
 
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
-        bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
+        bottom_half = "\n</div></div><!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comic + bottom_half,'html.parser') #content to be formatted
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
 
 x = UpdateType()
