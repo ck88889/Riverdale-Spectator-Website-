@@ -200,6 +200,7 @@ class UpdateType:
 
             #get image
             FIND = "<img alt=\"article image\""
+
             if FIND in filecontent:
                 tmp = filecontent[filecontent.index(FIND):len(filecontent)]
                 img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
@@ -208,7 +209,7 @@ class UpdateType:
                 img = "images/placeholder.jpg"
 
             #sort into the right array of types 
-            if "News" in filecontent_arr[5].replace(" ", ""):
+            if "News" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
             elif "Opinion" in filecontent_arr[5].replace(" ", ""):
@@ -221,6 +222,7 @@ class UpdateType:
             elif "Movie Reviews" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.movie.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            
             #culture and illustrations
             elif "Short Stories" in filecontent_arr[5]:
                 #link, title, author, img, date
@@ -325,14 +327,12 @@ class UpdateType:
             stories += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.stories[x][1] + "</h1>\n"
             stories += "<h2 class = \"typeinner\">" + self.stories[x][2] + "</h2>\n</div>\n</div>\n"
         stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
-
-        #get horoscopes
-
-        tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
-        bottom_half = "<!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
-        update_file("puzzles.html", formatted_content.prettify())
+        tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
+        bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
+        
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comic + bottom_half,'html.parser') #content to be formatted
+        update_file("c&i.html", formatted_content.prettify())
 
 x = UpdateType()
 x.sort_genre()
