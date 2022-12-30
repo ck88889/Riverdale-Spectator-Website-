@@ -173,6 +173,10 @@ class UpdateType:
         self.opinion = []
         self.book = []
         self.movie = []
+        self.other = []
+        self.stories = []
+        self.horoscopes = []
+        self.comics = []
 
         ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
@@ -211,6 +215,7 @@ class UpdateType:
             elif "Opinion" in filecontent_arr[5].replace(" ", ""):
                 #link, title, author, img, date
                 self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            #crictic's corner
             elif "Book Reviews" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.book.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
@@ -218,6 +223,19 @@ class UpdateType:
                 #link, title, author, img, date
                 self.movie.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
             
+            #culture and illustrations
+            elif "Short Stories" in filecontent_arr[5]:
+                #link, title, author, img, date
+                self.stories.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            elif "Horoscopes" in filecontent_arr[5]:
+                #link, title, author, img, date
+                self.horoscopes.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            elif "Other" in filecontent_arr[5]:
+                #link, title, author, img, date
+                self.other.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+            elif "Comics & Cartoons" in filecontent_arr[5]:
+                #link, title, author, img, date
+                self.comics.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
         
     def news_op(self, filename):
         filecontent = str(repo.get_contents(filename).decoded_content.decode())
@@ -276,16 +294,31 @@ class UpdateType:
             book_half += "<h2 class = \"typeinner\">" + self.book[x][2] + "</h2>\n</div>\n</div>\n"
         
         book_half += "\n<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" style = \"margin-left: 300px\" onclick=\"viewmore(all_book)\">\nView more\n</button>\n</div>\n</div>"
+        
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
-
         bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
 
         formatted_content = BeautifulSoup(top_half + movie_half + book_half + bottom_half,'html.parser') #content to be formatted
         update_file("critic.html", formatted_content.prettify())
+    
+    def culture(self):
+        filecontent = str(repo.get_contents("c&i.html").decoded_content.decode())
+        #get top part of the program
+        tmp_1 = filecontent.split("<!--entertainment heading-->")
+        top_half = tmp_1[0]
+
+        entertainment = "<!--entertainment heading-->\n<div id=\"entertainment\">\n<h2 class=\"culture uppercase\">\nEntertainment\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
+        stories = ""
+        horoscopes = ""
+        comics = ""
+
+        tmp_2 = tmp_1[0].split("<!--bottom navigation bar-->")
+        bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
+        print(top_half)
 
 x = UpdateType()
 x.sort_genre()
-x.critic()
+x.culture()
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
