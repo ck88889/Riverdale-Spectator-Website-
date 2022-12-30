@@ -232,7 +232,7 @@ class UpdateType:
             elif "Other" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.other.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Comics & Cartoons" in filecontent_arr[5]:
+            elif "Comics" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.comics.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
         
