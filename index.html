@@ -2,7 +2,7 @@
 <head>
  <meta content="News" name="genre"/>
  <title>
-  News
+  The Riverdale Spectator
  </title>
  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
  <link href="riverdale spectator.css" rel="stylesheet"/>
@@ -11,6 +11,77 @@
  </script>
  <script src="js/type.js">
 </script>
+
+<style>
+   div.top{
+      margin-right: auto;
+      margin-left: auto; 
+      margin-top: 50px; 
+      width: 1200px; 
+   }
+
+   .headline{
+      background-color: white;
+      color: #E10000; 
+   }
+
+   h1.headline{
+      font-family: 'Noto Serif';
+      font-size: 33px;
+      font-weight: bold; 
+      padding-left: 40px; 
+      padding-right: 40px;
+   }
+
+   h2.headline{
+      font-size: 18px;
+      padding-left: 40px; 
+      padding-right: 40px;
+   }
+
+   img.headline{
+      float: left;
+      height: 400px;
+      object-fit: cover;
+      flex-shrink: 0;
+      min-width: 100%; 
+      min-height: 100%;
+      margin-bottom: 20px; 
+   }
+
+   div.headline{
+      display: block; 
+      min-width: 100%; 
+      min-height: 100%;
+      padding-bottom: 30px; 
+   }
+
+   .subheading{
+      background-color: #28282B;
+      color: white;
+   }
+
+   h1.subheading{
+      font-family: 'Noto Serif';
+      font-size: 20px;
+      padding-right: 25px;
+      padding-left: 30px;
+   }
+
+   h2.subheading{
+      padding-right: 25px;
+      padding-left: 30px;
+   }
+
+   img.subheading{
+      float: left;
+      width:  200px;
+      min-height: 100%;
+      object-fit: cover;
+   }
+
+</style>
+
 </head>
 <body class="flex flex-col min-h-screen" onclick="reset_search()">
  <!--top navigation bar-->
@@ -50,6 +121,60 @@
     CULTURE &amp; ILLUSTRATIONS
    </a>
   </div>
+ </div>
+
+ <!--main articles-->
+ <div class = "top grid grid-cols-3 gap-8" style = "padding-top: 25px; padding-bottom: 500px">
+   <!--headline-->
+   <div class = "col-span-2 headline shadow-2xl">      
+      <div><a href = "#">
+         <img class = "headline" src = "images/378841.jpg" alt = "headline image" />
+         <h2 class = "headline">News</h2>
+         <h1 class = "headline hover:underline break-words">The Ballad of Never After</h1>
+         <h2 class = "headline font-bold">Jane Doe</h2>
+      </a></div>
+   </div>
+
+   <!--other headlines-->
+   <div class = "grid grid-rows-3 gap-8">
+
+      <!--subheadline-->
+      <a href = "#"><div class = "grid grid-cols-4 subheading shadow-2xl">
+         <div>
+            <img class = "subheading" src = "images/830031.jpg" />
+         </div>
+         <div class = "col-span-3">
+            <h2 class = "subheading" style = "margin-top: 20px">News</h2>
+            <h1 class = "subheading hover:underline break-words">The Ballad of Never After</h1>
+            <h2 class = "subheading font-bold" style = "margin-bottom: 20px">Jane Doe</h2>
+         </div>
+      </div></a>
+
+      <!--subheadline-->
+      <a href = "#"><div class = "grid grid-cols-4 subheading shadow-2xl">
+         <div>
+            <img class = "subheading" src = "images/830031.jpg" />
+         </div>
+         <div class = "col-span-3">
+            <h2 class = "subheading" style = "margin-top: 20px">News</h2>
+            <h1 class = "subheading hover:underline break-words">The Ballad of Never After</h1>
+            <h2 class = "subheading font-bold" style = "margin-bottom: 20px">Jane Doe</h2>
+         </div>
+      </div></a>
+
+      <!--subheadline-->
+      <a href = "#"><div class = "grid grid-cols-4 subheading shadow-2xl">
+         <div>
+            <img class = "subheading" src = "images/830031.jpg" />
+         </div>
+         <div class = "col-span-3">
+            <h2 class = "subheading" style = "margin-top: 20px">News</h2>
+            <h1 class = "subheading hover:underline break-words">The Ballad of Never After</h1>
+            <h2 class = "subheading font-bold" style = "margin-bottom: 20px">Jane Doe</h2>
+         </div>
+      </div></a>
+
+   </div>
  </div>
 
  <!--bottom navigation bar-->
