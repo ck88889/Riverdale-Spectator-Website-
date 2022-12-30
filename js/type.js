@@ -47,7 +47,7 @@ function init_show(arr){
 }
 
 window.onload = function(){
-    all_comics = (document.getElementById("comics")).querySelectorAll(".carousel_item");
+    all_comics = (document.getElementById("comic")).querySelectorAll(".carousel_item");
     init_show(all_comics);
     all_horoscopes = (document.getElementById("horoscopes")).querySelectorAll(".carousel_item");
 }
