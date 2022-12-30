@@ -280,7 +280,10 @@ class Text_Based():
             if(x == 0 and not self.genre == "Horoscopes"):
                 body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
             elif(self.genre == "Horoscopes"):
-                body_contents = "<p class = \"article\">" + "<b>" + lines_txt[x][0:lines_txt[x].index(" ")] + "</b>" + lines_txt[x][lines_txt[x].index(" "):len(lines_txt[x])] + "</p>\n"
+                tmp_arr = lines_txt[x].split(" ")
+                body_contents = "<p class = \"article\">" + "<b>" + tmp_arr[0] + "</b>"
+                tmp_arr.pop(0)
+                body_contents += " ".join(tmp_arr) + "</p>\n"
             else:
                 body_contents = body_contents + """<p class = "article">""" + lines_txt[x] + "</p>\n"
         return body_contents
