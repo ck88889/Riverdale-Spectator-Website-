@@ -31,15 +31,17 @@ class Repo_Mang:
         update_file(self.path, change)
     
     def get_articles(self): #show all images and article files (done)
-        global articles
-        articles_arr = []
-        for x in range(len(articles)):
-            if not str(articles[x]) == "ContentFile(path=\"js\")" and not str(articles[x]) == "ContentFile(path=\"images\")" and not str(articles[x]) == "ContentFile(path=\"website manager\")" and not str(articles[x]) == "ContentFile(path=\"riverdale spectator.css\")":
-                articles_arr.append(articles[x])
+        ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
+            "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
+            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")", "ContentFile(path=\"index.html\")"]
+        articles_arr = repo.get_contents("")
+
+        for i in range(len(articles_arr) - 1, -1, -1):
+            for x in range(len(ignore_arr) - 1, -1, -1): 
+                if ignore_arr[x] == str(articles_arr[i]):
+                    articles_arr.pop(i)
+                    break
         return articles_arr
-    
-    def delete():
-        print()
 
     def all_paths(self):
         path_list = []
