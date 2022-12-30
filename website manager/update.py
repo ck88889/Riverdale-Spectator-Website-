@@ -200,20 +200,15 @@ class UpdateType:
 
             #get image
             FIND = "<img alt=\"article image\""
-
             if FIND in filecontent:
                 tmp = filecontent[filecontent.index(FIND):len(filecontent)]
-                img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
-                img = "images/" + img.replace("\"", "")
-            elif "<img alt=\"article image\" class=\"comic\"" in filecontent:
-                tmp = filecontent[filecontent.index("<img alt=\"article image\" class=\"comic\""):len(filecontent)]
                 img = tmp[len(FIND) + 22:tmp.index("/>")].replace('images\u005c','')
                 img = "images/" + img.replace("\"", "")
             else:
                 img = "images/placeholder.jpg"
 
             #sort into the right array of types 
-            if "News" in filecontent_arr[5]:
+            if "News" in filecontent_arr[5].replace(" ", ""):
                 #link, title, author, img, date
                 self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
             elif "Opinion" in filecontent_arr[5].replace(" ", ""):
@@ -336,9 +331,8 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "<!--bottom navigation bar-->\n" + tmp_2[1]
         
-        #formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
-        formatted_content = BeautifulSoup(filecontent,'html.parser') #content to be formatted
-        update_file("c&i.html", formatted_content.prettify())
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
+        update_file("puzzles.html", formatted_content.prettify())
 
 x = UpdateType()
 x.sort_genre()
