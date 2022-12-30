@@ -329,7 +329,8 @@ class UpdateType:
         
         comics = "<!--comics and cartoon heading-->\n<div id=\"comics\">\n<h2 class=\"culture uppercase\">\nComics and Cartoons\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
         comics += "<!--carasouel for comics and cartoons--> <div class=\”carousel\”> <div class=\”grid grid-cols-12\” style=\”display:flex;align-items:center;\”> <!--back button--> <div> <button class=\”carousel\” onclick=\”carouselback(all_horoscopes)\”> <svg class=\”w-6 h-6\” fill=\”none\” stroke=\”currentColor\” stroke-width=\”1.5\” viewbox=\”0 0 24 24\” xmlns=\”http://www.w3.org/2000/svg\”> <path d=\”M15.75 19.5L8.25 12l7.5-7.5\” stroke-linecap=\”round\” stroke-linejoin=\”round\”> </path> </svg> </button> </div>"
-        comics += "</div></div></div>"
+        comics += "<!--next button--> <div style=\”margin-right: 0; margin-left: auto;\”> <button class=\”carousel\” onclick=\”carouselnext(all_horoscopes)\”> <svg class=\”w-6 h-6\” fill=\”none\” stroke=\”currentColor\” stroke-width=\”1.5\” viewbox=\”0 0 24 24\” xmlns=\”http://www.w3.org/2000/svg\”> <path d=\”M8.25 4.5l7.5 7.5-7.5 7.5\” stroke-linecap=\”round\” stroke-linejoin=\”round\”> </path> </svg> </button> </div> </div> </div>"
+        comics += "</div>"
 
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
