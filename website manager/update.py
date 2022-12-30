@@ -207,8 +207,6 @@ class UpdateType:
                 tmp = filecontent[filecontent.index("<img alt=\"article image\""):len(filecontent)]
                 img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
                 img = "images/" + img.replace("\"", "")
-            elif "Horoscopes" in filecontent_arr[5]:
-                img = "images/fortune placeholder.jpg"
             else:
                 img = "images/placeholder.jpg"
 
@@ -231,6 +229,7 @@ class UpdateType:
                 #link, title, author, img, date
                 self.stories.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
             elif "Horoscopes" in filecontent_arr[5]:
+                img = "images/fortune placeholder.jpg"
                 #link, title, author, img, date
                 self.horoscopes.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
             elif "Other" in filecontent_arr[5]:
