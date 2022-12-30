@@ -1,6 +1,7 @@
-let all_items = []; 
+let all_comics = []; 
+let all_horoscopes = []; 
 
-function viewmore(){
+function viewmore(arr){
     alert("I WAS CLICKED"); 
 }
 
@@ -13,10 +14,6 @@ function get_current(arr){
         }
     }
     return current_idx; 
-}
-
-function criticmore(type){
-    alert("I WAS CLICKED"); 
 }
 
 function carouselnext(arr){
@@ -45,4 +42,5 @@ function carouselback(arr){
 
 window.onload = function(){
     all_comics = (document.getElementById("comics")).querySelectorAll(".carousel_item");
+    all_horoscopes = (document.getElementById("horoscopes")).querySelectorAll(".carousel_item");
 }
