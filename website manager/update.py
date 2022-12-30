@@ -331,6 +331,22 @@ class UpdateType:
         
         #get comics and cartoons
         #top part 
+        horoscopes = "<!--horoscopes display--> <div id=\"horoscopes\" style = \"margin-bottom: 100px\"> <!--horoscopes heading--> <h2 class=\"culture uppercase\">Horoscopes</h2> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <b><h2 class=\"type uppercase\"> the Latest </h2></b> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <!--horoscopes carousel--> <div class=\"carousel grid grid-cols-12\" style=\"display:flex;align-items:center;\"> <!--back button--> <div><button class=\"carousel\" onclick=\"carouselback(all_horoscopes)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.75 19.5L8.25 12l7.5-7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> </button> </div> <!--display--> <div class=\"col-span-10\" style=\"margin-right: auto; margin-left: auto;\">"
+        #middle 
+        for x in range(0, len(self.horoscopes), 3):
+            horoscopes += "<!--carousel item--><div class=\"carousel_item grid grid-cols-3 gap-3\">\n"
+            for y in range(3):
+                horoscopes += "<div class=\"carousel_card\"><a href=\"" + self.horoscopes[x + y][0] + "\">"
+                horoscopes += "\n\t<img class=\"carousel\" src=\"" + self.horoscopes[x +y][3] + "\" alt = \"carousel image\"/>" 
+                horoscopes += "\n\t<h1 class=\"hover:underline break-words carousel_card\">" + self.horoscopes[x + y][1] + "</h1>"
+                horoscopes += "\n\t<h2 class=\"break-words carousel_card\">" + self.horoscopes[x + y][2] + "</h2>\n"
+                horoscopes += "</a></div>\n"
+            horoscopes += "</div>\n"
+        #bottom part 
+        horoscopes += "</div><!--next button--> <div style=\"margin-right: 0; margin-left: auto;\"><button class=\"carousel\" onclick=\"carouselnext(all_horoscopes)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> </button></div> </div> </div>"
+
+        #get comics and cartoons
+        #top part 
         comics = "<!--comics display--> <div id=\"comics\" style = \"margin-bottom: 100px\"> <!--comics heading--> <h2 class=\"culture uppercase\"> Comics and Cartoons </h2> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <b><h2 class=\"type uppercase\"> the Latest </h2></b> <hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/> <!--horoscopes carousel--> <div class=\"carousel grid grid-cols-12\" style=\"display:flex;align-items:center;\"> <!--back button--> <div><button class=\"carousel\" onclick=\"carouselback(all_comics)\"> <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.75 19.5L8.25 12l7.5-7.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> </button> </div> <!--display--> <div class=\"col-span-10\" style=\"margin-right: auto; margin-left: auto;\">"
         #middle 
         for x in range(0, len(self.comics), 3):
@@ -348,7 +364,7 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(top_half + entertainment + stories + comics + bottom_half,'html.parser') #content to be formatted
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
 
 x = UpdateType()
