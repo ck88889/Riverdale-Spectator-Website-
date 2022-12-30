@@ -329,7 +329,7 @@ class UpdateType:
         stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
         
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
-        bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
+        bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
         
         formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
         update_file("puzzles.html", formatted_content.prettify())
