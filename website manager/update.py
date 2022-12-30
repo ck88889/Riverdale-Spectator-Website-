@@ -209,7 +209,6 @@ class UpdateType:
                 img = "images/placeholder.jpg"
 
             #sort into the right array of types 
-            print(filecontent_arr[5])
             if "News" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
@@ -319,7 +318,7 @@ class UpdateType:
         entertainment += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_enter)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
 
         #get short stories
-        stories = "<!--short story heading-->\n<div id=\"stories\">\n<h2 class=\"culture uppercase\">\nEntertainment\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
+        stories = "<!--short story heading-->\n<div id=\"stories\">\n<h2 class=\"culture uppercase\">\nShort Stories\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
         for x in range(len(self.stories)):
             stories += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
             stories += "<a href = \"" + self.stories[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.stories[x][3] + "\"/>\n</div>"
