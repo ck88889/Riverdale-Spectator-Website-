@@ -279,8 +279,8 @@ class Text_Based():
         for x in range(len(lines_txt)):
             if(x == 0 and not self.genre == "Horoscopes"):
                 body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
-            elif(x == 0 and self.genre == "Horoscopes"):
-                body_contents = """<p class = "article">""" + lines_txt[x] + "</p>\n"
+            elif(self.genre == "Horoscopes"):
+                body_contents = "<p class = \"article\">" + "<b>" + lines_txt[x][0:lines_txt[x].index(" ")] + "</b>" + lines_txt[x][lines_txt[x].index(" "):len(lines_txt[x])] + "</p>\n"
             else:
                 body_contents = body_contents + """<p class = "article">""" + lines_txt[x] + "</p>\n"
         return body_contents
