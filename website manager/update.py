@@ -1,6 +1,7 @@
 #program to login into github to edit and add files 
 from github import Github
 from bs4 import BeautifulSoup #format files 
+import re
 TOKEN = "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"
 REPO = "ck88889/Riverdale-Spectator-Website-"
 
@@ -50,15 +51,10 @@ class Repo_Mang:
     def filecontents(self, idx): #get_articles = path_list 
         #get file contents for single file 
         path_list = self.all_paths()
-        filecontent = repo.get_contents(path_list[idx]).decoded_content.decode()
+        filecontent = str(repo.get_contents(path_list[idx]).decoded_content.decode())
         self.path = path_list[idx]
 
-        #get genre of the file & the line of its file 
-        megastring = ""
-        for x in filecontent:
-            megastring += x
-
-        return megastring
+        return filecontent
 
     def get_filepath(self):
         path_list = self.all_paths()
@@ -91,9 +87,13 @@ class Repo_Mang:
 
     def get_subtitle(self, megastring):
         FIND = "<h1 class=\"article\" style=\"font-size: 17px; color: rgb(107 114 128)\">"
-        tmp = megastring[megastring.index(FIND):len(megastring)]
-        subtitle = tmp[len(FIND):tmp.index("</h1>")]
-        return subtitle
+
+        if FIND in megastring:
+            tmp = megastring[megastring.index(FIND):len(megastring)]
+            subtitle = tmp[len(FIND):tmp.index("</h1>")]
+            return subtitle
+        else:
+            return ""
 
     def get_img(self, megastring):
         FIND = "<img alt=\"article image\""
@@ -114,19 +114,22 @@ class Repo_Mang:
         else:
             return ""
 
-    def get_body(self, megastring):
-        FIND = "<!--article body-->"
-        tmp_1 = megastring[megastring.index(FIND):len(megastring)]
-        tmp_2 = tmp_1[len(FIND) + 1:tmp_1.index("</div>")]
-        tmp_3 = tmp_2.replace('\n', '').split("</p>")
-        
-        paragraphs = []
-        for x in range(len(tmp_3)-1):
-            tmp_4 = tmp_3[x].split(">")
-            paragraphs.append(tmp_4[1])
+    def get_body(self, filecontent):
+        tmp_1 = filecontent.split("<!--article body-->")
+        tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
 
+        #strip html tags 
+        CLEANR = re.compile('<.*?>') 
+        cleantext = (re.sub(CLEANR, '', tmp_2[0])).split("\n")
+
+        #get rid of blank spaces 
+        for x in range(len(cleantext) - 1, -1, -1 ):
+            if cleantext[x].replace(" ", "") == "":
+                cleantext.pop(x)
+
+        #join text 
         full_txt = ""
-        for x in paragraphs:
+        for x in cleantext:
             full_txt += x + "\n"
 
         return full_txt
