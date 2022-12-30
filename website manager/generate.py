@@ -273,7 +273,7 @@ class Text_Based():
         body_contents = ""
 
         for x in reversed(range(len(lines_txt))):
-            if lines_txt[x] == "":
+            if lines_txt[x].replace(" ", "") == "":
                 lines_txt.pop(x)
 
         for x in range(len(lines_txt)):
@@ -281,11 +281,11 @@ class Text_Based():
                 body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
             elif(self.genre == "Horoscopes"):
                 tmp_arr = lines_txt[x].split(" ")
-                body_contents = "<p class = \"article\">" + "<b>" + tmp_arr[0] + "</b>"
+                body_contents += "<p class = \"article\">" + "<b>" + tmp_arr[0] + "</b>"
                 tmp_arr.pop(0)
                 body_contents += " ".join(tmp_arr) + "</p>\n"
             else:
-                body_contents = body_contents + """<p class = "article">""" + lines_txt[x] + "</p>\n"
+                body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
         return body_contents
 
     def get_file(self):

@@ -205,6 +205,7 @@ class File():
         next.configure(command = self.next_btn)
         back.configure(command = self.back_btn)
         self.getimage_btn.configure(command = self.get_img)
+        
 class View():
     def view_delete(self):
         self.view_heading.forget()
