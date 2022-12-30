@@ -275,6 +275,8 @@ class Text_Based():
         for x in reversed(range(len(lines_txt))):
             if lines_txt[x].replace(" ", "") == "":
                 lines_txt.pop(x)
+            else:
+                lines_txt[x] = lines_txt[x].lstrip()
 
         for x in range(len(lines_txt)):
             if(x == 0 and not self.genre == "Horoscopes"):
