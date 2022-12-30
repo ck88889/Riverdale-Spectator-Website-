@@ -303,22 +303,67 @@ class UpdateType:
     
     def culture(self):
         filecontent = str(repo.get_contents("c&i.html").decoded_content.decode())
+
         #get top part of the program
         tmp_1 = filecontent.split("<!--entertainment heading-->")
         top_half = tmp_1[0]
 
+        #get entertainment section of page 
         entertainment = "<!--entertainment heading-->\n<div id=\"entertainment\">\n<h2 class=\"culture uppercase\">\nEntertainment\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
-        stories = ""
-        horoscopes = ""
-        comics = ""
+        for x in range(len(self.other)):
+            entertainment += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
+            entertainment += "<a href = \"" + self.other[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.other[x][3] + "\"/>\n</div>"
+            entertainment += "<div class = \"typeinner\">\n <a href = \"" + self.other[x][0] + "\">\n"
+            entertainment += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.other[x][1] + "</h1>\n"
+            entertainment += "<h2 class = \"typeinner\">" + self.other[x][2] + "</h2>\n</div>\n</div>\n"
+        entertainment += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_enter)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
 
-        tmp_2 = tmp_1[0].split("<!--bottom navigation bar-->")
+        #get short stories
+        stories = "<!--short story heading-->\n<div id=\"stories\">\n<h2 class=\"culture uppercase\">\nEntertainment\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
+        for x in range(len(self.stories)):
+            stories += "<!--article card-->\n<div class = \"flex type_card\">\n<div>\n"
+            stories += "<a href = \"" + self.stories[x][0] + "\">\n<img class = \"typeinner\" alt=\"article image\" src=\"" + self.stories[x][3] + "\"/>\n</div>"
+            stories += "<div class = \"typeinner\">\n <a href = \"" + self.stories[x][0] + "\">\n"
+            stories += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.stories[x][1] + "</h1>\n"
+            stories += "<h2 class = \"typeinner\">" + self.stories[x][2] + "</h2>\n</div>\n</div>\n"
+        stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
+
+        #get horoscopes
+        horoscopes = "<!--horoscopes heading-->\n<div id=\"horoscopes\">\n<h2 class=\"culture uppercase\">\nHoroscopes\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<!--carasouel for comics and cartoons-->\n<div id = \"horoscopes\" class = \"carousel\">\n<div class=\"grid grid-cols-12\" style = \"display:flex;align-items:center;\">\n<!--back button-->\n<div>\n<button class = \"carousel\" onclick = \"carouselback(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 19.5L8.25 12l7.5-7.5\" />\n</svg>                            \n</button> \n</div>\n<!--carousel display-->\n<div class=\"col-span-10\" style = \"margin-right: auto; margin-left: auto;\">"
+        for x in range(int(len(self.horoscopes)/3)):
+            horoscopes += "<!--carousel item-->\n<div class = \"carousel_item\">\n<div class=\"grid grid-cols-3 gap-3\">\n"
+            
+            for y in range(x, x+3):
+                horoscopes += "<div class = carousel_card>\n<img class = \"carousel\" alt = \"horoscope image\" src = \"" + self.horoscopes[y][3] + "\"/>"
+                horoscopes += "<a href = \"" + self.horoscopes[y][0] + "\"><h1 class=\"hover:underline break-words carousel_card\">" + self.horoscopes[y][1] + "</h1></a>"
+                horoscopes += "\n<h2 class=\"break-words carousel_card\">" + self.horoscopes[y][2] + "</h2></div> "       
+        
+            horoscopes += "</div>\n</div>"
+        horoscopes += "<!--next button-->\n<div style = \"margin-right: 0; margin-left: auto;\">\n<button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" />\n</svg>\n</button>\n</div>\n</div>\n</div>"
+        
+        #get comics and cartoons
+        comic = "<!--comics and cartoons heading-->\n<div id=\"comics\">\n<h2 class=\"culture uppercase\">\Comics and Cartoons\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<!--carasouel for comics and cartoons-->\n<div id = \"horoscopes\" class = \"carousel\">\n<div class=\"grid grid-cols-12\" style = \"display:flex;align-items:center;\">\n<!--back button-->\n<div>\n<button class = \"carousel\" onclick = \"carouselback(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 19.5L8.25 12l7.5-7.5\" />\n</svg>                            \n</button> \n</div>\n<!--carousel display-->\n<div class=\"col-span-10\" style = \"margin-right: auto; margin-left: auto;\">"
+        for x in range(int(len(self.comics)/3)):
+            comic += "<!--carousel item-->\n<div class = \"carousel_item\">\n<div class=\"grid grid-cols-3 gap-3\">\n"
+            
+            for y in range(x, x+3):
+                comic += "<div class = carousel_card>\n<img class = \"carousel\" alt = \"horoscope image\" src = \"" + self.comics[y][3] + "\"/>"
+                comic += "<a href = \"" + self.comics[y][0] + "\"><h1 class=\"hover:underline break-words carousel_card\">" + self.comics[y][1] + "</h1></a>"
+                comic += "\n<h2 class=\"break-words carousel_card\">" + self.comics[y][2] + "</h2></div> "       
+            
+            comic += "</div>\n</div>"
+        comic += "<!--next button-->\n<div style = \"margin-right: 0; margin-left: auto;\">\n<button class = \"carousel\" onclick = \"carouselnext(all_horoscopes)\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" />\n</svg>\n</button>\n</div>\n</div>\n</div>"
+
+        tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
-        print(top_half)
+        
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comic + bottom_half,'html.parser') #content to be formatted
+        update_file("c&i.html", formatted_content.prettify())
 
 x = UpdateType()
 x.sort_genre()
 x.culture()
+
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
