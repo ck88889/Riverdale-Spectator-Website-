@@ -334,10 +334,10 @@ class UpdateType:
         for x in range(0, int(len(self.comics)/3), 3):
             comics += "<!--carousel item--><div class=\"carousel_item grid grid-cols-3 gap-3\">\n"
             for y in range(3):
-                comics += "<div class=\"carousel_card\"><a href=\"" + self.comics[x][0] + "\">"
-                comics += "\n\t<img class=\"carousel\" src=\"" + self.stories[x][3] + "alt = \"carousel image\"/>" 
-                comics += "\n\t<h1 class=\"hover:underline break-words carousel_card\">" + self.stories[x][1] + "</h1>"
-                comics += "\n\t<h2 class=\"break-words carousel_card\">" + self.stories[x][2] + "</h2>\n"
+                comics += "<div class=\"carousel_card\"><a href=\"" + self.comics[x + y][0] + "\">"
+                comics += "\n\t<img class=\"carousel\" src=\"" + self.comics[x +y][3] + "alt = \"carousel image\"/>" 
+                comics += "\n\t<h1 class=\"hover:underline break-words carousel_card\">" + self.comics[x + y][1] + "</h1>"
+                comics += "\n\t<h2 class=\"break-words carousel_card\">" + self.comics[x + y][2] + "</h2>\n"
                 comics += "</a></div>\n"
             comics += "</div>\n"
         #bottom part 
@@ -346,7 +346,7 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
 
 x = UpdateType()
