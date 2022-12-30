@@ -180,7 +180,7 @@ class UpdateType:
 
         ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
-            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")"]
+            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")", "ContentFile(path=\"puzzles.html\")"]
         self.contents = repo.get_contents("")
 
         for i in range(len(self.contents) - 1, -1, -1):
@@ -209,10 +209,11 @@ class UpdateType:
                 img = "images/placeholder.jpg"
 
             #sort into the right array of types 
+            print(filecontent_arr[5])
             if "News" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Opinion" in filecontent_arr[5].replace(" ", ""):
+            elif "Opinion" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
             #crictic's corner
@@ -222,7 +223,6 @@ class UpdateType:
             elif "Movie Reviews" in filecontent_arr[5]:
                 #link, title, author, img, date
                 self.movie.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            
             #culture and illustrations
             elif "Short Stories" in filecontent_arr[5]:
                 #link, title, author, img, date
@@ -331,8 +331,8 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
         
-        formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comic + bottom_half,'html.parser') #content to be formatted
-        update_file("c&i.html", formatted_content.prettify())
+        formatted_content = BeautifulSoup(top_half + entertainment + stories + bottom_half,'html.parser') #content to be formatted
+        update_file("puzzles.html", formatted_content.prettify())
 
 x = UpdateType()
 x.sort_genre()
