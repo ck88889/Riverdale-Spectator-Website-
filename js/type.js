@@ -1,5 +1,6 @@
 let all_comics = []; 
 let all_horoscopes = []; 
+let all_news = []; 
 
 function viewmore(arr){
     alert("I WAS CLICKED"); 
