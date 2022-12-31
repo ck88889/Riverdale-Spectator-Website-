@@ -372,13 +372,13 @@ class UpdateType:
         
         formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
-
-tmp = """<p class="article">
-   <b>
-    VIRGO:
-   </b>
-   Just let go, Virgo. It's in your name, after all! Your name means many things-- which in some cases, means nothing at all. The past is far behind you once you see Brad Pitt acting.
-  </p>"""
+    
+    def updateall(self):
+        self.sort_genre()
+        self.news_op("news.html")
+        self.news_op("opinion.html")
+        self.critic()
+        self.culture()
 
 #swap rows 
 # thing = [[1,2], 
