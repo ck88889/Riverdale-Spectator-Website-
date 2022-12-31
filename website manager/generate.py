@@ -282,21 +282,10 @@ class Text_Based():
             if(x == 0 and not self.genre == "Horoscopes"):
                 body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
             elif(self.genre == "Horoscopes"):
-                horoscope_signs = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces" ]
                 tmp_arr = lines_txt[x].split(" ")
-
-                issign = 0
-                for y in range(len(horoscope_signs)):
-                    if tmp_arr[0].upper() == horoscope_signs[y].upper():
-                        body_contents += "<p class = \"article font-bold inline-block\">" + tmp_arr[0] + "</p>\n"
-                        tmp_arr.pop(0)
-                        body_contents += "<p class = \"article inline-block\">" + " ".join(tmp_arr) + "</p>\n"
-                        issign = 1
-                        break
-                
-                if issign == 0:
-                    body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
-                    
+                body_contents += "<p class = \"article\">" + "<b>" + tmp_arr[0] + "</b>"
+                tmp_arr.pop(0)
+                body_contents += " ".join(tmp_arr) + "</p>\n"
             else:
                 body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
         return body_contents
