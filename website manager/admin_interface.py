@@ -335,11 +335,11 @@ class NewTextBased(): #new text based article
         updatejs.newfile(self.title_entry.get("1.0",END).replace('\n', ''), (filename).replace('\n', ''))
 
         update_main = update.UpdateType()
-        if "NEWS" in self.type.get().replace(" ", "").upper:
+        if "News" in self.type.get():
             update_main.news_op("news.html")
-        elif "OPINION" in self.type.get().replace(" ", "").upper:
+        elif "Opinion" in self.type.get():
             update_main.news_op("opinion.html")
-        elif "REVIEWS" in self.type.get().replace(" ", "").upper:
+        elif "Reviews" in self.type.get():
             update_main.critic()
         else:
             update_main.culture()
