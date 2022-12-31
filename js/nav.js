@@ -84,6 +84,8 @@ function carouselback(arr){
 let SHOW_AT_TIME = 3; 
 let all_news = [];
 let all_op = [];
+let all_movie = []; 
+let all_book = []
 
 function viewmore(arr){
     //get number of hidden items
@@ -94,7 +96,9 @@ function viewmore(arr){
         }
     }
 
-    if((arr.length - hidden) > SHOW_AT_TIME){//show next at a time
+    if(hidden == arr.length){
+        return
+    }else if((arr.length - hidden) > SHOW_AT_TIME){//show next at a time
         for(let i = 0; i < SHOW_AT_TIME; i++){
             arr[hidden - 1 + i].classList.remove("hide");
         }
@@ -107,7 +111,13 @@ function viewmore(arr){
 }
 
 function init_show(arr){
-    for(let i = SHOW_AT_TIME; i < arr.length; i++){
+    if(arr.length < 5){
+        INIT = arr.length; 
+    }else{
+        INIT = 5
+    }
+
+    for(let i = INIT; i < arr.length; i++){
         arr[i].classList.add("hide"); 
     }
 }
@@ -124,12 +134,24 @@ window.onload = function(){
     document.getElementById("github").href = "https://github.com/ck88889/riverdale-spectator-website";
 
     //initialize article drop down items 
-    if(document.getElementById("news")){
+    if(document.getElementById("news")){ //news page
         all_news = (document.getElementById("news")).querySelectorAll(".type_card");
         init_show(all_news);
-    }else if(document.getElementById("opinion")){
+    }else if(document.getElementById("opinion")){ //opinion page
         all_op = (document.getElementById("opinion")).querySelectorAll(".type_card");
         init_show(all_op);
+    }else if(document.getElementById("movie")){//critic's corner
+        all_movie = (document.getElementById("movie")).querySelectorAll(".type_card");
+        init_show(all_movie);
+  
+        all_book = (document.getElementById("book")).querySelectorAll(".type_card");
+        init_show(all_book);
+    }else if(document.getElementById("stories")){//c&i page 
+        all_stories = (document.getElementById("stories")).querySelectorAll(".type_card");
+        init_show(all_stories);
+   
+        all_enter = (document.getElementById("entertainment")).querySelectorAll(".type_card");
+        init_show(all_enter);
     }
 
     //initialize carsouel items 
