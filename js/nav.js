@@ -3,6 +3,10 @@ let article_obj = [];
 var idx = 0; 
 var placeholder;
 
+//view more arrays 
+let all_news = [];
+let all_opinion = [];
+
 //navigation search bar 
 function reset_search(){
     for(let i = 0; i < article_obj.length; i++){
@@ -45,10 +49,6 @@ function searchbar() {
 let all_comics = []; 
 let all_horoscopes = [];  
 
-function viewmore(arr){
-    alert("I WAS CLICKED"); 
-}
-
 function get_current(arr){
     current_idx = 0; 
     //get index of current item that being shown to user 
@@ -84,20 +84,32 @@ function carouselback(arr){
     }
 }
 
+function viewmore(arr){
+    alert(arr.length); 
+}
+
 function init_show(arr){
     for(let i = 1; i < arr.length; i++){
         arr[i].classList.add("hide"); 
     }
 }
 
-let all_news = [];
-
 window.onload = function(){
     document.getElementById("instagram").href = "#";
     document.getElementById("email").href = "mailto:hamilton.spect@gmail.com";
     document.getElementById("github").href = "https://github.com/ck88889/riverdale-spectator-website";
 
-    all_comics = (document.getElementById("comic")).querySelectorAll(".carousel_item");
-    init_show(all_comics);
-    all_horoscopes = (document.getElementById("horoscopes")).querySelectorAll(".carousel_item");
+    //initialize carsouel items 
+    if(document.getElementById("comic") &&  document.getElementById("horoscopes")){
+        all_comics = (document.getElementById("comic")).querySelectorAll(".carousel_item");
+        init_show(all_comics);
+        all_horoscopes = (document.getElementById("horoscopes")).querySelectorAll(".carousel_item");
+        init_show(all_horoscopes);
+    }
+
+    //initialize article drop down items 
+    if(document.getElementById("opinion")){
+        all_opinon = (document.getElementById("opinion")).querySelectorAll(".type_card")
+        init_show(all_opinon)
+    }
 }
