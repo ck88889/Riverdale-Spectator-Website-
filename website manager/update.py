@@ -450,22 +450,6 @@ class UpdateType:
         formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
         update_file("index.html", formatted_content.prettify())
 
-tmp = Repo_Mang()
-tmp.filecontents(0)
-
-contents = tmp.all_paths()
-filepath = contents[0].replace("\n", "")
-filecontent = str(repo.get_contents(filepath).decoded_content.decode())[0:str(repo.get_contents(filepath).decoded_content.decode()).index("name=\"genre\"/>")]
-
-if "News" in filecontent:
-    print()
-elif "Opinion" in filecontent:
-    print()
-elif "Reviews" in filecontent:
-    print()
-else:
-    print("match")
-
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
