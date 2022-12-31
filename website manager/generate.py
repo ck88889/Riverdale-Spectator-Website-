@@ -251,7 +251,11 @@ class Text_Based():
     def format_intro(self, genre, title, subtitle, author, date):
         intro_contents = "<b><h1 class =\"genre uppercase\">" + genre + "</h1></b>\n"
         intro_contents = intro_contents + "<b><h1 class = \"article\" >" + title + "</h1></b>\n"
-        intro_contents = intro_contents + "<b><i><h1 class = \"article\" style = \"font-size: 17px; color: rgb(107 114 128)\">" + subtitle + "</h1></i></b>\n"
+
+        if "BOOK REVIEWS" in self.genre.upper() or "MOVIE REVIEWS" in self.genre.upper():
+            intro_contents = intro_contents + "<b><i><h1 class = \"article\" style = \"color: black; font-size: 25px; color: rgb(107 114 128)\">" + subtitle + "</h1></i></b>\n"
+        else:
+            intro_contents = intro_contents + "<b><i><h1 class = \"article\" style = \"font-size: 17px; color: rgb(107 114 128)\">" + subtitle + "</h1></i></b>\n"
         intro_contents = intro_contents + "<b><h2 class = \"article\">" + author + "</h2></b>\n"
         intro_contents = intro_contents + "<h2 class = \"article\">" + date + "</h2>\n"
         intro_contents = intro_contents + "<hr class=\"mx-auto bg-gray-600 rounded border-0\" style = \"margin-top: 20px; height: 1px;\">\n"
@@ -286,6 +290,25 @@ class Text_Based():
                 body_contents += "<p class = \"article\">" + "<b>" + tmp_arr[0] + "</b>"
                 tmp_arr.pop(0)
                 body_contents += " ".join(tmp_arr) + "</p>\n"
+            elif("BOOK REVIEWS" in self.genre.upper() or "MOVIE REVIEWS" in self.genre.upper()):
+                MAX_CHAR = 75
+                if len(lines_txt) < 75:
+                    word_arr = lines_txt[x].split()
+                    count_upper = 0
+                    count_lower = 0
+
+                    for x in word_arr:
+                        if x[0:1].isupper():
+                            count_upper += 1
+                        else:
+                            count_lower += 1
+                    
+                    if "★" in lines_txt[x] or count_upper > count_lower:
+                        body_contents += """<p class = "article font-bold">""" + lines_txt[x] + "</p>\n"
+                    else:
+                        body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
+                else:
+                    body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
             else:
                 body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
         return body_contents
