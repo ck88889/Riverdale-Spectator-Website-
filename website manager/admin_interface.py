@@ -716,27 +716,29 @@ class Comic():
 
 
 class Main():
+
     def OpenLinks(self):
         content = str(update.repo.get_contents(
             "all_links.txt").decoded_content.decode())
 
-        newWindow = Toplevel(main)
-        newWindow.title("Downloadable links")
-        newWindow.geometry("200x200")
+        self.newWindow = Toplevel(main)
+        self.newWindow.title("Downloadable links")
+        self.newWindow.geometry("400x270")
 
-        Label(newWindow, text="\nAll downloadable links\n\n").pack()
+        Heading = Label(self.newWindow, text="\n\nAll Downloadable Links\n\n")
+        Heading.pack()
 
         Text = scrolledtext.ScrolledText(
-            newWindow, height=8, width=45, font=("Helvetica", 10, "normal"))
+            self.newWindow, height=8, width=45, font=("Helvetica", 10, "normal"))
         Text.insert(INSERT, content)
         Text.pack()
 
         def okay():
             update.update_file("all_links.txt", Text.get(1.0, END))
-            newWindow.quit()
+            self.newWindow.destroy()
 
-        Okay = Button(newWindow, text="OK", bg="white", padx=20,
-                    command=okay(), font=("Helvetica", 10, "normal"))
+        Okay = Button(self.newWindow, text="OK", bg="white", padx=20,
+                    command = okay, font=("Helvetica", 10, "normal"), width = 36)
         Okay.pack()
 
     def main_delete(self):
