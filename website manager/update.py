@@ -380,7 +380,7 @@ class UpdateType:
 
         #get top part of the program
         tmp_1 = filecontent.split("<!--main articles-->")
-        top_half = "<!--main articles-->" + tmp_1[0]
+        top_half = tmp_1[0] + "<!--main articles-->"
 
         #headlines
         news_headline = self.getheadline(self.news)
