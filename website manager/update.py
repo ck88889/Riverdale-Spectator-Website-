@@ -380,6 +380,9 @@ class UpdateType:
         self.critic()
         self.culture()
 
+x = UpdateType()
+x.updateall()
+
 #swap rows 
 # thing = [[1,2], 
 #               [4,5], 
