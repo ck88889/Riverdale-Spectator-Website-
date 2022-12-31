@@ -149,10 +149,12 @@ window.onload = function(){
         all_book = (document.getElementById("book")).querySelectorAll(".type_card");
         init_show(all_book);
     }else if(document.getElementById("stories")){//c&i page 
-        INIT = 5; //amount to show at first
+        INIT = 3; //amount to show at first
 
         all_stories = (document.getElementById("stories")).querySelectorAll(".type_card");
         init_show(all_stories);
+
+        INIT = 4;
    
         all_enter = (document.getElementById("entertainment")).querySelectorAll(".type_card");
         init_show(all_enter);
