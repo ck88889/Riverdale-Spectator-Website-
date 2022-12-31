@@ -130,21 +130,22 @@ window.onload = function(){
 
     //initialize article drop down items 
     if(document.getElementById("news")){ //news page
-        INIT = 10; //amount to show at first
+        INIT = 7; //amount to show at first
 
         all_news = (document.getElementById("news")).querySelectorAll(".type_card");
         init_show(all_news);
     }else if(document.getElementById("opinion")){ //opinion page
-        INIT = 10; //amount to show at first
+        INIT = 7; //amount to show at first
 
         all_op = (document.getElementById("opinion")).querySelectorAll(".type_card");
         init_show(all_op);
     }else if(document.getElementById("movie")){//critic's corner
-        INIT = 7; //amount to show at first
+        INIT = 3; //amount to show at first
 
         all_movie = (document.getElementById("movie")).querySelectorAll(".type_card");
         init_show(all_movie); //amount to show at first
-  
+        
+        INIT = 5;
         all_book = (document.getElementById("book")).querySelectorAll(".type_card");
         init_show(all_book);
     }else if(document.getElementById("stories")){//c&i page 
