@@ -271,6 +271,23 @@ class Text_Based():
         
         return img_content
 
+    def isheading(self, word_arr):
+        count_upper = 0
+        count_lower = 0
+
+        for i in word_arr:
+            if i[0:1].isupper():
+                count_upper += 1
+            else:
+                count_lower += 1
+        
+        sentence = " ".join(word_arr)
+
+        if "★" in sentence or count_upper > count_lower:
+            return 1 #true
+        else:
+            return 0 #false
+
     def format_body(self, txt):
         lines_txt = txt.split("\n")
         #html for body paragraph
@@ -283,8 +300,16 @@ class Text_Based():
                 lines_txt[x] = lines_txt[x].lstrip()
 
         for x in range(len(lines_txt)):
-            if(x == 0 and not self.genre == "Horoscopes"):
-                body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
+            if x == 0 and not self.genre == "Horoscopes":
+                if("BOOK REVIEWS" in self.genre.upper() or "MOVIE REVIEWS" in self.genre.upper()):
+                    word_arr = lines_txt[x].split()
+                    if self.isheading(word_arr) == 1:
+                        body_contents += """<p class = "article font-bold">""" + lines_txt[x] + "</p>\n"
+                    else: 
+                        body_contents += """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
+                else: 
+                    body_contents = """<p class = "first_paragraph">""" + lines_txt[x] + "</p>\n"
+
             elif(self.genre == "Horoscopes"):
                 tmp_arr = lines_txt[x].split(" ")
                 body_contents += "<p class = \"article\">" + "<b>" + tmp_arr[0] + "</b>"
@@ -294,23 +319,15 @@ class Text_Based():
                 MAX_CHAR = 75
                 if len(lines_txt) < 75:
                     word_arr = lines_txt[x].split()
-                    count_upper = 0
-                    count_lower = 0
-
-                    for i in word_arr:
-                        if i[0:1].isupper():
-                            count_upper += 1
-                        else:
-                            count_lower += 1
-                    
-                    if "★" in lines_txt[x] or count_upper > count_lower:
+                    if self.isheading(word_arr) == 1:
                         body_contents += """<p class = "article font-bold">""" + lines_txt[x] + "</p>\n"
-                    else:
+                    else: 
                         body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
                 else:
                     body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
             else:
                 body_contents += """<p class = "article">""" + lines_txt[x] + "</p>\n"
+        
         return body_contents
 
     def get_file(self):
