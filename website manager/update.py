@@ -195,7 +195,6 @@ class UpdateType:
                     break
     
     def sort_genre(self, type, arr):
-        arr = []
         for x in range(len(self.contents)):
             #get filename 
             filename = str(self.contents[x]).replace("ContentFile(path=", "").replace("\"", "").replace(")", "")
@@ -296,7 +295,7 @@ class UpdateType:
         #initialize variables and get file content 
         self.sort_genre("Other", self.other)
         self.sort_genre("Short Stories", self.stories)
-        self.sort_genre("Comics & Cartoons", self.comics)
+        self.sort_genre("Comics &amp; Cartoons", self.comics)
         self.sort_genre("Horoscopes", self.horoscopes)
         filecontent = str(repo.get_contents("c&i.html").decoded_content.decode())
 
@@ -409,12 +408,12 @@ class UpdateType:
             opinon += op_headlines[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"
             opinon += op_headlines[x][1] + "</h1> <h2 class=\"break-words carousel_card\">"
             opinon += op_headlines[x][2] + "</h2> </a> </div>"
-        opinion += "</div> </div>"
+        opinon += "</div> </div>"
 
         #initalize var 
         self.sort_genre("Book Reviews", self.book)
         self.sort_genre("Movie Reviews", self.movie)
-        self.sort_genre("Comics & Cartoons", self.comics)
+        self.sort_genre("Comics &amp; Cartoons", self.comics)
         self.sort_genre("Horoscopes", self.horoscopes)
 
         #get first headline of each
@@ -432,6 +431,9 @@ class UpdateType:
         #get bottom part of the program
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
+
+        formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
+        update_file("index.html", formatted_content.prettify())
     
     def updateall(self):
         self.news_op("news.html")
