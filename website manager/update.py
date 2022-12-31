@@ -145,9 +145,13 @@ class DeleteFile:
         contents = tmp.all_paths()
         self.filepath = contents[idx].replace("\n", "")
         self.filename = tmp.get_title(tmp.filecontents(idx)).replace("\n", "")
+        
+        self.filecontent = str(repo.get_contents(self.filepath).decoded_content.decode())[0:str(repo.get_contents(filepath).decoded_content.decode()).index("name=\"genre\"/>")]
     
     def deletefile(self):
+        #delete actual file
         filecontent = repo.get_contents(self.filepath)
+
         repo.delete_file(filecontent.path, "removed file", filecontent.sha, branch="main")
 
         #delete javascript
@@ -164,6 +168,17 @@ class DeleteFile:
 
         f = repo.get_contents("js/nav.js")
         repo.update_file("js/nav.js", "removing deleted items from search bar", change, f.sha)
+
+        #reupload main pages 
+        update_main = UpdateType()
+        if "News" in self.filecontent:
+            update_main.news_op("news.html")
+        elif "Opinion" in self.filecontent:
+            update_main.news_op("opinion.html")
+        elif "Reviews" in self.filecontent:
+            update_main.critic()
+        else:
+            update_main.culture()
     
     def get_title(self):
         return self.filename
@@ -434,6 +449,22 @@ class UpdateType:
 
         formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
         update_file("index.html", formatted_content.prettify())
+
+tmp = Repo_Mang()
+tmp.filecontents(0)
+
+contents = tmp.all_paths()
+filepath = contents[0].replace("\n", "")
+filecontent = str(repo.get_contents(filepath).decoded_content.decode())[0:str(repo.get_contents(filepath).decoded_content.decode()).index("name=\"genre\"/>")]
+
+if "News" in filecontent:
+    print()
+elif "Opinion" in filecontent:
+    print()
+elif "Reviews" in filecontent:
+    print()
+else:
+    print("match")
 
 #swap rows 
 # thing = [[1,2], 
