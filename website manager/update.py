@@ -145,9 +145,7 @@ class DeleteFile:
         contents = tmp.all_paths()
         self.filepath = contents[idx].replace("\n", "")
         self.filename = tmp.get_title(tmp.filecontents(idx)).replace("\n", "")
-        
-        self.filecontent = str(repo.get_contents(self.filepath).decoded_content.decode())[0:str(repo.get_contents(filepath).decoded_content.decode()).index("name=\"genre\"/>")]
-    
+            
     def deletefile(self):
         #delete actual file
         filecontent = repo.get_contents(self.filepath)
