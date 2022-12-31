@@ -297,8 +297,8 @@ class Text_Based():
                     count_upper = 0
                     count_lower = 0
 
-                    for x in word_arr:
-                        if x[0:1].isupper():
+                    for i in word_arr:
+                        if i[0:1].isupper():
                             count_upper += 1
                         else:
                             count_lower += 1
