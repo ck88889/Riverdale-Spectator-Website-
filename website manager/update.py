@@ -195,6 +195,7 @@ class UpdateType:
                     break
     
     def sort_genre(self, type, arr):
+        arr = []
         for x in range(len(self.contents)):
             #get filename 
             filename = str(self.contents[x]).replace("ContentFile(path=", "").replace("\"", "").replace(")", "")
@@ -254,6 +255,8 @@ class UpdateType:
         update_file(filename, formatted_content.prettify())
     
     def critic(self):
+        self.sort_genre("Book Reviews", self.book)
+        self.sort_genre("Movie Reviews", self.movie)
         filecontent = str(repo.get_contents("critic.html").decoded_content.decode())
 
         #get top part of the program
@@ -290,6 +293,11 @@ class UpdateType:
         update_file("critic.html", formatted_content.prettify())
     
     def culture(self):
+        #initialize variables and get file content 
+        self.sort_genre("Other", self.other)
+        self.sort_genre("Short Stories", self.stories)
+        self.sort_genre("Comics & Cartoons", self.comics)
+        self.sort_genre("Horoscopes", self.horoscopes)
         filecontent = str(repo.get_contents("c&i.html").decoded_content.decode())
 
         #get top part of the program
@@ -355,6 +363,11 @@ class UpdateType:
         update_file("c&i.html", formatted_content.prettify())
 
     def firstheadline(self, arr):
+        for x in range(len(arr)):
+            if "<meta content=\"yes\" name=\"feature\"/>".replace(" ", "") in str(repo.get_contents(arr[x][0]).decoded_content.decode()).replace(" ", ""):
+                return arr[x]
+
+    def getheadline(self, arr):
         headlines = []
         for x in range(len(arr)):
             if "<meta content=\"yes\" name=\"feature\"/>".replace(" ", "") in str(repo.get_contents(arr[x][0]).decoded_content.decode()).replace(" ", ""):
@@ -371,18 +384,50 @@ class UpdateType:
         top_half = "<!--main articles-->" + tmp_1[0]
 
         #headlines
-        #link, title, author, img, date
-        news_headline = self.firstheadline(self.news)
+        news_headline = self.getheadline(self.news)
         front_page = "<div class = \"top grid grid-cols-3 gap-8\" style = \"padding-top: 25px; padding-bottom: 100px\"> <!--headline--> <div class = \"col-span-2 headline shadow-2xl\">" 
         front_page += "\n<div><a href = \"" + news_headline[0][0] + "\">"
         front_page += "\n\t<img class = \"headline\" src = \"" + news_headline[0][3] + "\" alt = \"headline image\" />\n<h2 class = \"headline\">News</h2>"
         front_page += "<h1 class = \"headline hover:underline break-words\">" + news_headline[0][1] + "</h1> <h2 class = \"headline font-bold\">" + news_headline[0][2] + "</h2> </a></div> </div>\n"
+        front_page += "<!--other headlines--><div class = \"grid grid-rows-3 gap-8\">"
 
-        #other headlines: opinion, reviews, cartoon
+        #other headline for the news 
+        for x in range(1, 4):
+            front_page += "<!--subheadline--><a href = \"" + news_headline[x][0] + "\">\n<div class = \"grid grid-cols-4 subheading shadow-2xl\"><div><img class = \"subheading\" src =\""
+            front_page += news_headline[x][3] + "\"/></div>\n<div class = \"col-span-3\">\n<h2 class = \"subheading\" style = \"margin-top: 20px\">News\n</h2>\n<h1 class = \"subheading hover:underline break-words\" style = \"margin-top: 10px; margin-bottom: 10px\"> "
+            front_page += news_headline[x][1] + "</h1> <h2 class = \"subheading font-bold\" style = \"margin-bottom: 22px\">\n"
+            front_page += news_headline[x][2] + "\n</h2> </div> </div></a>"
+        front_page += "</div></div>"
+
+        #initalize var 
+        self.sort_genre("Opinion", self.opinion)
+        #headlines for opinion articles 
+        op_headlines = self.getheadline(self.opinion)
+        opinon = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> MORE OPINIONS <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
         for x in range(3):
-            print()
+            opinon += "<!--item--> <div class=\"carousel_card shadow-2xl\"> <a href=\"" + op_headlines[x][0] + "\"> <img alt=\"carousel image\" class=\"carousel\" src=\""
+            opinon += op_headlines[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"
+            opinon += op_headlines[x][1] + "</h1> <h2 class=\"break-words carousel_card\">"
+            opinon += op_headlines[x][2] + "</h2> </a> </div>"
+        opinion += "</div> </div>"
 
-        print(news_headline)
+        #initalize var 
+        self.sort_genre("Book Reviews", self.book)
+        self.sort_genre("Movie Reviews", self.movie)
+        self.sort_genre("Comics & Cartoons", self.comics)
+        self.sort_genre("Horoscopes", self.horoscopes)
+
+        #get first headline of each
+        more_arr = [self.firstheadline(self.book), self.firstheadline(self.movie), self.firstheadline(self.comics), self.firstheadline(self.horoscopes)]
+        
+        #headlines of entertainment sections 
+        more = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> REVIEWS, COMICS, AND MORE <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
+        for x in range(3):
+            more += "<!--item--> <div class=\"carousel_card shadow-2xl\"> <a href=\"" + more_arr[x][0] + "\"> <img alt=\"carousel image\" class=\"carousel\" src=\""
+            more += more_arr[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"
+            more += more_arr[x][1] + "</h1> <h2 class=\"break-words carousel_card\">"
+            more += more_arr[x][2] + "</h2> </a> </div>"
+        more += "</div> </div>"
 
         #get bottom part of the program
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
