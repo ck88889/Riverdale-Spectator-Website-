@@ -194,7 +194,7 @@ class UpdateType:
                     self.contents.pop(i)
                     break
     
-    def sort_genre(self):
+    def sort_genre(self, type, arr):
         for x in range(len(self.contents)):
             #get filename 
             filename = str(self.contents[x]).replace("ContentFile(path=", "").replace("\"", "").replace(")", "")
@@ -214,42 +214,23 @@ class UpdateType:
                 img = "images/" + img.replace("\"", "")
             else:
                 img = "images/placeholder.jpg"
+            
+            if "Horoscopes" in filecontent_arr[5]:
+                img = "images/fortune placeholder.jpg"
 
             #sort into the right array of types 
-            if "News" in filecontent_arr[5]:
+            if type in filecontent_arr[5]:
                 #link, title, author, img, date
-                self.news.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Opinion" in filecontent_arr[5]:
-                #link, title, author, img, date
-                self.opinion.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            #crictic's corner
-            elif "Book Reviews" in filecontent_arr[5]:
-                #link, title, author, img, date
-                self.book.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Movie Reviews" in filecontent_arr[5]:
-                #link, title, author, img, date
-                self.movie.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            #culture and illustrations
-            elif "Short Stories" in filecontent_arr[5]:
-                #link, title, author, img, date
-                self.stories.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Horoscopes" in filecontent_arr[5]:
-                img = "images/fortune placeholder.jpg"
-                #link, title, author, img, date
-                self.horoscopes.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Other" in filecontent_arr[5]:
-                #link, title, author, img, date
-                self.other.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
-            elif "Comics" in filecontent_arr[5]:
-                #link, title, author, img, date
-                self.comics.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+                arr.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
         
     def news_op(self, filename):
         filecontent = str(repo.get_contents(filename).decoded_content.decode())
 
         if filename == "news.html":
+            self.sort_genre("News", self.news)
             arr = self.news
         elif filename == "opinion.html":
+            self.sort_genre("Opinion", self.opinion)
             arr = self.opinion
             
         #top of code 
@@ -372,16 +353,49 @@ class UpdateType:
         
         formatted_content = BeautifulSoup(top_half + entertainment + stories + horoscopes + comics + bottom_half,'html.parser') #content to be formatted
         update_file("c&i.html", formatted_content.prettify())
+
+    def firstheadline(self, arr):
+        headlines = []
+        for x in range(len(arr)):
+            if "<meta content=\"yes\" name=\"feature\"/>".replace(" ", "") in str(repo.get_contents(arr[x][0]).decoded_content.decode()).replace(" ", ""):
+                headlines.append(arr[x])
+        return headlines 
+
+    def home(self):
+        #initalize var 
+        self.sort_genre("News", self.news)
+        filecontent = str(repo.get_contents("index.html").decoded_content.decode())
+
+        #get top part of the program
+        tmp_1 = filecontent.split("<!--main articles-->")
+        top_half = "<!--main articles-->" + tmp_1[0]
+
+        #headlines
+        #link, title, author, img, date
+        news_headline = self.firstheadline(self.news)
+        front_page = "<div class = \"top grid grid-cols-3 gap-8\" style = \"padding-top: 25px; padding-bottom: 100px\"> <!--headline--> <div class = \"col-span-2 headline shadow-2xl\">" 
+        front_page += "\n<div><a href = \"" + news_headline[0][0] + "\">"
+        front_page += "\n\t<img class = \"headline\" src = \"" + news_headline[0][3] + "\" alt = \"headline image\" />\n<h2 class = \"headline\">News</h2>"
+        front_page += "<h1 class = \"headline hover:underline break-words\">" + news_headline[0][1] + "</h1> <h2 class = \"headline font-bold\">" + news_headline[0][2] + "</h2> </a></div> </div>\n"
+
+        #other headlines: opinion, reviews, cartoon
+        for x in range(3):
+            print()
+
+        print(news_headline)
+
+        #get bottom part of the program
+        tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
+        bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
     
     def updateall(self):
-        self.sort_genre()
         self.news_op("news.html")
         self.news_op("opinion.html")
         self.critic()
         self.culture()
 
 x = UpdateType()
-x.updateall()
+x.home()
 
 #swap rows 
 # thing = [[1,2], 
