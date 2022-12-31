@@ -41,14 +41,14 @@ class Repo_Mang:
                 if ignore_arr[x] == str(articles_arr[i]):
                     articles_arr.pop(i)
                     break
+        
+        for x in range(len(articles_arr)):
+            articles_arr[x] = str(articles_arr[x]).replace("ContentFile(path=\"", "").replace("\")", "")
+        
         return articles_arr
 
     def all_paths(self):
-        path_list = []
-        for x in self.get_articles():
-            path_list.append(str(x)[str(x).index("\"")+1:len(str(x))-2])
-        
-        return path_list
+        return self.get_articles()
 
     def filecontents(self, idx): #get_articles = path_list 
         #get file contents for single file 
@@ -442,7 +442,8 @@ class UpdateType:
         self.culture()
 
 x = UpdateType()
-x.home()
+x.news_op("news.html")
+x.news_op("opinion.html")
 
 #swap rows 
 # thing = [[1,2], 

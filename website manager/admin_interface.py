@@ -250,7 +250,7 @@ class View():
         self.frame = Frame(main)
 
         #view all article files 
-        self.article_listbox = Listbox(self.frame, selectmode = "single", width = 45, height = 13)
+        self.article_listbox = Listbox(self.frame, selectmode = "single", width = 55, height = 13)
         index = 0
         for x in self.all_articles:
             self.article_listbox.insert(index, x)
@@ -259,7 +259,7 @@ class View():
 
         self.scrollbar = Scrollbar(self.frame, command = self.article_listbox.yview)
 
-        self.delete_btn = Button(main, text ="Delete File", command = self.delete_btn, bg = "white", font=("Helvetica", 9, "normal"), width = 40)
+        self.delete_btn = Button(main, text ="Delete File", command = self.delete_btn, bg = "white", font=("Helvetica", 9, "normal"), width = 50)
         self.delete_btn.configure(bg="gray62", activebackground="gray62")
 
         #pass next and back buttons 
