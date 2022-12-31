@@ -168,17 +168,6 @@ class DeleteFile:
 
         f = repo.get_contents("js/nav.js")
         repo.update_file("js/nav.js", "removing deleted items from search bar", change, f.sha)
-
-        #reupload main pages 
-        update_main = UpdateType()
-        if "News" in self.filecontent:
-            update_main.news_op("news.html")
-        elif "Opinion" in self.filecontent:
-            update_main.news_op("opinion.html")
-        elif "Reviews" in self.filecontent:
-            update_main.critic()
-        else:
-            update_main.culture()
     
     def get_title(self):
         return self.filename

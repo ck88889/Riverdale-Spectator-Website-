@@ -231,8 +231,27 @@ class View():
         confirmation = askyesno(title='Delete File', message='Are you sure that you want to delete the file?')
         
         if confirmation:
+            #get filecontent
+            tmp = update.Repo_Mang()
+            tmp.filecontents(selected_idx)
+            contents = tmp.all_paths()
+            filepath = contents[selected_idx].replace("\n", "")        
+            filecontent = str(selected_idx.get_contents(filepath).decoded_content.decode())[0:str(update.repo.get_contents(filepath).decoded_content.decode()).index("name=\"genre\"/>")]
+
+            #delete file 
             deletefile = update.DeleteFile(selected_idx)
-            deletefile.deletefile() #delete file 
+            deletefile.deletefile()
+
+            #reupload main pages 
+            update_main = update.UpdateType()
+            if "News" in self.filecontent:
+                update_main.news_op("news.html")
+            elif "Opinion" in self.filecontent:
+                update_main.news_op("opinion.html")
+            elif "Reviews" in self.filecontent:
+                update_main.critic()
+            else:
+                update_main.culture()
 
             messagebox.showinfo("Information","The file has been deleted")
 
