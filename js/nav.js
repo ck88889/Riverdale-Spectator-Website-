@@ -81,7 +81,8 @@ function carouselback(arr){
 }
 
 //view more arrays 
-let SHOW_AT_TIME = 3; 
+let SHOW_AT_TIME = 5; 
+let INIT = 5; 
 let all_news = [];
 let all_op = [];
 let all_movie = []; 
@@ -111,12 +112,6 @@ function viewmore(arr){
 }
 
 function init_show(arr){
-    if(arr.length < 5){
-        INIT = arr.length; 
-    }else{
-        INIT = 5
-    }
-
     for(let i = INIT; i < arr.length; i++){
         arr[i].classList.add("hide"); 
     }
@@ -135,18 +130,26 @@ window.onload = function(){
 
     //initialize article drop down items 
     if(document.getElementById("news")){ //news page
+        INIT = 10; //amount to show at first
+
         all_news = (document.getElementById("news")).querySelectorAll(".type_card");
         init_show(all_news);
     }else if(document.getElementById("opinion")){ //opinion page
+        INIT = 10; //amount to show at first
+
         all_op = (document.getElementById("opinion")).querySelectorAll(".type_card");
         init_show(all_op);
     }else if(document.getElementById("movie")){//critic's corner
+        INIT = 7; //amount to show at first
+
         all_movie = (document.getElementById("movie")).querySelectorAll(".type_card");
-        init_show(all_movie);
+        init_show(all_movie); //amount to show at first
   
         all_book = (document.getElementById("book")).querySelectorAll(".type_card");
         init_show(all_book);
     }else if(document.getElementById("stories")){//c&i page 
+        INIT = 5; //amount to show at first
+
         all_stories = (document.getElementById("stories")).querySelectorAll(".type_card");
         init_show(all_stories);
    
