@@ -434,16 +434,6 @@ class UpdateType:
 
         formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
         update_file("index.html", formatted_content.prettify())
-    
-    def updateall(self):
-        self.news_op("news.html")
-        self.news_op("opinion.html")
-        self.critic()
-        self.culture()
-
-x = UpdateType()
-x.news_op("news.html")
-x.news_op("opinion.html")
 
 #swap rows 
 # thing = [[1,2], 

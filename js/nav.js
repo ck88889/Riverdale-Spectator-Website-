@@ -3,10 +3,6 @@ let article_obj = [];
 var idx = 0; 
 var placeholder;
 
-//view more arrays 
-let all_news = [];
-let all_opinion = [];
-
 //navigation search bar 
 function reset_search(){
     for(let i = 0; i < article_obj.length; i++){
@@ -84,11 +80,39 @@ function carouselback(arr){
     }
 }
 
+//view more arrays 
+let SHOW_AT_TIME = 3; 
+let all_news = [];
+let all_op = [];
+
 function viewmore(arr){
-    alert(arr.length); 
+    //get number of hidden items
+    hidden = 0; 
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].classList.contains("hide")){
+            hidden++; 
+        }
+    }
+
+    if((arr.length - hidden) > SHOW_AT_TIME){//show next at a time
+        for(let i = 0; i < SHOW_AT_TIME; i++){
+            arr[hidden - 1 + i].classList.remove("hide");
+        }
+    }else{//show the rest 
+        for(let i = hidden -1; i < arr.length; i++){
+            arr[i].classList.remove("hide")
+        }
+    }
+    
 }
 
 function init_show(arr){
+    for(let i = SHOW_AT_TIME; i < arr.length; i++){
+        arr[i].classList.add("hide"); 
+    }
+}
+
+function init_carsouel(arr){
     for(let i = 1; i < arr.length; i++){
         arr[i].classList.add("hide"); 
     }
@@ -99,17 +123,20 @@ window.onload = function(){
     document.getElementById("email").href = "mailto:hamilton.spect@gmail.com";
     document.getElementById("github").href = "https://github.com/ck88889/riverdale-spectator-website";
 
+    //initialize article drop down items 
+    if(document.getElementById("news")){
+        all_news = (document.getElementById("news")).querySelectorAll(".type_card");
+        init_show(all_news);
+    }else if(document.getElementById("opinion")){
+        all_op = (document.getElementById("opinion")).querySelectorAll(".type_card");
+        init_show(all_op);
+    }
+
     //initialize carsouel items 
     if(document.getElementById("comic") &&  document.getElementById("horoscopes")){
         all_comics = (document.getElementById("comic")).querySelectorAll(".carousel_item");
-        init_show(all_comics);
+        init_carsouel(all_comics);
         all_horoscopes = (document.getElementById("horoscopes")).querySelectorAll(".carousel_item");
-        init_show(all_horoscopes);
-    }
-
-    //initialize article drop down items 
-    if(document.getElementById("opinion")){
-        all_opinon = (document.getElementById("opinion")).querySelectorAll(".type_card")
-        init_show(all_opinon)
+        init_carsouel(all_horoscopes);
     }
 }

@@ -202,8 +202,8 @@ class File():
         #pass next and back buttons 
         self.next = next
         self.back = back
-        next.configure(command = self.next_btn)
-        back.configure(command = self.back_btn)
+        next.configure(command = self.next_btn, text = "Save")
+        back.configure(command = self.back_btn, text = "Back")
         self.getimage_btn.configure(command = self.get_img)
         
 class View():
@@ -266,8 +266,8 @@ class View():
         self.next = next
         self.back = back
 
-        next.configure(command = self.next_btn)
-        back.configure(command = self.back_btn)
+        next.configure(command = self.next_btn, text="Next")
+        back.configure(command = self.back_btn, text="Back")
         self.view_heading.pack()
         self.frame.pack()
         self.article_listbox.pack(side = "left", fill = "y")
@@ -333,6 +333,19 @@ class NewTextBased(): #new text based article
 
         updatejs = generate.UpdateJs()
         updatejs.newfile(self.title_entry.get("1.0",END).replace('\n', ''), (filename).replace('\n', ''))
+
+        update_main = update.UpdateType()
+        if "NEWS" in self.type.get().replace(" ", "").upper:
+            update_main.news_op("news.html")
+        elif "OPINION" in self.type.get().replace(" ", "").upper:
+            update_main.news_op("opinion.html")
+        elif "REVIEWS" in self.type.get().replace(" ", "").upper:
+            update_main.critic()
+        else:
+            update_main.culture()
+
+        if self.isfeatured.get() == 1:
+            update_main.home()
 
         messagebox.showinfo("Information","New article file created")
         self.back_btn()
@@ -445,8 +458,8 @@ class NewTextBased(): #new text based article
         #pass next and back buttons 
         self.next = next
         self.back = back
-        next.configure(command = self.next_btn)
-        back.configure(command = self.back_btn)
+        next.configure(command = self.next_btn, text = "Save")
+        back.configure(command = self.back_btn, text = "Back")
         self.getimage_btn.configure(command = self.get_img)
 
 class Comic():
@@ -505,6 +518,13 @@ class Comic():
 
             updatejs = generate.UpdateJs()
             updatejs.newfile(self.title_entry.get("1.0",END).replace('\n', ''), (filename).replace('\n', ''))
+
+            #update main pages 
+            update_main = update.UpdateType()
+            update_main.culture()
+
+            if self.isfeatured.get() == 1:
+                update_main.home()
 
             messagebox.showinfo("Information","New comic file created")
             self.back_btn()
@@ -606,11 +626,9 @@ class Comic():
         #pass next and back buttons 
         self.next = next
         self.back = back
-        next.configure(command = self.next_btn)
-        back.configure(command = self.back_btn)
+        next.configure(command = self.next_btn, text = "Create")
+        back.configure(command = self.back_btn, text = "Back")
         self.getimage_btn.configure(command = self.get_img)
-
-    
 
 class Main():
     def main_delete(self):
