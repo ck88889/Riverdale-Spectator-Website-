@@ -340,4 +340,8 @@ h2.carousel_card{
         margin-left: 10%;
         margin-right: 10%;
     }
+
+    h1.article{
+        font-size: 35px;
+    }
 }

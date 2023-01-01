@@ -426,7 +426,7 @@ class UpdateType:
         self.sort_genre("Opinion", self.opinion)
         #headlines for opinion articles 
         op_headlines = self.getheadline(self.opinion)
-        opinon = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> MORE OPINIONS <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 gap-3 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
+        opinon = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> MORE OPINIONS <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 gap-3 justify-items-center home_carousel\">"
         for x in range(4):
             opinon += "<!--item--> <div class=\"carousel_card shadow-2xl\"> <a href=\"" + op_headlines[x][0] + "\"> <img alt=\"carousel image\" class=\"carousel\" src=\""
             opinon += op_headlines[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"
@@ -444,7 +444,7 @@ class UpdateType:
         more_arr = [self.firstheadline(self.book), self.firstheadline(self.movie), self.firstheadline(self.comics), self.firstheadline(self.horoscopes)]
         
         #headlines of entertainment sections 
-        more = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> REVIEWS, COMICS, AND MORE <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 gap-3 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
+        more = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> REVIEWS, COMICS, AND MORE <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 gap-3 justify-items-center home_carousel\">"
         for x in range(4):
             more += "<!--item--> <div class=\"carousel_card shadow-2xl\"> <a href=\"" + more_arr[x][0] + "\"> <img alt=\"carousel image\" class=\"carousel\" src=\""
             more += more_arr[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"

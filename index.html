@@ -97,6 +97,14 @@
       color:#E10000; 
    }
 
+   .home_carousel{
+      background-color:#28282B; 
+      padding: 40px; 
+      margin-left: 140px; 
+      margin-right: 140px; 
+      margin-bottom: 50px
+   }
+
    @media only screen and (max-width: 1325px) {
       h1.headline{
          font-size: 25px;
@@ -112,6 +120,38 @@
    
       h2.subheading{
          font-size: 10px;
+      }
+   }
+
+   @media only screen and (max-width: 995px){
+      .home_carousel{
+         margin-left: 10%;
+         margin-right: 10%;
+      }
+
+      h1.headline{
+         font-size: 23px;
+      }
+
+      h2.headline{
+         font-size: 13px;
+      }
+
+      h1.subheading{
+         font-size: 14px;
+      }
+   
+      h2.subheading{
+         font-size: 10px;
+      }
+
+      img.headline{
+         height: 350px;
+      }
+
+      .moreheadlines{
+         margin-left: 10%; 
+         margin-right: 10%; 
       }
    }
  </style>
@@ -244,7 +284,7 @@
    <hr/>
   </h1>
   <!--list of articles-->
-  <div class="grid grid-cols-4 gap-3 justify-items-center" style=" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px">
+  <div class="grid grid-cols-4 gap-3 justify-items-center home_carousel">
    <!--item-->
    <div class="carousel_card shadow-2xl">
     <a href="The Downfall of Shakespeare in the ModernClassroom 430624.html">
@@ -304,7 +344,7 @@
    <hr/>
   </h1>
   <!--list of articles-->
-  <div class="grid grid-cols-4 gap-3 justify-items-center" style=" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px">
+  <div class="grid grid-cols-4 gap-3 justify-items-center home_carousel">
    <!--item-->
    <div class="carousel_card shadow-2xl">
     <a href="Kingdom of the Feared Review 145037.html">
