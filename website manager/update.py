@@ -335,7 +335,7 @@ class UpdateType:
             entertainment += "<div class = \"typeinner\">\n <a href = \"" + self.other[x][0] + "\">\n"
             entertainment += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.other[x][1] + "</h1>\n"
             entertainment += "<h2 class = \"typeinner\">" + self.other[x][2] + "</h2>\n</div>\n</div>\n"
-        entertainment += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_enter)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
+        entertainment += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_enter)\" style=\"margin-left: 20%\">\nView more\n</button>\n</div>"
 
         #get short stories
         stories = "<!--short story heading-->\n<div id=\"stories\">\n<h2 class=\"culture uppercase\">\nShort Stories\n</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
@@ -345,7 +345,7 @@ class UpdateType:
             stories += "<div class = \"typeinner\">\n <a href = \"" + self.stories[x][0] + "\">\n"
             stories += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.stories[x][1] + "</h1>\n"
             stories += "<h2 class = \"typeinner\">" + self.stories[x][2] + "</h2>\n</div>\n</div>\n"
-        stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 300px\">\nView more\n</button>\n</div>"
+        stories += "<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" onclick=\"viewmore(all_stories)\" style=\"margin-left: 20%\">\nView more\n</button>\n</div>"
         
         #get comics and cartoons
         #top part 
@@ -426,7 +426,7 @@ class UpdateType:
         self.sort_genre("Opinion", self.opinion)
         #headlines for opinion articles 
         op_headlines = self.getheadline(self.opinion)
-        opinon = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> MORE OPINIONS <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
+        opinon = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> MORE OPINIONS <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 gap-3 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
         for x in range(4):
             opinon += "<!--item--> <div class=\"carousel_card shadow-2xl\"> <a href=\"" + op_headlines[x][0] + "\"> <img alt=\"carousel image\" class=\"carousel\" src=\""
             opinon += op_headlines[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"
@@ -444,7 +444,7 @@ class UpdateType:
         more_arr = [self.firstheadline(self.book), self.firstheadline(self.movie), self.firstheadline(self.comics), self.firstheadline(self.horoscopes)]
         
         #headlines of entertainment sections 
-        more = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> REVIEWS, COMICS, AND MORE <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
+        more = "<!--more opinion--> <div> <!--heading--> <h1 class = \"moreheadlines\" style = \"margin-bottom: 30px;\"> <hr> REVIEWS, COMICS, AND MORE <hr> </h1>\n<!--list of articles--> <div class = \"grid grid-cols-4 gap-3 justify-items-center\" style = \" background-color:#28282B; padding: 40px; margin-left: 140px; margin-right: 140px; margin-bottom: 50px\">"
         for x in range(4):
             more += "<!--item--> <div class=\"carousel_card shadow-2xl\"> <a href=\"" + more_arr[x][0] + "\"> <img alt=\"carousel image\" class=\"carousel\" src=\""
             more += more_arr[x][3] + "\"/> <h1 class=\"hover:underline break-words carousel_card\">"
