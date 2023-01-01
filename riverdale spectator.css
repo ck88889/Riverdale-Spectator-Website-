@@ -269,10 +269,6 @@ h2.carousel_card{
 }
 
 @media only screen and (max-width: 1325px) {
-    body{
-        background-color:bisque;
-    }
-
     h1.carousel_card{
         font-size: 15px;
     }
@@ -290,10 +286,6 @@ h2.carousel_card{
 }
 
 @media only screen and (max-width: 1060px){
-    body{
-        background-color:cornflowerblue;
-    }
-
     img.nav_bar{
         display:block;
         width: 275px;
@@ -317,10 +309,6 @@ h2.carousel_card{
 }
 
 @media only screen and (max-width: 995px){
-    body{
-        background-color:grey;
-    }
-
     div.carousel{
         margin-right: 10%; 
         margin-left: 10%; 
