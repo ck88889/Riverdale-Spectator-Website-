@@ -228,7 +228,6 @@ class File():
         back.configure(command=self.back_btn, text="Back")
         self.getimage_btn.configure(command=self.get_img)
 
-
 class View():
     def view_delete(self):
         self.view_heading.forget()

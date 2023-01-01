@@ -187,7 +187,7 @@ class UpdateType:
 
         ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
             "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
-            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")", "ContentFile(path=\"puzzles.html\")"]
+            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")", "ContentFile(path=\"index.html\")"]
         self.contents = repo.get_contents("")
 
         for i in range(len(self.contents) - 1, -1, -1):
@@ -195,6 +195,25 @@ class UpdateType:
                 if ignore_arr[x] == str(self.contents[i]):
                     self.contents.pop(i)
                     break
+
+    def sort_date(self,arr):
+        month = ["January", "Febuary", "March", "April", "May", "June",
+                          "July", "August", "September", "October", "November", "December"]
+        tmp_num = []
+        
+        #turn numeric 
+        for x in range(len(arr)):
+            m = arr[x][4][0:arr[x][4].index(" ")]
+            for y in range(12):
+                if m == month[y]:
+                    tmp_num.append(int((y + 1) + int(arr[x][4][arr[x][4].index(" "):len(arr[x][4])])))
+
+        #sort selection sort 
+        for x in range(len(arr)):
+            for y in range(x + 1, len(arr)):
+                if tmp_num[x] < tmp_num[y]:
+                    tmp_num[y], tmp_num[x] = tmp_num[x], tmp_num[y]
+                    arr[y], arr[x] = arr[x], arr[y]
     
     def sort_genre(self, type, arr):
         for x in range(len(self.contents)):
@@ -217,13 +236,16 @@ class UpdateType:
             else:
                 img = "images/placeholder.jpg"
             
-            if "Horoscopes" in filecontent_arr[5]:
+            if "<meta content=\"Horoscopes" in filecontent:
                 img = "images/fortune placeholder.jpg"
 
             #sort into the right array of types 
-            if type in filecontent_arr[5]:
+            if ("<meta content=\""+ type) in filecontent:
                 #link, title, author, img, date
                 arr.append([filename, filecontent_arr[13], filecontent_arr[9], img, filecontent_arr[1]])
+
+        #sort dates (newest -> oldest)
+        self.sort_date(arr)
         
     def news_op(self, filename):
         filecontent = str(repo.get_contents(filename).decoded_content.decode())
@@ -437,8 +459,5 @@ class UpdateType:
         formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
         update_file("index.html", formatted_content.prettify())
 
-#swap rows 
-# thing = [[1,2], 
-#               [4,5], 
-#               [9,8]]
-#     thing[1] = thing[2]
+x = UpdateType()
+x.home()
