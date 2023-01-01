@@ -4,7 +4,7 @@
  <title>
   Culture and Illustrations
  </title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
  <link href="riverdale spectator.css" rel="stylesheet"/>
  <link href="images/tab icon.png" rel="icon" type="image/x-icon"/>
@@ -45,7 +45,6 @@
 
         }
     }
-
  </style>
 </head>
 <body class="flex flex-col min-h-screen" onclick="reset_search()">
@@ -148,7 +147,7 @@
     </div>
    </div>
    <!--view more book reviews-->
-   <button class="more rounded-lg" id="view more" onclick="viewmore(all_enter)">
+   <button class="more rounded-lg" id="view more" onclick="viewmore(all_enter)" style="margin-left: 300px">
     View more
    </button>
   </div>
@@ -201,7 +200,7 @@
     </div>
    </div>
    <!--view more book reviews-->
-   <button class="more rounded-lg" id="view more" onclick="viewmore(all_stories)">
+   <button class="more rounded-lg" id="view more" onclick="viewmore(all_stories)" style="margin-left: 300px">
     View more
    </button>
   </div>
@@ -219,7 +218,7 @@
    </b>
    <hr class="type mx-auto bg-black rounded border-1 genre" style="height: 1px;"/>
    <!--horoscopes carousel-->
-   <div class="carousel grid grid-cols-3" style="display:flex;align-items:center;">
+   <div class="carousel grid grid-cols-12" style="display:flex;align-items:center;">
     <!--back button-->
     <div>
      <button class="carousel" onclick="carouselback(all_horoscopes)">
@@ -230,7 +229,7 @@
      </button>
     </div>
     <!--display-->
-    <div style="margin-right: auto; margin-left: auto;">
+    <div class="col-span-10" style="margin-right: auto; margin-left: auto;">
      <!--carousel item-->
      <div class="carousel_item grid grid-cols-3 gap-3">
       <div class="carousel_card">
