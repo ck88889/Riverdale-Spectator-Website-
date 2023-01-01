@@ -460,4 +460,4 @@ class UpdateType:
         update_file("index.html", formatted_content.prettify())
 
 x = UpdateType()
-x.home()
+x.culture()
