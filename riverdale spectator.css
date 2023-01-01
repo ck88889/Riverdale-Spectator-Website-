@@ -1,269 +1,277 @@
 @import url('https://fonts.cdnfonts.com/css/open-sauce-one');
 @import url('https://fonts.googleapis.com/css?family=Noto Serif');
 
-.nav_bar{
-    background-color: #E10000;
-    color: #ffff;
+@media only screen and (min-width: 0px) {
+    .nav_bar{
+        background-color: #E10000;
+        color: #ffff;
+    }
+    
+    div.nav_bar{
+        padding-left: 20px;
+        padding-right: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    
+    img.nav_bar{
+        display:inline;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 275px;
+    }
+    
+    input:focus, textarea:focus, select:focus.nav_bar{
+        background-color: white;
+        outline: none;
+    }
+    
+    input.nav_bar{
+        background-color: white; 
+        color: #E10000; 
+        width: 400px; 
+        padding:2px; 
+        display:inline-block;
+    }
+    
+    .bottom_bar{
+        background-color: #28282B; 
+        color: white; 
+        padding-top: 50px;
+    }
+    
+    img.bottom_bar{
+        width: 200px;
+    }
+    
+    div.article{
+        margin-top: 75px;
+        margin-bottom: 75px;
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+    
+    .genre{
+        color:#E10000;
+        font-family: 'Noto Serif';
+        font-size: 18px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
+    .first_paragraph{
+        font-family: 'Noto Serif';
+        font-size: 20px;
+        margin-top: 50px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
+    .first_paragraph::first-letter{
+        float: left;
+        font-size: 70px;
+        margin-right: 8px;
+    }
+    
+    h1.article{
+        font-family: 'Noto Serif';
+        font-size: 45px;
+        margin-right: 130px; 
+        margin-left: 130px; 
+        text-align: center;
+    }
+    
+    h2.article{
+        margin-left: 100px;
+        font-family: 'Open Sauce One', sans-serif;
+        font-size: 15px;
+    }
+    
+    p.article{
+        font-family: 'Noto Serif';
+        font-size: 20px;
+        margin-top: 50px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
+    img.article{
+        margin-right: auto; 
+        margin-left: auto; 
+        width: 600px;
+        margin-top: 50px; 
+        margin-bottom: 15px; 
+    }
+    
+    .genre{
+        margin-right: 150px; 
+        text-align: left;
+    }
+    
+    .type{
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+    
+    h1.type{
+        font-family: 'Noto Serif';
+        font-size: 45px;
+        margin-top: 120px; 
+        color:#E10000
+    }
+    
+    h2.type{
+        font-family: 'Open Sauce One', sans-serif;
+        color:#E10000;
+        font-size: 15px;
+    }
+    
+    hr.type{
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+    
+    .search{
+        color:black;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 10px;
+        display: block;
+        width:428px;
+    }
+    
+    .search::after{
+        content: "\a";
+        white-space: pre;
+        z-index: 10000;
+    }
+    
+    .search:hover{
+        background-color: #E5E4E2;
+        z-index: 99999;
+    }
+    
+    .type_card{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 300px;
+        margin-right: 300px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    img.typeinner{
+        float: left;
+        width:  200px;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    h1.typeinner{
+        font-family: 'Noto Serif';
+        font-size: 27px;
+        margin-top: 20px;
+    }
+    
+    h2.typeinner{
+        font-family: 'Open Sauce One', sans-serif;
+        color:#E10000;
+        font-size: 15px; 
+        margin-top: 10px; 
+        padding-bottom: 20px; 
+    }
+    
+    div.typeinner{
+        margin-top: 20px;
+        margin-left: 30px; 
+        font-weight: 700;
+    }
+    
+    button.more{
+        background-color: #E10000;
+        font-family: 'Open Sauce One', sans-serif;
+        color: white; 
+        font-size: 17px;
+        padding: 10px; 
+        margin-left: 300px;
+    }
+    
+    h1.comic{
+        font-family: 'Noto Serif';
+        font-size: 45px;
+        margin-right: 100px; 
+        margin-left: 100px; 
+    }
+    
+    img.comic{
+        margin-right: auto; 
+        margin-left: auto; 
+        width: 720px;
+        margin-top: 50px; 
+        margin-bottom: 15px; 
+    }
+    
+    div.carousel{
+        background-color: #28282B;
+        margin-right: 300px; 
+        margin-left: 300px; 
+        margin-top: 40px; 
+        padding-top: 30px; 
+        padding-bottom: 30px; 
+        display:block; 
+    }
+    
+    button.carousel{
+        background-color: #E10000;
+        color: white;
+        font-weight: bold;
+        border-radius: 50%;
+        padding: 15px;
+        margin-left: 20px;
+        margin-right: 20px;  
+    }
+    
+    img.carousel{
+        float: left;
+        width:  300px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+    
+    div.carousel_card{
+        background-color: #FAF9F6;
+        width: 235px; 
+        height: 400px; 
+    }
+    
+    h1.carousel_card{
+        margin-right: 20px; 
+        margin-left: 20px; 
+        font-family: 'Noto Serif';
+        font-size: 20px;
+        font-weight: bold; 
+    }
+    
+    h2.carousel_card{
+        font-family: 'Open Sauce One', sans-serif;
+        color:#E10000;
+        font-size: 15px;  
+        font-weight: bold;
+        margin-right: 20px; 
+        margin-left: 20px;
+        margin-top: 10px; 
+    }
+    
+    .carousel_item{
+        font: 1; 
+    }
+    
+    .hide{
+        display: none; 
+    }
 }
 
-div.nav_bar{
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-img.nav_bar{
-    display:inline;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 275px;
-}
-
-input:focus, textarea:focus, select:focus.nav_bar{
-    background-color: white;
-    outline: none;
-}
-
-input.nav_bar{
-    background-color: white; 
-    color: #E10000; 
-    width: 400px; 
-    padding:2px; 
-    display:inline-block;
-}
-
-.bottom_bar{
-    background-color: #28282B; 
-    color: white; 
-    padding-top: 50px;
-}
-
-img.bottom_bar{
-    width: 200px;
-}
-
-div.article{
-    margin-top: 75px;
-    margin-bottom: 75px;
-    margin-left: 300px;
-    margin-right: 300px;
-}
-
-.genre{
-    color:#E10000;
-    font-family: 'Noto Serif';
-    font-size: 18px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-.first_paragraph{
-    font-family: 'Noto Serif';
-    font-size: 20px;
-    margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-.first_paragraph::first-letter{
-    float: left;
-    font-size: 70px;
-    margin-right: 8px;
-}
-
-h1.article{
-    font-family: 'Noto Serif';
-    font-size: 45px;
-    margin-right: 130px; 
-    margin-left: 130px; 
-    text-align: center;
-}
-
-h2.article{
-    margin-left: 100px;
-    font-family: 'Open Sauce One', sans-serif;
-    font-size: 15px;
-}
-
-p.article{
-    font-family: 'Noto Serif';
-    font-size: 20px;
-    margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-img.article{
-    margin-right: auto; 
-    margin-left: auto; 
-    width: 600px;
-    margin-top: 50px; 
-    margin-bottom: 15px; 
-}
-
-.genre{
-    margin-right: 150px; 
-    text-align: left;
-}
-
-.type{
-    margin-left: 300px;
-    margin-right: 300px;
-}
-
-h1.type{
-    font-family: 'Noto Serif';
-    font-size: 45px;
-    margin-top: 120px; 
-    color:#E10000
-}
-
-h2.type{
-    font-family: 'Open Sauce One', sans-serif;
-    color:#E10000;
-    font-size: 15px;
-}
-
-hr.type{
-    margin-left: 300px;
-    margin-right: 300px;
-}
-
-.search{
-    color:black;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 10px;
-    display: block;
-    width:428px;
-}
-
-.search::after{
-    content: "\a";
-    white-space: pre;
-    z-index: 10000;
-}
-
-.search:hover{
-    background-color: #E5E4E2;
-    z-index: 99999;
-}
-
-.type_card{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 300px;
-    margin-right: 300px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-img.typeinner{
-    float: left;
-    width:  200px;
-    height: 200px;
-    object-fit: cover;
-}
-
-h1.typeinner{
-    font-family: 'Noto Serif';
-    font-size: 27px;
-    margin-top: 20px;
-}
-
-h2.typeinner{
-    font-family: 'Open Sauce One', sans-serif;
-    color:#E10000;
-    font-size: 15px; 
-    margin-top: 10px; 
-    padding-bottom: 20px; 
-}
-
-div.typeinner{
-    margin-top: 20px;
-    margin-left: 30px; 
-    font-weight: 700;
-}
-
-button.more{
-    background-color: #E10000;
-    font-family: 'Open Sauce One', sans-serif;
-    color: white; 
-    font-size: 17px;
-    padding: 10px; 
-    margin-left: 300px;
-}
-
-h1.comic{
-    font-family: 'Noto Serif';
-    font-size: 45px;
-    margin-right: 100px; 
-    margin-left: 100px; 
-}
-
-img.comic{
-    margin-right: auto; 
-    margin-left: auto; 
-    width: 720px;
-    margin-top: 50px; 
-    margin-bottom: 15px; 
-}
-
-div.carousel{
-    background-color: #28282B;
-    margin-right: 300px; 
-    margin-left: 300px; 
-    margin-top: 40px; 
-    padding-top: 30px; 
-    padding-bottom: 30px; 
-    display:block; 
-}
-
-button.carousel{
-    background-color: #E10000;
-    color: white;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 15px;
-    margin-left: 20px;
-    margin-right: 20px;  
-}
-
-img.carousel{
-    float: left;
-    width:  300px;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-div.carousel_card{
-    background-color: #FAF9F6;
-    width: 235px; 
-    height: 400px; 
-}
-
-h1.carousel_card{
-    margin-right: 20px; 
-    margin-left: 20px; 
-    font-family: 'Noto Serif';
-    font-size: 20px;
-    font-weight: bold; 
-}
-
-h2.carousel_card{
-    font-family: 'Open Sauce One', sans-serif;
-    color:#E10000;
-    font-size: 15px;  
-    font-weight: bold;
-    margin-right: 20px; 
-    margin-left: 20px;
-    margin-top: 10px; 
-}
-
-.carousel_item{
-    font: 1; 
-}
-
-.hide{
-    display: none; 
+@media only screen and (min-width: 1500px) {
+    body{
+        background-color:bisque;
+    }
 }
