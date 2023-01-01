@@ -26,6 +26,20 @@
         margin-top: 30px;
         margin-left: 20%; 
     }
+
+    button.more{
+        margin-left: 20%
+    }
+
+    @media only screen and (max-width: 995px){
+        h2.culture{
+            margin-left: 10%;
+        }
+
+        button.more{
+            margin-left: 10%
+        }
+    }
  </style>
 </head>
 <body class="flex flex-col min-h-screen" onclick="reset_search()">
@@ -165,7 +179,7 @@
     </div>
    </div>
    <!--view more movie reviews-->
-   <button class="more rounded-lg" id="view more" onclick="viewmore(all_movie)" style="margin-left: 20%">
+   <button class="more rounded-lg" id="view more" onclick="viewmore(all_movie)">
     View more
    </button>
   </div>
@@ -308,7 +322,7 @@
     </div>
    </div>
    <!--view more book reviews-->
-   <button class="more rounded-lg" id="view more" onclick="viewmore(all_book)" style="margin-left: 20%">
+   <button class="more rounded-lg" id="view more" onclick="viewmore(all_book)">
     View more
    </button>
   </div>

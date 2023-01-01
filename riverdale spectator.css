@@ -230,7 +230,7 @@ button.carousel{
 
 img.carousel{
     float: left;
-    width:  300px;
+    width:  100%;
     height: 200px;
     object-fit: cover;
     margin-bottom: 20px;
@@ -280,10 +280,64 @@ h2.carousel_card{
     h2.carousel_card{
         font-size: 10px;  
     }
+}
 
+@media only screen and (max-width: 1157px){
     div.article{
-        margin-left: 200px;
-        margin-right: 200px;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
 
+@media only screen and (max-width: 1060px){
+    body{
+        background-color:cornflowerblue;
+    }
+
+    img.nav_bar{
+        display:block;
+        width: 275px;
+    }
+
+    .search{
+        display: inline;
+    }
+
+    img.carousel{
+        float: left;
+        width:  100%;
+        height: 40%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    div.carousel_card{
+        height: 300px; 
+    }
+}
+
+@media only screen and (max-width: 995px){
+    body{
+        background-color:grey;
+    }
+
+    div.carousel{
+        margin-right: 10%; 
+        margin-left: 10%; 
+    }
+
+    .type{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    hr.type{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .type_card{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
