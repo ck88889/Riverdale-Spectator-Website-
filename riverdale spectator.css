@@ -268,13 +268,17 @@ h2.carousel_card{
     display: none; 
 }
 
+.search_div{
+    margin-top: 70px; margin-right: 130px; display:inline-block; position: absolute; right: 0; background-color: white;
+}
+
 @media only screen and (max-width: 1325px) {
     h1.carousel_card{
-        font-size: 15px;
+        font-size: 18px;
     }
     
     h2.carousel_card{
-        font-size: 10px;  
+        font-size: 15px;  
     }
 }
 
@@ -288,11 +292,7 @@ h2.carousel_card{
 @media only screen and (max-width: 1060px){
     img.nav_bar{
         display:block;
-        width: 275px;
-    }
-
-    .search{
-        display: inline;
+        width: 285px;
     }
 
     img.carousel{
@@ -304,32 +304,132 @@ h2.carousel_card{
     }
 
     div.carousel_card{
-        height: 300px; 
+        height: 350px; 
     }
 }
 
 @media only screen and (max-width: 995px){
     div.carousel{
-        margin-right: 10%; 
-        margin-left: 10%; 
+        margin-right: 0%; 
+        margin-left: 0%; 
+        height: 870px; 
+    }
+
+    h1.carousel_card{
+        font-size: 38px;
+    }
+    
+    h2.carousel_card{
+        font-size: 30px;  
+    }
+
+    div.carousel_card{
+        height: 850px; 
+    }
+
+    img.carousel{
+        width:  100%;
+        height: 50%;
     }
 
     .type{
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    h1.type{
+        font-size: 70px;
+    }
+
+    h2.type{
+        font-size: 50px;
     }
 
     hr.type{
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .type_card{
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    div.article{
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     h1.article{
-        font-size: 35px;
+        font-size: 60px;
+    }
+    
+    h2.article{
+        font-size: 40px;
+    }
+
+    .first_paragraph{
+        font-size: 50px;
+    }
+    
+    p.article{
+        font-size: 50px;
+    }
+
+    .genre{
+        font-size: 35px; 
+    }
+
+    img.article{
+        width: 920px;
+    }
+
+    a{
+        font-size: 38px; 
+    }
+
+    img.nav_bar{
+        width: 405px;
+    }
+
+    #searchbar{
+        font-size: 30px; 
+    }
+    
+    h1.typeinner{
+        margin-top: 1px;
+        padding-left: 5px;
+        font-size: 55px;
+    }
+    
+    h2.typeinner{
+        margin-top: 1px;
+        font-size: 40px; 
+    }
+
+    img.typeinner{
+        width: 150px;
+        height:100%;
+    }
+
+    button.carousel{
+        padding: 5px;
+        height: 850px;
+        margin-left: 7px;
+        margin-right: 7px;  
+        border-radius: 0%;
+        padding-left: 12.5px;
+        padding-right: 12.5px;
+    }
+
+    button.more{
+        font-size: 40px;
+        padding: 10px; 
+        padding-left: 15px; 
+        padding-right: 15px; 
+    }
+
+    .search_div{
+        margin-top: 180px; 
     }
 }
