@@ -45,8 +45,8 @@ img.bottom_bar{
 div.article{
     margin-top: 75px;
     margin-bottom: 75px;
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .genre{
@@ -107,8 +107,8 @@ img.article{
 }
 
 .type{
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 h1.type{
@@ -125,8 +125,8 @@ h2.type{
 }
 
 hr.type{
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .search{
@@ -210,8 +210,8 @@ img.comic{
 
 div.carousel{
     background-color: #28282B;
-    margin-right: 300px; 
-    margin-left: 300px; 
+    margin-right: 20%; 
+    margin-left: 20%; 
     margin-top: 40px; 
     padding-top: 30px; 
     padding-bottom: 30px; 

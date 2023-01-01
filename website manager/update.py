@@ -295,7 +295,7 @@ class UpdateType:
             movie_half += "<div class = \"typeinner\">\n <a href = \"" + self.movie[x][0] + "\">\n"
             movie_half += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.movie[x][1] + "</h1>\n"
             movie_half += "<h2 class = \"typeinner\">" + self.movie[x][2] + "</h2>\n</div>\n</div>\n"
-        movie_half += "<!--view more movie reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" style = \"margin-left: 300px\" onclick=\"viewmore(all_movie)\">\nView more\n</button>\n</div>"
+        movie_half += "<!--view more movie reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" style = \"margin-left: 20%\" onclick=\"viewmore(all_movie)\">\nView more\n</button>\n</div>"
         
         #generate book part of the program
         book_half = "<!--book reviews heading-->\n<div id = \"book\">\n<h2 class = \"culture uppercase\">Book Reviews</h2>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>\n<b><h2 class=\"type uppercase\">\nthe Latest\n</h2></b>\n<hr class=\"type mx-auto bg-black rounded border-1 genre\" style=\"height: 1px;\"/>"
@@ -307,7 +307,7 @@ class UpdateType:
             book_half += "<h1 class = \"hover:underline break-words typeinner\">\n" + self.book[x][1] + "</h1>\n"
             book_half += "<h2 class = \"typeinner\">" + self.book[x][2] + "</h2>\n</div>\n</div>\n"
         
-        book_half += "\n<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" style = \"margin-left: 300px\" onclick=\"viewmore(all_book)\">\nView more\n</button>\n</div>\n</div>"
+        book_half += "\n<!--view more book reviews-->\n<button class=\"more rounded-lg\" id=\"view more\" style = \"margin-left: 20%\" onclick=\"viewmore(all_book)\">\nView more\n</button>\n</div>\n</div>"
         
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n<!--bottom navigation bar-->\n" + tmp_2[1]
