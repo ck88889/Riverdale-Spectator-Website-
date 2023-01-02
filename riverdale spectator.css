@@ -314,6 +314,10 @@ div.search_bar{
     margin-right: 10%; 
 }
 
+div.bottom_icons{
+    background-color: #28282B;
+}
+
 .bottom_links{
     font-size: 17px;
 }
