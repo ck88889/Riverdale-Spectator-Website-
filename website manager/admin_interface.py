@@ -723,9 +723,6 @@ class Comic():
 class Main():
 
     def OpenLinks(self):
-        content = str(update.repo.get_contents(
-            "all_links.txt").decoded_content.decode())
-
         self.newWindow = Toplevel(main)
         self.newWindow.title("Downloadable links")
         self.newWindow.geometry("400x370")
@@ -751,13 +748,14 @@ class Main():
         history.insert(INSERT, read_history.read())
         history.pack()
 
-        def okay(name, link):
+        def okay():
             update_file = links.File()
-            update_file.update(name, link)
+            update_file.update(text_entry.get("1.0",END), link_entry.get("1.0",END))
             self.newWindow.destroy()
 
-        Okay = Button(self.newWindow, text="SAVE", bg="black", fg="white", padx=20,
-                    command = okay(text_entry.get(), link_entry.get()), font=("Helvetica", 10, "normal"), width = 36)
+        Okay = Button(self.newWindow, text="SAVE", bg="black", fg="white", 
+                padx=20, font=("Helvetica", 10, "normal"), width = 36)
+        Okay.config(command = okay)
         Okay.pack()
 
     def main_delete(self):

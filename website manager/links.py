@@ -18,7 +18,7 @@ class File:
         filecontent = str(repo.get_contents("all_links.txt").decoded_content.decode())
         content_arr = filecontent.split("\n")
 
-        full_txt = "Date: " + name + " , Link:" + link
+        full_txt = ("Date: " + name + " , Link:" + link).replace("\n", "")
         for x in content_arr:
             full_txt += "\n" + x
 
