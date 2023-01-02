@@ -75,8 +75,13 @@ class File():
 
     def next_btn(self):
         info = self.get_info()
-        create = generate.Text_Based(
-            info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8])
+
+        if "Comics" in self.type.get(): 
+            create = generate.Comic(info[0], info[1], info[2], info[3], info[4], info[6], info[8])
+        else:
+            create = generate.Text_Based(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8])
+            self.selected_file.update_article(create.get_file())
+
         self.selected_file.update_article(create.get_file())
 
         messagebox.showinfo("Information", "Changes have been saved")
@@ -124,7 +129,7 @@ class File():
 
         # type of article
         self.type_opt = ["News", "Opinion", "Book Reviews",
-                         "Movie Reviews" "Horoscopes", "Short Stories", "Other"]
+                         "Movie Reviews" "Horoscopes", "Short Stories", "Comics & Cartoons", "Other"]
         self.type = StringVar()
         self.type.set(self.selected_file.get_genre(contents))
 

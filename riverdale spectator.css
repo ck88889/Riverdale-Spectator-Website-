@@ -503,4 +503,9 @@ img.bottom_logo{
         margin-left: 3%;
         margin-right: 3%;
     }
+
+    h1.comic{
+        margin-right: 10%; 
+        margin-left: 10%; 
+    }
 }

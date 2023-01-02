@@ -117,6 +117,10 @@ class Repo_Mang:
             return ""
 
     def get_body(self, filecontent):
+
+        if "<meta content=\"Comics &amp; Cartoons\"" in filecontent:
+            return "NO TEXT (IS A COMIC)"
+
         tmp_1 = filecontent.split("<!--article body-->")
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
 
