@@ -10,7 +10,7 @@
  <script src="js/nav.js">
  </script>
  <style>
-  div.top{
+   div.top{
       margin-right: auto;
       margin-left: auto; 
       margin-top: 50px; 
@@ -51,7 +51,7 @@
       display: block; 
       min-width: 100%; 
       min-height: 100%;
-      padding-bottom: 30px; 
+      padding-bottom: 10px; 
    }
 
    .subheading{
@@ -79,7 +79,7 @@
 
    img.subheading{
       float: left;
-      width:  200px;
+      width: 200px;
       min-height: 100%;
       object-fit: cover;
    }
@@ -105,73 +105,70 @@
       margin-bottom: 50px
    }
 
-   @media only screen and (max-width: 1325px) {
-      h1.headline{
-         font-size: 25px;
+   @media only screen and (max-width: 640px){
+      div.top{
+         width: 100%; 
+         margin-top: 0px; 
       }
-   
-      h2.headline{
-         font-size: 15px;
+
+      /*top headlines*/
+      img.subheading{
+         float: left;
+         width: 15px;
+         min-height: 95%;
+         object-fit: cover;
       }
 
       h1.subheading{
-         font-size: 15px;
+         padding-right: 5px;
+         padding-left: 5px;
       }
    
       h2.subheading{
-         font-size: 10px;
-      }
-   }
-
-   @media only screen and (max-width: 995px){
-      .home_carousel{
-         margin-left: 0%;
-         margin-right: 0%;
-         height: 1050px;
+         margin-right: 10px;
+         padding-left: 5px;
+         font-size: 12px;
       }
 
-      h1.carousel_card{
-         font-size: 32px;
-      }
-     
-      h2.carousel_card{
-         font-size: 27px;  
-      }
-
-      img.headline{
-         height: 900px; 
-         margin-bottom: 40px; 
-      }
- 
-      div.carousel_card{
-         height: 950px; 
-      }
-
-      h1.headline{
-         font-size: 55px;
-      }
-
-      h2.headline{
-         font-size: 40px;
-      }
-
-      h1.subheading{
-         font-size: 40px;
-      }
-   
-      h2.subheading{
-         font-size: 25px;
-      }
-
-      h1.moreheadlines{
-         font-size: 55px;
+      /*other headlines and carousels*/
+      .moreheadlines{
          margin-left: 5%; 
          margin-right: 5%; 
       }
 
-      div.top{
-         width: 100%;
+      h1.moreheadlines{
+         font-size: 24px;
       }
+
+      .home_carousel{
+         background-color:#28282B; 
+         padding: 10px; 
+         margin-left: 0%; 
+         margin-right: 0%; 
+         margin-bottom: 50px
+      }
+
+      img.carousel{
+         height: 120px;
+     }
+ 
+     div.carousel_card{
+         background-color: #FAF9F6;
+         width: 100%; 
+         height: 320px; 
+     }
+ 
+     h1.carousel_card{
+         font-size: 13px;
+         margin-right: 5px; 
+         margin-left: 5px;
+     }
+     
+     h2.carousel_card{
+         font-size: 11px;  
+         margin-right: 5px; 
+         margin-left: 5px;
+     }
    }
  </style>
 </head>

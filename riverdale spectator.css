@@ -268,168 +268,185 @@ h2.carousel_card{
     display: none; 
 }
 
-.search_div{
-    margin-top: 70px; margin-right: 130px; display:inline-block; position: absolute; right: 0; background-color: white;
+.logo{
+    background-color: #E10000;
 }
 
-@media only screen and (max-width: 1325px) {
-    h1.carousel_card{
-        font-size: 18px;
-    }
-    
-    h2.carousel_card{
-        font-size: 15px;  
-    }
+img.logo{
+    padding-top: 0.7%; 
+    padding-bottom: 0.7%;
+    margin-left: 10%;
+    margin-right: auto;
+    width: 15%;
 }
 
-@media only screen and (max-width: 1157px){
-    div.article{
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+.nav_links{
+    font-size: 14px; 
+    text-align: center;
+    padding: 0.2%;
+    background-color: #28282B;
+    color: white;
+    padding-left: 10%;
+    padding-right: 50%;
+    align-items: center;
+    font-weight: 600; 
+    font-family: 'Open Sauce One', sans-serif;
 }
 
-@media only screen and (max-width: 1060px){
-    img.nav_bar{
-        display:block;
-        width: 285px;
-    }
-
-    img.carousel{
-        float: left;
-        width:  100%;
-        height: 40%;
-        object-fit: cover;
-        margin-bottom: 20px;
-    }
-
-    div.carousel_card{
-        height: 350px; 
-    }
+div.search_bar{
+    float: right; 
+    margin-right: 5%;
+    margin-top: 3%; 
 }
 
-@media only screen and (max-width: 995px){
-    div.carousel{
-        margin-right: 0%; 
-        margin-left: 0%; 
-        height: 870px; 
+#searchbar{
+    width: 400px;  
+    outline: 1px solid black;
+}
+
+@media screen and (max-width: 640px) {
+    img.logo{
+        width: 30%;
+        margin-left: 5%; 
     }
 
-    h1.carousel_card{
-        font-size: 38px;
-    }
-    
-    h2.carousel_card{
-        font-size: 30px;  
-    }
-
-    div.carousel_card{
-        height: 850px; 
+    .nav_links{
+        padding-right: 5%;
+        padding-left: 0%;
+        text-align: center;
+        font-size: 12px; 
     }
 
-    img.carousel{
-        width:  100%;
-        height: 50%;
-    }
-
-    .type{
+    div.search_bar{
+        float: left; 
+        margin-right: 5%; 
         margin-left: 5%;
-        margin-right: 5%;
+        margin-top: 3%; 
     }
 
-    h1.type{
-        font-size: 70px;
+    .search{
+        width: 210px; 
     }
 
-    h2.type{
-        font-size: 50px;
+    #searchbar{
+        width: 210px; 
+        outline: 0.5px solid black;
     }
+}
 
+@media screen and (max-width: 640px) {
     hr.type{
         margin-left: 5%;
         margin-right: 5%;
     }
 
-    .type_card{
-        margin-left: 2%;
-        margin-right: 2%;
+    h2.type{
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
+    /* carousel */
+    div.carousel{
+        margin-right: 0%; 
+        margin-left: 0%;  
+    }
+
+    button.carousel{
+        border-radius: 0%;
+        height: 320px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 0px;
+        padding-left: 2px; 
+        padding-right: 2px; 
+    }
+
+    img.carousel{
+        height: 150px;
+    }
+
+    div.carousel_card{
+        background-color: #FAF9F6;
+        width: 100%; 
+        height: 320px; 
+    }
+
+    h1.carousel_card{
+        font-size: 15px;
+        margin-right: 10px; 
+        margin-left: 10px;
+    }
+    
+    h2.carousel_card{
+        font-size: 12px;  
+        margin-right: 10px; 
+        margin-left: 10px;
+    }
+
+    /* horizontal cards */
+    .type_card{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-right: 2%;
+    }
+
+    img.typeinner{
+        float: left;
+        width:  100px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    h1.typeinner{
+        font-size: 26px;
+        margin-top: 10px;
+    }
+
+    h2.typeinner{
+        font-size: 18px;
+    }
+
+    /*type pages title*/
+    .type{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    h1.type{
+        margin-top: 80px; 
+    }
+
+    /* article */
     div.article{
         margin-left: 5%;
         margin-right: 5%;
     }
 
     h1.article{
-        font-size: 60px;
+        font-family: 'Noto Serif';
+        font-size: 35px;
+        margin-right: 0px; 
+        margin-left: 0px; 
+        text-align: center;
     }
     
     h2.article{
-        font-size: 40px;
-    }
-
-    .first_paragraph{
-        font-size: 50px;
-    }
-    
-    p.article{
-        font-size: 50px;
+        margin-left: 10%;
     }
 
     .genre{
-        font-size: 35px; 
+        margin-left: 10%;
     }
 
-    img.article{
-        width: 920px;
+    .first_paragraph{
+        margin-left: 3%;
+        margin-right: 3%;
     }
 
-    a{
-        font-size: 38px; 
-    }
-
-    img.nav_bar{
-        width: 405px;
-    }
-
-    #searchbar{
-        font-size: 30px; 
-    }
-    
-    h1.typeinner{
-        margin-top: 1px;
-        padding-left: 5px;
-        font-size: 55px;
-    }
-    
-    h2.typeinner{
-        margin-top: 1px;
-        font-size: 40px; 
-    }
-
-    img.typeinner{
-        width: 150px;
-        height:100%;
-    }
-
-    button.carousel{
-        padding: 5px;
-        height: 850px;
-        margin-left: 7px;
-        margin-right: 7px;  
-        border-radius: 0%;
-        padding-left: 12.5px;
-        padding-right: 12.5px;
-    }
-
-    button.more{
-        font-size: 40px;
-        padding: 10px; 
-        padding-left: 15px; 
-        padding-right: 15px; 
-    }
-
-    .search_div{
-        margin-top: 180px; 
+    p.article{
+        margin-left: 3%;
+        margin-right: 3%;
     }
 }
