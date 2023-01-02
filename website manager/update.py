@@ -474,6 +474,3 @@ class UpdateType:
 
         formatted_content = BeautifulSoup(top_half + front_page + opinon + more + downloads.code() + bottom_half,'html.parser') #content to be formatted
         update_file("index.html", formatted_content.prettify())
-
-x = UpdateType()
-x.home()
