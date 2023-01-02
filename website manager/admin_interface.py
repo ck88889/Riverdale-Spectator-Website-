@@ -85,6 +85,19 @@ class File():
 
         self.selected_file.update_article(create.get_file())
 
+        update_main = update.UpdateType()
+        if "News" in self.type.get():
+            update_main.news_op("news.html")
+        elif "Opinion" in self.type.get():
+            update_main.news_op("opinion.html")
+        elif "Reviews" in self.type.get():
+            update_main.critic()
+        else:
+            update_main.culture()
+
+        if self.isfeatured.get() == 1:
+            update_main.home()
+
         messagebox.showinfo("Information", "Changes have been saved")
         self.back_btn()
 
