@@ -1,6 +1,7 @@
 import update
 import generate
 import datetime
+import links
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter import filedialog
@@ -727,22 +728,36 @@ class Main():
 
         self.newWindow = Toplevel(main)
         self.newWindow.title("Downloadable links")
-        self.newWindow.geometry("400x270")
+        self.newWindow.geometry("400x370")
 
-        Heading = Label(self.newWindow, text="\n\nAll Downloadable Links\n\n")
+        Heading = Label(self.newWindow, text="\n\nAll Downloadable Links\n")
         Heading.pack()
 
-        Text = scrolledtext.ScrolledText(
-            self.newWindow, height=8, width=45, font=("Helvetica", 10, "normal"))
-        Text.insert(INSERT, content)
-        Text.pack()
+        h = Label(self.newWindow, text="Enter name of link:", width = 47, anchor="w")
+        h.pack()
+        text_entry = Text(self.newWindow, height=1, width=47, font=("Helvetica", 10, "normal"))
+        text_entry.pack()
 
-        def okay():
-            update.update_file("all_links.txt", Text.get(1.0, END))
+        h = Label(self.newWindow, text="Enter link:", width = 47, anchor="w")
+        h.pack()
+        link_entry = Text(self.newWindow, height=1, width=47, font=("Helvetica", 10, "normal"))
+        link_entry.pack()
+
+        h = Label(self.newWindow, text="Other links:", width = 47, anchor="w")
+        h.pack()
+        history = scrolledtext.ScrolledText(self.newWindow, height=8, width=45, font=("Helvetica", 10, "normal"))
+        
+        read_history = links.File()
+        history.insert(INSERT, read_history.read())
+        history.pack()
+
+        def okay(name, link):
+            update_file = links.File()
+            update_file.update(name, link)
             self.newWindow.destroy()
 
-        Okay = Button(self.newWindow, text="OK", bg="white", padx=20,
-                    command = okay, font=("Helvetica", 10, "normal"), width = 36)
+        Okay = Button(self.newWindow, text="SAVE", bg="black", fg="white", padx=20,
+                    command = okay(text_entry.get(), link_entry.get()), font=("Helvetica", 10, "normal"), width = 36)
         Okay.pack()
 
     def main_delete(self):
