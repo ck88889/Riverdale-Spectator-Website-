@@ -3,7 +3,7 @@ from github import Github
 from bs4 import BeautifulSoup #format files 
 import re
 import links
-TOKEN = "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"
+TOKEN = "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"
 REPO = "ck88889/Riverdale-Spectator-Website-"
 
 g = Github(TOKEN) #access token - remeber to change 

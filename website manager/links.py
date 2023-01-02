@@ -1,6 +1,6 @@
 #program to login into github to edit and add files 
 from github import Github
-TOKEN = "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"
+TOKEN = "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"
 REPO = "ck88889/Riverdale-Spectator-Website-"
 
 g = Github(TOKEN) #access token - remeber to change 
