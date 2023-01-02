@@ -1,7 +1,7 @@
 #program to login into github to edit and add files 
 from github import Github
 from bs4 import BeautifulSoup #format files 
-import re
+import update
 TOKEN = "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"
 REPO = "ck88889/Riverdale-Spectator-Website-"
 
@@ -43,7 +43,8 @@ old = """<div class = "nav_links grid grid-cols-5">
                 </a>
             </div>"""
 
-ignore_arr = ["ContentFile(path=\"1.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")"]
+ignore_arr = ["ContentFile(path=\"1.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", 
+            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"all_links.txt\")"]
 articles_arr = repo.get_contents("")
 
 for i in range(len(articles_arr) - 1, -1, -1):
@@ -58,5 +59,4 @@ for x in range(len(articles_arr)):
     filecontent.replace(old, replacement)
 
     formatted_content = BeautifulSoup(filecontent,'html.parser') #content to be formatted
-    f = repo.get_contents(path)
-    repo.update_file(path, "updating file", formatted_content, f.sha)
+    update.update_file(path, formatted_content)
