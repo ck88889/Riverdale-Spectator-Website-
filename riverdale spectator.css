@@ -333,7 +333,7 @@ img.bottom_logo{
     margin-right: 10%;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 940px) {
     img.bottom_logo{
         width: 100%;
         margin-left: 20%;
@@ -345,7 +345,7 @@ img.bottom_logo{
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 940px) {
     img.logo{
         width: 50%;
         margin-left: auto; 
@@ -391,7 +391,7 @@ img.bottom_logo{
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 940px) {
     hr.type{
         margin-left: 5%;
         margin-right: 5%;
