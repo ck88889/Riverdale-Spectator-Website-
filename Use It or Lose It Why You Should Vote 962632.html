@@ -14,44 +14,49 @@
 </head>
 <body class="flex flex-col min-h-screen" onclick = "reset_search()">
  <!--top navigation bar-->
- <div>
-  <!--icon and search bar-->
-  <div class="nav_bar" style="padding-left: 150px; padding-right: 150px">
-   <a href="index.html">
-    <img alt="riverdale spectator logo" class="nav_bar" src="images/riverdale spectator logo crop.jpg" style="padding-left: 10px;"/>
-   </a>
-   <div style="margin-top: 70px; margin-right: 130px; display:inline-block; position: absolute; right: 0; background-color: white;">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px;color: black; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-     </path>
-    </svg>
-    <input class="nav_bar shadow-md" id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black" type="text"/>
-    <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-     <div id="searchlist">
-     </div>
-    </div>
-   </div>
-  </div>
-  <!--main icons-->
-  <div onclick = "reset_search()" style="font-size: 13px;padding-top: 15px; padding-left: 160px; padding-bottom: 15px; background-color: #28282B; color: white">
-   <a class="font-medium hover:underline" href="index.html" style="padding-right: 20px">
-    HOME
-   </a>
-   <a class="font-medium hover:underline" href="news.html" style="padding-right: 20px">
-    NEWS
-   </a>
-   <a class="font-medium hover:underline" href="opinion.html" style="padding-right: 20px">
-    OPINION
-   </a>
-   <a class="font-medium hover:underline" href="critic.html" style="padding-right: 20px">
-    CRITIC'S CORNER
-   </a>
-   <a class="font-medium hover:underline" href="c&amp;i.html" style="padding-right: 20px">
-    CULTURE &amp; ILLUSTRATIONS
-   </a>
-  </div>
- </div>
- <!--text based article -->
+
+        <div>
+            <!--logo image-->
+            <div class = "logo">
+                <img class = "logo" src = "images/riverdale spectator logo crop.jpg">
+            </div>
+
+            <!--website main pages links-->
+            <div class = "nav_links grid grid-cols-5">
+                <a class="hover:underline" href="index.html">
+                    HOME
+                </a>
+                <a class="hover:underline" href="news.html">
+                 NEWS
+                </a>
+                <a class="hover:underline" href="opinion.html">
+                 OPINION
+                </a>
+                <a class="hover:underline" href="critic.html">
+                 CRITIC'S CORNER
+                </a>
+                <a class="hover:underline" href="c&amp;i.html">
+                 CULTURE &amp; ILLUSTRATIONS
+                </a>
+            </div>
+
+            <!--search bar-->
+            <div class = "search_bar">
+                <div  class = "shadow-md">
+                    <!--icon-->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px; background-color: black; color: white; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        </path>
+                    </svg>
+                    <!--input-->
+                    <input id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black;" type="text"/>
+                </div>
+                <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+                    <div id="searchlist">
+                    </div>
+                </div>
+            </div>
+        </div><!--text based article -->
  <div class="article" onclick = "reset_search()">
   <!--article heading-->
   <b>
