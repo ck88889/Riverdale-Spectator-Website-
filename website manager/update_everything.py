@@ -63,15 +63,14 @@ for i in range(len(articles_arr) - 1, -1, -1):
                     articles_arr.pop(i)
                     break
 
-for i in range(len(ignore_arr)):
-    path = str(ignore_arr[i]).replace("ContentFile(path=\"", "").replace("\")", "")
+path = str(ignore_arr[len(ignore_arr) -1]).replace("ContentFile(path=\"", "").replace("\")", "")
     
-    #acess file 
-    filecontent = str(repo.get_contents(path).decoded_content.decode())
-    arr_1 = filecontent.split("<!--top navigation bar-->")
-    arr_2 = arr_1[1].split("<!--show all articles-->")
+#acess file 
+filecontent = str(repo.get_contents(path).decoded_content.decode())
+arr_1 = filecontent.split("<!--top navigation bar-->")
+arr_2 = arr_1[1].split("<!--main articles-->")
 
-    updated_file = arr_1[0] + "<!--top navigation bar-->\n" + replacement +  "<!--text based article -->" + arr_2[1]
-    f = repo.get_contents(path)
-    formatted_content = BeautifulSoup(updated_file,'html.parser') #content to be formatted
-    repo.update_file(path, "updating file", updated_file, f.sha)
+updated_file = arr_1[0] + "<!--top navigation bar-->\n" + replacement +  "<!--main articles-->" + arr_2[1]
+f = repo.get_contents(path)
+formatted_content = BeautifulSoup(updated_file,'html.parser') #content to be formatted
+repo.update_file(path, "updating file", updated_file, f.sha)
