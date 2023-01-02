@@ -102,7 +102,30 @@
       padding: 40px; 
       margin-left: 140px; 
       margin-right: 140px; 
-      margin-bottom: 50px
+      margin-bottom: 50px;
+   }
+
+   .downloadable{
+      font-size: 20px;
+   }
+
+   div.downloadable{
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-bottom: 10%; 
+   }
+
+   .link_rect{
+      padding: 1%; 
+      padding-left: 0.4%;
+      padding-right: 0.4%;
+      margin-right: 0.2%; 
+      background-color: #E10000;
+   }
+
+   div.flex{
+      background-color: #d8d8d8;
+      padding: 1%; 
    }
 
    @media only screen and (max-width: 640px){
@@ -173,6 +196,24 @@
          margin-right: 5px; 
          margin-left: 5px;
      }
+
+     /*downloadable links*/
+     div.downloadable{
+         margin-left: 3%;
+         margin-right: 3%;
+     }
+     
+     .downloadable{
+      font-size: 18px;
+      }
+
+      .link_rect{
+         padding: 1%; 
+         padding-left: 0.5%;
+         padding-right: 0.5%;
+         margin-right: 1%; 
+         background-color: #E10000;
+      }  
    }
  </style>
 </head>
@@ -420,6 +461,32 @@
    </div>
   </div>
  </div>
+
+ <!--downloadables-->
+ <div>
+   <!--heading-->
+  <h1 class="moreheadlines" style="margin-bottom: 30px;">
+   <hr/>
+   DOWNLOADABLE PRINT ISSUES
+   <hr/>
+  </h1>
+  <!--links-->
+  <div class = "downloadable">
+      <!--item-->
+      <div class = "flex">
+         <!--item rectangle-->
+         <div class = "link_rect">
+         </div>
+         <!--indivual link-->
+         <div>
+            <a href = "#" style = "display: inline-block;" class = "hover:underline" target="_blank">Previous Riverdale Spectator </a>
+            <svg style = "display: inline; width: 30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#E10000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_iconCarrier"> <path d="M12.0005 3.74985V15.7494" stroke="#E10000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.56415 11.3131L12.0004 15.7494L16.4367 11.3131" stroke="#E10000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M0.750946 15.8993V17.2493C0.750946 18.0449 1.067 18.808 1.62959 19.3706C2.19218 19.9331 2.95521 20.2492 3.75082 20.2492H20.2502C21.0458 20.2492 21.8088 19.9331 22.3714 19.3706C22.934 18.808 23.25 18.0449 23.25 17.2493V15.8993" stroke="#E10000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+         </div>
+      </div>
+  </div>
+
+ </div>
+
  <!--bottom navigation bar-->
  <div class="mt-auto bottom_bar" onclick="reset_search()">
   <!--bottom images and links-->
