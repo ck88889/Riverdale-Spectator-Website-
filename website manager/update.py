@@ -98,8 +98,6 @@ class Repo_Mang:
             return ""
 
     def get_img(self, megastring):
-        FIND = "<img alt=\"article image\""
-
         if "<img alt=\"article image\"" in megastring: #img of regular file 
                 tmp = megastring[megastring.index("<img alt=\"article image\""):len(megastring)]
                 img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
