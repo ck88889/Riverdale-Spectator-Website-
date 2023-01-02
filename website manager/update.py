@@ -101,7 +101,7 @@ class Repo_Mang:
         if "<img alt=\"article image\"" in megastring: #img of regular file 
                 tmp = megastring[megastring.index("<img alt=\"article image\""):len(megastring)]
                 img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
-                img = "images/" + img.replace("\"", "")
+                img = img.replace("\"", "").replace("ages", "")
 
                 if ">" in img:
                     img = img[0:img.index(">")]
