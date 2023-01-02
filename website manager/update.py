@@ -229,10 +229,14 @@ class UpdateType:
                 tmp = filecontent[filecontent.index("<img alt=\"article image\" class=\"comic\""):len(filecontent)]
                 img = tmp[len("<img alt=\"article image\"") + 27:tmp.index("/>")].replace('images\u005c','')
                 img = ("images/" + img.replace("\"", ""))
+                img = img[0:img.index(">")]
             elif "<img alt=\"article image\"" in filecontent: #img of regular file 
                 tmp = filecontent[filecontent.index("<img alt=\"article image\""):len(filecontent)]
                 img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
                 img = "images/" + img.replace("\"", "")
+
+                if ">" in img:
+                    img = img[0:img.index(">")]
             else:
                 img = "images/placeholder.jpg"
             
@@ -456,10 +460,8 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
 
-        print(self.comics)
-
-        #formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
-        #update_file("index.html", formatted_content.prettify())
+        formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
+        update_file("index.html", formatted_content.prettify())
 
 x = UpdateType()
 x.culture()
