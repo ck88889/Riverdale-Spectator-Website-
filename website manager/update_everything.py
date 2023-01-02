@@ -81,8 +81,8 @@ for i in range(len(articles_arr) - 1, -1, -1):
                     articles_arr.pop(i)
                     break
 
-for x in range(len(articles_arr)):
-    path = str(articles_arr[x]).replace("ContentFile(path=\"", "").replace("\")", "")
+for x in range(len(other_arr)):
+    path = str(other_arr[x]).replace("ContentFile(path=\"", "").replace("\")", "")
     filecontent = str(repo.get_contents(path).decoded_content.decode())
     arr = filecontent.split("<!--bottom navigation bar-->")
 

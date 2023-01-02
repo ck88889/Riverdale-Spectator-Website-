@@ -293,7 +293,7 @@ img.logo{
 
 div.search_bar{
     float: right; 
-    margin-right: 5%;
+    margin-right: 8.5%;
     margin-top: 5%; 
 }
 
@@ -370,6 +370,16 @@ img.bottom_logo{
         font-size: 17px; 
         width: 210px; 
         outline: 0.5px solid black;
+    }
+
+    #searchlist{
+        width: 240px; 
+    }
+
+    .search:hover{
+        width: 238px;
+        padding-left: 10px;
+        padding-right: 26px;
     }
 
     .h-6{
