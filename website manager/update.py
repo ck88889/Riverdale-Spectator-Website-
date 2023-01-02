@@ -229,7 +229,9 @@ class UpdateType:
                 tmp = filecontent[filecontent.index("<img alt=\"article image\" class=\"comic\""):len(filecontent)]
                 img = tmp[len("<img alt=\"article image\"") + 27:tmp.index("/>")].replace('images\u005c','')
                 img = ("images/" + img.replace("\"", ""))
-                img = img[0:img.index(">")]
+                
+                if ">" in img:
+                    img = img[0:img.index(">")]
             elif "<img alt=\"article image\"" in filecontent: #img of regular file 
                 tmp = filecontent[filecontent.index("<img alt=\"article image\""):len(filecontent)]
                 img = tmp[len("<img alt=\"article image\"") + 22:tmp.index("/>")].replace('images\u005c','')
