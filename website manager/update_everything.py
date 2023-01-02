@@ -59,7 +59,7 @@ for i in range(len(articles_arr) - 1, -1, -1):
                     break
 
 for x in range(len(other_arr)):
-    path = str(articles_arr[x]).replace("ContentFile(path=\"", "").replace("\")", "")
+    path = str(other_arr[x]).replace("ContentFile(path=\"", "").replace("\")", "")
     filecontent = str(repo.get_contents(path).decoded_content.decode())
     arr_1 = filecontent.split("<!--website main pages links-->")
     arr_2 = arr_1[1].split("<!--search bar-->")

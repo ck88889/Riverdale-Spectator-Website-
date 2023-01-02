@@ -456,8 +456,10 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
 
-        formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
-        update_file("index.html", formatted_content.prettify())
+        print(self.comics)
+
+        #formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
+        #update_file("index.html", formatted_content.prettify())
 
 x = UpdateType()
 x.culture()
