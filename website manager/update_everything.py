@@ -8,9 +8,42 @@ REPO = "ck88889/Riverdale-Spectator-Website-"
 g = Github(TOKEN) #access token - remeber to change 
 repo = g.get_repo(REPO) #access repostitory - remeber to change
 
-ignore_arr = ["ContentFile(path=\"js\")", "ContentFile(path=\"c&i.html\")", 
-            "ContentFile(path=\"critic.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"opinion.html\")" , 
-            "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")", "ContentFile(path=\"news.html\")", "ContentFile(path=\"index.html\")"]
+replacement = """<div class = "nav_links grid grid-cols-8">
+                <a class="hover:underline" href="index.html">
+                    HOME
+                </a>
+                <a class="hover:underline" href="news.html">
+                 NEWS
+                </a>
+                <a class="hover:underline" href="opinion.html">
+                 OPINION
+                </a>
+                <a class="hover:underline col-span-2" href="critic.html">
+                 CRITIC'S CORNER
+                </a>
+                <a class="hover:underline col-span-3" style = "text-align: left;" href="c&amp;i.html">
+                 CULTURE &amp; ILLUSTRATIONS
+                </a>
+            </div>"""
+old = """<div class = "nav_links grid grid-cols-5">
+                <a class="hover:underline" href="index.html">
+                    HOME
+                </a>
+                <a class="hover:underline" href="news.html">
+                 NEWS
+                </a>
+                <a class="hover:underline" href="opinion.html">
+                 OPINION
+                </a>
+                <a class="hover:underline" href="critic.html">
+                 CRITIC'S CORNER
+                </a>
+                <a class="hover:underline" href="c&amp;i.html">
+                 CULTURE &amp; ILLUSTRATIONS
+                </a>
+            </div>"""
+
+ignore_arr = ["ContentFile(path=\"1.html\")", "ContentFile(path=\"images\")", "ContentFile(path=\"js\")", "ContentFile(path=\"riverdale spectator.css\")", "ContentFile(path=\"website manager\")"]
 articles_arr = repo.get_contents("")
 
 for i in range(len(articles_arr) - 1, -1, -1):
@@ -19,5 +52,11 @@ for i in range(len(articles_arr) - 1, -1, -1):
                     articles_arr.pop(i)
                     break
 
-print(articles_arr
-)
+for x in range(len(articles_arr)):
+    path = str(articles_arr[x]).replace("ContentFile(path=\"", "").replace("\")", "")
+    filecontent = str(repo.get_contents(path).decoded_content.decode())
+    filecontent.replace(old, replacement)
+
+    formatted_content = BeautifulSoup(filecontent,'html.parser') #content to be formatted
+    f = repo.get_contents(path)
+    repo.update_file(path, "updating file", formatted_content, f.sha)
