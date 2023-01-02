@@ -9,9 +9,8 @@
  <link href="images/tab icon.png" rel="icon" type="image/x-icon"/>
  <script src="js/nav.js">
  </script>
-
  <style>
-    @media screen and (max-width: 640px) {
+  @media screen and (max-width: 640px) {
         h1.type{
             font-size: 45px
         }
@@ -36,49 +35,47 @@
 </head>
 <body class="flex flex-col min-h-screen" onclick="reset_search()">
  <!--top navigation bar-->
-
-        <div>
-            <!--logo image-->
-            <div class = "logo">
-                <img class = "logo" src = "images/riverdale spectator logo crop.jpg">
-            </div>
-
-            <!--website main pages links-->
-            <div class = "nav_links grid grid-cols-5">
-                <a class="hover:underline" href="index.html">
-                    HOME
-                </a>
-                <a class="hover:underline" href="news.html">
-                 NEWS
-                </a>
-                <a class="hover:underline" href="opinion.html">
-                 OPINION
-                </a>
-                <a class="hover:underline" href="critic.html">
-                 CRITIC'S CORNER
-                </a>
-                <a class="hover:underline" href="c&amp;i.html">
-                 CULTURE &amp; ILLUSTRATIONS
-                </a>
-            </div>
-
-            <!--search bar-->
-            <div class = "search_bar">
-                <div  class = "shadow-md">
-                    <!--icon-->
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px; background-color: black; color: white; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        </path>
-                    </svg>
-                    <!--input-->
-                    <input id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black;" type="text"/>
-                </div>
-                <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                    <div id="searchlist">
-                    </div>
-                </div>
-            </div>
-        </div><!--text based article -->
+ <div>
+  <!--logo image-->
+  <div class="logo">
+   <img class="logo" src="images/riverdale spectator logo crop.jpg"/>
+  </div>
+  <!--website main pages links-->
+  <div class="nav_links grid grid-cols-8">
+   <a class="hover:underline" href="index.html">
+    HOME
+   </a>
+   <a class="hover:underline" href="news.html">
+    NEWS
+   </a>
+   <a class="hover:underline" href="opinion.html">
+    OPINION
+   </a>
+   <a class="hover:underline col-span-2" href="critic.html">
+    CRITIC'S CORNER
+   </a>
+   <a class="hover:underline col-span-3" href="c&amp;i.html" style="text-align: left;">
+    CULTURE &amp; ILLUSTRATIONS
+   </a>
+  </div>
+  <!--search bar-->
+  <div class="search_bar">
+   <div class="shadow-md">
+    <!--icon-->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px; background-color: black; color: white; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+     </path>
+    </svg>
+    <!--input-->
+    <input id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black;" type="text"/>
+   </div>
+   <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+    <div id="searchlist">
+    </div>
+   </div>
+  </div>
+ </div>
+ <!--text based article -->
  <div id="news" onclick="reset_search()" style="margin-bottom: 100px">
   <!--heading-->
   <div>
@@ -102,7 +99,8 @@
   <div class="flex type_card">
    <div>
     <a href="Women in STEM at Riverdale 950665.html">
-     <img alt="article image" class="typeinner" src="images/124183.jpg"/>
+     <img alt="article image" class="typeinner" src="images/124183.jpg">
+     </img>
     </a>
    </div>
    <div class="typeinner">
