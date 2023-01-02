@@ -750,6 +750,7 @@ class Main():
 
         def okay():
             update_file = links.File()
+            update_file.history(history.get("1.0",END))
             update_file.update(text_entry.get("1.0",END), link_entry.get("1.0",END))
             self.newWindow.destroy()
 

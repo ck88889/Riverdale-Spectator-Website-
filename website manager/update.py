@@ -2,6 +2,7 @@
 from github import Github
 from bs4 import BeautifulSoup #format files 
 import re
+import links
 TOKEN = "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"
 REPO = "ck88889/Riverdale-Spectator-Website-"
 
@@ -469,5 +470,10 @@ class UpdateType:
         tmp_2 = tmp_1[1].split("<!--bottom navigation bar-->")
         bottom_half = "\n</div><!--bottom navigation bar-->\n" + tmp_2[1]
 
-        formatted_content = BeautifulSoup(top_half + front_page + opinon + more + bottom_half,'html.parser') #content to be formatted
+        downloads = links.File()
+
+        formatted_content = BeautifulSoup(top_half + front_page + opinon + more + downloads.code() + bottom_half,'html.parser') #content to be formatted
         update_file("index.html", formatted_content.prettify())
+
+x = UpdateType()
+x.home()
