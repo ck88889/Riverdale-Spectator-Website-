@@ -10,7 +10,7 @@
  <script src="js/nav.js">
  </script>
  <style>
-   div.top{
+  div.top{
       margin-right: auto;
       margin-left: auto; 
       margin-top: 50px; 
@@ -174,64 +174,63 @@
 </head>
 <body class="flex flex-col min-h-screen" onclick="reset_search()">
  <!--top navigation bar-->
-
-        <div>
-            <!--logo image-->
-            <div class = "logo">
-                <img class = "logo" src = "images/riverdale spectator logo crop.jpg">
-            </div>
-
-            <!--website main pages links-->
-            <div class = "nav_links grid grid-cols-5">
-                <a class="hover:underline" href="index.html">
-                    HOME
-                </a>
-                <a class="hover:underline" href="news.html">
-                 NEWS
-                </a>
-                <a class="hover:underline" href="opinion.html">
-                 OPINION
-                </a>
-                <a class="hover:underline" href="critic.html">
-                 CRITIC'S CORNER
-                </a>
-                <a class="hover:underline" href="c&amp;i.html">
-                 CULTURE &amp; ILLUSTRATIONS
-                </a>
-            </div>
-
-            <!--search bar-->
-            <div class = "search_bar">
-                <div  class = "shadow-md">
-                    <!--icon-->
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px; background-color: black; color: white; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        </path>
-                    </svg>
-                    <!--input-->
-                    <input id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black;" type="text"/>
-                </div>
-                <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                    <div id="searchlist">
-                    </div>
-                </div>
-            </div>
-        </div><!--main articles-->
+ <div>
+  <!--logo image-->
+  <div class="logo">
+   <img class="logo" src="images/riverdale spectator logo crop.jpg"/>
+  </div>
+  <!--website main pages links-->
+  <div class="nav_links grid grid-cols-8">
+   <a class="hover:underline" href="index.html">
+    HOME
+   </a>
+   <a class="hover:underline" href="news.html">
+    NEWS
+   </a>
+   <a class="hover:underline" href="opinion.html">
+    OPINION
+   </a>
+   <a class="hover:underline col-span-2" href="critic.html">
+    CRITIC'S CORNER
+   </a>
+   <a class="hover:underline col-span-3" href="c&amp;i.html" style="text-align: left;">
+    CULTURE &amp; ILLUSTRATIONS
+   </a>
+  </div>
+  <!--search bar-->
+  <div class="search_bar">
+   <div class="shadow-md">
+    <!--icon-->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" style="padding: 2px; background-color: black; color: white; display:inline-block;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+     </path>
+    </svg>
+    <!--input-->
+    <input id="searchbar" onkeyup="searchbar()" placeholder="Search..." style="color: black;" type="text"/>
+   </div>
+   <div id="searchdrop" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+    <div id="searchlist">
+    </div>
+   </div>
+  </div>
+ </div>
+ <!--main articles-->
  <div class="top grid grid-cols-3 gap-8" style="padding-top: 40px; padding-bottom: 100px">
   <!--headline-->
   <div class="col-span-2 headline shadow-2xl">
    <div>
     <a href="CUPE STRIKE Looking Back at the Chaos 886456.html">
-     <img alt="headline image" class="headline" src="images/022663.jpg"/>
-     <h2 class="headline">
-      News
-     </h2>
-     <h1 class="headline hover:underline break-words">
-      CUPE STRIKE: Looking Back at the Chaos
-     </h1>
-     <h2 class="headline font-bold">
-      Amy Kwan
-     </h2>
+     <img alt="headline image" class="headline" src="images/022663.jpg">
+      <h2 class="headline">
+       News
+      </h2>
+      <h1 class="headline hover:underline break-words">
+       CUPE STRIKE: Looking Back at the Chaos
+      </h1>
+      <h2 class="headline font-bold">
+       Amy Kwan
+      </h2>
+     </img>
     </a>
    </div>
   </div>
