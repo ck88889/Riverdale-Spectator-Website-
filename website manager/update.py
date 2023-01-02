@@ -106,7 +106,7 @@ class Repo_Mang:
                 if ">" in img:
                     img = img[0:img.index(">")]
                 
-                return img
+                return img +"g"
         else:
             return ""
 
