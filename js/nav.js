@@ -130,12 +130,12 @@ window.onload = function(){
 
     //initialize article drop down items 
     if(document.getElementById("news")){ //news page
-        INIT = 7; //amount to show at first
+        INIT = 6; //amount to show at first
 
         all_news = (document.getElementById("news")).querySelectorAll(".type_card");
         init_show(all_news);
     }else if(document.getElementById("opinion")){ //opinion page
-        INIT = 7; //amount to show at first
+        INIT = 6; //amount to show at first
 
         all_op = (document.getElementById("opinion")).querySelectorAll(".type_card");
         init_show(all_op);
