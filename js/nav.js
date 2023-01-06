@@ -126,7 +126,7 @@ function init_carsouel(arr){
 window.onload = function(){
     document.getElementById("instagram").href = "#";
     document.getElementById("email").href = "mailto:hamilton.spect@gmail.com";
-    document.getElementById("github").href = "https://github.com/ck88889/riverdale-spectator-website";
+    document.getElementById("github").href = "https://github.com/ck88889/Riverdale-Spectator-Website-";
 
     //initialize article drop down items 
     if(document.getElementById("news")){ //news page
